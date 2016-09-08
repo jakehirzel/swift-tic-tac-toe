@@ -5,6 +5,7 @@
 //  Created by Jake Hirzel on 9/7/16.
 //  Copyright © 2016 Jake Hirzel. All rights reserved.
 //
+//  Abstract: The root view controller shown by the messages app.
 
 import UIKit
 import Messages
