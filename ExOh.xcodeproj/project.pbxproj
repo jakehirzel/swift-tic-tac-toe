@@ -16,6 +16,7 @@
 		232953C41D80E834009FB8A7 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C31D80E834009FB8A7 /* GameLogic.swift */; };
 		232953C61D80E89C009FB8A7 /* MoveParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C51D80E89C009FB8A7 /* MoveParser.swift */; };
 		232953C81D80EA52009FB8A7 /* BoardMaintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C71D80EA52009FB8A7 /* BoardMaintenance.swift */; };
+		232953CA1D81019F009FB8A7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C91D81019F009FB8A7 /* GameState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		232953C31D80E834009FB8A7 /* GameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		232953C51D80E89C009FB8A7 /* MoveParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveParser.swift; sourceTree = "<group>"; };
 		232953C71D80EA52009FB8A7 /* BoardMaintenance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardMaintenance.swift; sourceTree = "<group>"; };
+		232953C91D81019F009FB8A7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				232953C71D80EA52009FB8A7 /* BoardMaintenance.swift */,
 				232953C51D80E89C009FB8A7 /* MoveParser.swift */,
 				232953C31D80E834009FB8A7 /* GameLogic.swift */,
+				232953C91D81019F009FB8A7 /* GameState.swift */,
 				232953B71D80BC83009FB8A7 /* Assets.xcassets */,
 				232953B91D80BC83009FB8A7 /* Info.plist */,
 			);
@@ -224,6 +227,7 @@
 			files = (
 				232953C81D80EA52009FB8A7 /* BoardMaintenance.swift in Sources */,
 				232953C41D80E834009FB8A7 /* GameLogic.swift in Sources */,
+				232953CA1D81019F009FB8A7 /* GameState.swift in Sources */,
 				232953B31D80BC83009FB8A7 /* MessagesViewController.swift in Sources */,
 				232953C61D80E89C009FB8A7 /* MoveParser.swift in Sources */,
 			);

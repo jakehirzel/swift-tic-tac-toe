@@ -106,6 +106,8 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="square00" destination="vac-81-L99" id="22Y-eN-hVc"/>
                         <outlet property="square01" destination="cbo-9J-atS" id="2Ca-5Z-brD"/>
