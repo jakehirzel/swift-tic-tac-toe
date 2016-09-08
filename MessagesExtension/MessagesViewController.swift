@@ -12,6 +12,20 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    // MARK: Properties
+    
+    @IBOutlet weak var square00: UILabel!
+    @IBOutlet weak var square10: UILabel!
+    @IBOutlet weak var square20: UILabel!
+    @IBOutlet weak var square01: UILabel!
+    @IBOutlet weak var square11: UILabel!
+    @IBOutlet weak var square21: UILabel!
+    @IBOutlet weak var square02: UILabel!
+    @IBOutlet weak var square12: UILabel!
+    @IBOutlet weak var square22: UILabel!
+    
+    // MARK: MSMessagesAppViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
