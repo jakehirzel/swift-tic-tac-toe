@@ -8,8 +8,17 @@
 //  Abstract: A singleton class to hold game state information during play.
 
 import Foundation
+import Messages
 
 class GameState {
+    
+    // Struct to hold player info
+    struct PlayerInfo {
+        let playerOneID: UUID
+        let playerOneLetter: Character
+        let playerTwoID: UUID
+        let playerTwoLetter: Character
+    }
     
     // Struct to hold data for each move
     struct NewMove {
@@ -22,5 +31,7 @@ class GameState {
     struct GameHistory {
         var moveList: [NewMove]
     }
+    
+    static let sharedInstance = GameState()
     
 }
