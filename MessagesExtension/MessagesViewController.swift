@@ -90,13 +90,24 @@ class MessagesViewController: MSMessagesAppViewController {
     
     // MARK: Actions
     
-    @IBAction func squareTapped00(_ sender: AnyObject) {
+    @IBAction func squareTapped(_ sender: UIButton) {
         
-        let move = parser.parseCoordinates(playerNumber: 1, spacePlayed: sender as! UIButton)
+        let move = parser.parseCoordinates(playerNumber: 1, spacePlayed: sender)
         let validMove = game.playTurn(board: &game.board, move: move)
         
         if validMove == true {
+
+            // Change the label on the square
             sender.setTitle("X", for: UIControlState.normal)
+            
+            // Check for a win
+            let win = game.checkForWin(board: game.board, move: move)
+            
+            // Process a win, if true
+            if win == true {
+                print("You win!")
+            }
+            
         }
         
     }

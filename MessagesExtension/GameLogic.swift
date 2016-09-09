@@ -39,16 +39,13 @@ class GameLogic {
         board[move.columnPlayed][move.rowPlayed] = move.playerNumber
         // TODO: add game history!
         
-        // Check for a win
-        checkForWin(board: board, move: move)
-        
         // If we've made it this far:
         return true
         
     }
     
     // To check for a win
-    func checkForWin(board: [[Int]], move: NewMove) {
+    func checkForWin(board: [[Int]], move: NewMove) -> Bool {
         
         // Set side length
         let sideLength = board.count
@@ -102,22 +99,29 @@ class GameLogic {
         // Check for column win
         if columnCount == sideLength {
             print("Won in column: \(move.columnPlayed)")
+            return true
         }
         
         // Check for row win
         if rowCount == sideLength {
             print("Won in row: \(move.rowPlayed)")
+            return true
         }
         
         // Check for forward slash win
         if forwardSlashDiagonalCount == sideLength {
             print("Won on the forward diagonal!")
+            return true
         }
         
         // Check for backward slash win
         if backwardSlashDiagonalCount == sideLength {
             print("Won on the backward diagonal!")
+            return true
         }
+        
+        // If no win:
+        return false
         
     }
     
