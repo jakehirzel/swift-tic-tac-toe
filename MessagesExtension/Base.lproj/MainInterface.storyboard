@@ -15,14 +15,14 @@
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-8h-lEl" userLabel="0-0">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="5ib-ef-arX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -37,7 +37,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="EsI-CH-goH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <state key="normal" title="O">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -52,7 +52,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="I0s-h6-cIf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4je-6g-aCn" userLabel="0-1">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <state key="normal" title="O">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -76,7 +76,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-EB-ash" userLabel="1-1">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <state key="normal" title="?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -88,7 +88,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRT-ZK-Z2n" userLabel="2-1">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <state key="normal" title="O">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -100,7 +100,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R8-Y2-Sk0" userLabel="0-2">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -112,7 +112,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-3C-zcp" userLabel="1-2">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <state key="normal" title="O">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -124,7 +124,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq5-ew-JUu" userLabel="2-2">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -141,7 +141,7 @@
                             <constraint firstItem="hV5-fD-m0E" firstAttribute="leading" secondItem="1JQ-8h-lEl" secondAttribute="trailing" constant="8" symbolic="YES" id="1wi-H1-JgF"/>
                             <constraint firstItem="jRT-ZK-Z2n" firstAttribute="trailing" secondItem="lq5-ew-JUu" secondAttribute="trailing" id="1yp-Xw-1ri"/>
                             <constraint firstItem="lUI-3C-zcp" firstAttribute="baseline" secondItem="lq5-ew-JUu" secondAttribute="baseline" id="3jf-Ek-OGL"/>
-                            <constraint firstItem="4je-6g-aCn" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" constant="-20" id="DSn-bt-lAA"/>
+                            <constraint firstItem="4je-6g-aCn" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" constant="-22" id="DSn-bt-lAA"/>
                             <constraint firstItem="1JQ-8h-lEl" firstAttribute="leading" secondItem="4je-6g-aCn" secondAttribute="leading" id="HY9-so-YBa"/>
                             <constraint firstItem="BA5-EB-ash" firstAttribute="leading" secondItem="4je-6g-aCn" secondAttribute="trailing" constant="8" symbolic="YES" id="ItH-hx-ruu"/>
                             <constraint firstItem="0R8-Y2-Sk0" firstAttribute="baseline" secondItem="lUI-3C-zcp" secondAttribute="baseline" id="KfB-pn-4TC"/>
