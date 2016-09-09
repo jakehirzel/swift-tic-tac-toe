@@ -12,8 +12,14 @@ import UIKit
 
 class MoveParser {
     
-    func parseCoordinates(spacePlayed: UIButton) -> (columnPlayed: Int, rowPlayed: Int) {
-        return (0,0)
+    func parseCoordinates(playerNumber: Int, spacePlayed: UIButton) -> (NewMove) {
+        
+        let columnPlayed = 0
+        let rowPlayed = 0
+        let move = NewMove(playerNumber: playerNumber, columnPlayed: columnPlayed, rowPlayed: rowPlayed)
+        
+        return move
+        
     }
     
 }

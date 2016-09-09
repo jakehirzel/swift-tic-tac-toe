@@ -14,7 +14,10 @@ class MessagesViewController: MSMessagesAppViewController {
     
     // MARK: Properties
     
-    @IBOutlet weak var square00: UILabel!
+    // Squares as collection
+    @IBOutlet var squares: [UILabel]!
+    
+    // Squares individually
     @IBOutlet weak var square10: UILabel!
     @IBOutlet weak var square20: UILabel!
     @IBOutlet weak var square01: UILabel!
@@ -24,11 +27,25 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var square12: UILabel!
     @IBOutlet weak var square22: UILabel!
     
-    // MARK: MSMessagesAppViewController
+    @IBOutlet weak var square00: UIButton!
+    
+    // Initialize instance of MoveParser and GameLogic; set up new board
+    let parser = MoveParser()
+    let game = GameLogic()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Clear the board view
+        for each in squares {
+            each.text = ""
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,6 +99,15 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called after the extension transitions to a new presentation style.
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func squareTapped00(_ sender: AnyObject) {
+        
+        let move = parser.parseCoordinates(playerNumber: 1, spacePlayed: sender as! UIButton)
+        game.playTurn(board: &game.board, move: move)
+        
     }
 
 }

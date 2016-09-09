@@ -15,7 +15,6 @@
 		232953B81D80BC83009FB8A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 232953B71D80BC83009FB8A7 /* Assets.xcassets */; };
 		232953C41D80E834009FB8A7 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C31D80E834009FB8A7 /* GameLogic.swift */; };
 		232953C61D80E89C009FB8A7 /* MoveParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C51D80E89C009FB8A7 /* MoveParser.swift */; };
-		232953C81D80EA52009FB8A7 /* BoardMaintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C71D80EA52009FB8A7 /* BoardMaintenance.swift */; };
 		232953CA1D81019F009FB8A7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C91D81019F009FB8A7 /* GameState.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +54,6 @@
 		232953B91D80BC83009FB8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		232953C31D80E834009FB8A7 /* GameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		232953C51D80E89C009FB8A7 /* MoveParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveParser.swift; sourceTree = "<group>"; };
-		232953C71D80EA52009FB8A7 /* BoardMaintenance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardMaintenance.swift; sourceTree = "<group>"; };
 		232953C91D81019F009FB8A7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +110,6 @@
 			children = (
 				232953B21D80BC83009FB8A7 /* MessagesViewController.swift */,
 				232953B41D80BC83009FB8A7 /* MainInterface.storyboard */,
-				232953C71D80EA52009FB8A7 /* BoardMaintenance.swift */,
 				232953C51D80E89C009FB8A7 /* MoveParser.swift */,
 				232953C31D80E834009FB8A7 /* GameLogic.swift */,
 				232953C91D81019F009FB8A7 /* GameState.swift */,
@@ -225,7 +222,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				232953C81D80EA52009FB8A7 /* BoardMaintenance.swift in Sources */,
 				232953C41D80E834009FB8A7 /* GameLogic.swift in Sources */,
 				232953CA1D81019F009FB8A7 /* GameState.swift in Sources */,
 				232953B31D80BC83009FB8A7 /* MessagesViewController.swift in Sources */,
@@ -421,6 +417,7 @@
 				232953BE1D80BC83009FB8A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		232953C01D80BC83009FB8A7 /* Build configuration list for PBXNativeTarget "ExOh" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +426,7 @@
 				232953C21D80BC83009FB8A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
