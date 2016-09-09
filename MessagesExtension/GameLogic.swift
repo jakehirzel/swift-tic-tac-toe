@@ -21,18 +21,18 @@ class GameLogic {
     var history: GameHistory? = nil
     
     // To play a turn
-    func playTurn(board: inout [[Int]], move: NewMove) {
-        
+    func playTurn(board: inout [[Int]], move: NewMove) -> Bool {
+    
         // Check for anything out of bounds
         guard move.columnPlayed < 3 && move.rowPlayed < 3 else {
             print("Game limited to 3 x 3 square!")
-            return
+            return false
         }
         
         // Check for occupied square
         guard board[move.columnPlayed][move.rowPlayed] == 0 else {
             print("Square already occupied!")
-            return
+            return false
         }
         
         // Record a valid play in the board array and in the game history
@@ -41,6 +41,9 @@ class GameLogic {
         
         // Check for a win
         checkForWin(board: board, move: move)
+        
+        // If we've made it this far:
+        return true
         
     }
     

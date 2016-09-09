@@ -93,7 +93,11 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBAction func squareTapped00(_ sender: AnyObject) {
         
         let move = parser.parseCoordinates(playerNumber: 1, spacePlayed: sender as! UIButton)
-        game.playTurn(board: &game.board, move: move)
+        let validMove = game.playTurn(board: &game.board, move: move)
+        
+        if validMove == true {
+            sender.setTitle("X", for: UIControlState.normal)
+        }
         
     }
 
