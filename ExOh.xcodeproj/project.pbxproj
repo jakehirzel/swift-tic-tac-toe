@@ -16,6 +16,8 @@
 		232953C41D80E834009FB8A7 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C31D80E834009FB8A7 /* GameLogic.swift */; };
 		232953C61D80E89C009FB8A7 /* MoveParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C51D80E89C009FB8A7 /* MoveParser.swift */; };
 		232953CA1D81019F009FB8A7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C91D81019F009FB8A7 /* GameState.swift */; };
+		238120C71D82FB5C00134AD9 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 238120C61D82FB5C00134AD9 /* License.rtf */; };
+		238120C81D82FB5C00134AD9 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 238120C61D82FB5C00134AD9 /* License.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 		232953C31D80E834009FB8A7 /* GameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		232953C51D80E89C009FB8A7 /* MoveParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveParser.swift; sourceTree = "<group>"; };
 		232953C91D81019F009FB8A7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		238120C61D82FB5C00134AD9 /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,7 @@
 		232953991D80BC82009FB8A7 = {
 			isa = PBXGroup;
 			children = (
+				238120C61D82FB5C00134AD9 /* License.rtf */,
 				232953A21D80BC83009FB8A7 /* ExOh */,
 				232953B11D80BC83009FB8A7 /* MessagesExtension */,
 				232953AE1D80BC83009FB8A7 /* Frameworks */,
@@ -202,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				238120C71D82FB5C00134AD9 /* License.rtf in Resources */,
 				232953A41D80BC83009FB8A7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +217,7 @@
 			files = (
 				232953B81D80BC83009FB8A7 /* Assets.xcassets in Resources */,
 				232953B61D80BC83009FB8A7 /* MainInterface.storyboard in Resources */,
+				238120C81D82FB5C00134AD9 /* License.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
