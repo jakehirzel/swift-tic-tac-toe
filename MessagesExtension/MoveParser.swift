@@ -14,8 +14,47 @@ class MoveParser {
     
     func parseCoordinates(playerNumber: Int, spacePlayed: UIButton) -> (NewMove) {
         
-        let columnPlayed = 0
-        let rowPlayed = 0
+        // Pull the coordinates from the User Defined Runtime Attributes for the button in IB
+        let buttonTag = spacePlayed.tag
+        
+        // Declare variables for column and row coordinates
+        var columnPlayed = 99
+        var rowPlayed = 99
+        
+        // Parse out coordinates from keyValue
+        switch buttonTag {
+        case 0:
+            columnPlayed = 0
+            rowPlayed = 0
+        case 1:
+            columnPlayed = 1
+            rowPlayed = 0
+        case 2:
+            columnPlayed = 2
+            rowPlayed = 0
+        case 3:
+            columnPlayed = 0
+            rowPlayed = 1
+        case 4:
+            columnPlayed = 1
+            rowPlayed = 1
+        case 5:
+            columnPlayed = 2
+            rowPlayed = 1
+        case 6:
+            columnPlayed = 0
+            rowPlayed = 2
+        case 7:
+            columnPlayed = 1
+            rowPlayed = 2
+        case 8:
+            columnPlayed = 2
+            rowPlayed = 2
+        default:
+            print("Invalid Button Tag!")
+        }
+        
+        // Create a NewMove
         let move = NewMove(playerNumber: playerNumber, columnPlayed: columnPlayed, rowPlayed: rowPlayed)
         
         return move

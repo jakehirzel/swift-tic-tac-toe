@@ -15,17 +15,10 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: Properties
     
     // Squares as collection
-    @IBOutlet var squares: [UILabel]!
+    @IBOutlet var squareCollection: [UIButton]!
     
     // Squares individually
-    @IBOutlet weak var square10: UILabel!
-    @IBOutlet weak var square20: UILabel!
-    @IBOutlet weak var square01: UILabel!
-    @IBOutlet weak var square11: UILabel!
-    @IBOutlet weak var square21: UILabel!
-    @IBOutlet weak var square02: UILabel!
-    @IBOutlet weak var square12: UILabel!
-    @IBOutlet weak var square22: UILabel!
+
     
     @IBOutlet weak var square00: UIButton!
     
@@ -42,9 +35,6 @@ class MessagesViewController: MSMessagesAppViewController {
         super.viewDidAppear(animated)
         
         // Clear the board view
-        for each in squares {
-            each.text = ""
-        }
         
     }
     
