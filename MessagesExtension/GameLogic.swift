@@ -77,7 +77,7 @@ class GameLogic {
         }
         
         // Check forward slash diagonal
-        while board[forwardSlashHorizontalCoord][forwardSlashVerticalCoord] == move.playerNumber {
+        while forwardSlashHorizontalCoord < sideLength && board[forwardSlashHorizontalCoord][forwardSlashVerticalCoord] == move.playerNumber {
             
             // Increment the coordinates and count
             forwardSlashHorizontalCoord += 1
@@ -87,7 +87,7 @@ class GameLogic {
         }
         
         // Check backward slash diagonal
-        while board[backwardSlashHorizontalCoord][backwardSlashVerticalCoord] == move.playerNumber {
+        while backwardSlashHorizontalCoord < sideLength && board[backwardSlashHorizontalCoord][backwardSlashVerticalCoord] == move.playerNumber {
             
             // Increment/decrement the coordinates and count
             backwardSlashHorizontalCoord += 1
