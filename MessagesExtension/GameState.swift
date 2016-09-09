@@ -5,7 +5,7 @@
 //  Created by Jake Hirzel on 9/7/16.
 //  Copyright © 2016 Jake Hirzel. All rights reserved.
 //
-//  Abstract: A class to define game state information.
+//  Abstract: Structs to hold game state information.
 
 import Foundation
 import Messages
