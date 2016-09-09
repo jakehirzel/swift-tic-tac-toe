@@ -162,7 +162,18 @@
                             <constraint firstItem="CdY-Lu-pqR" firstAttribute="leading" secondItem="hV5-fD-m0E" secondAttribute="trailing" constant="8" symbolic="YES" id="sR6-H6-JBH"/>
                             <constraint firstItem="lq5-ew-JUu" firstAttribute="leading" secondItem="lUI-3C-zcp" secondAttribute="trailing" constant="8" symbolic="YES" id="t0V-fr-eez"/>
                             <constraint firstItem="BA5-EB-ash" firstAttribute="leading" secondItem="lUI-3C-zcp" secondAttribute="leading" id="x2O-by-FSP"/>
+                            <constraint firstItem="4je-6g-aCn" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="x55-sT-Wx5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="x55-sT-Wx5"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="x55-sT-Wx5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outletCollection property="squareCollection" destination="1JQ-8h-lEl" collectionClass="NSMutableArray" id="eyw-1C-Pho"/>
