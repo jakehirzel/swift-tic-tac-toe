@@ -165,8 +165,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="square00" destination="1JQ-8h-lEl" id="CMt-W7-3dh"/>
                         <outletCollection property="squareCollection" destination="1JQ-8h-lEl" collectionClass="NSMutableArray" id="eyw-1C-Pho"/>
+                        <outletCollection property="squareCollection" destination="hV5-fD-m0E" collectionClass="NSMutableArray" id="GwR-dZ-1co"/>
+                        <outletCollection property="squareCollection" destination="CdY-Lu-pqR" collectionClass="NSMutableArray" id="T2X-vE-mSh"/>
+                        <outletCollection property="squareCollection" destination="4je-6g-aCn" collectionClass="NSMutableArray" id="555-wS-5Fn"/>
+                        <outletCollection property="squareCollection" destination="BA5-EB-ash" collectionClass="NSMutableArray" id="FgT-C5-7kN"/>
+                        <outletCollection property="squareCollection" destination="jRT-ZK-Z2n" collectionClass="NSMutableArray" id="A4I-jy-7z5"/>
+                        <outletCollection property="squareCollection" destination="0R8-Y2-Sk0" collectionClass="NSMutableArray" id="zhV-Fe-wUw"/>
+                        <outletCollection property="squareCollection" destination="lUI-3C-zcp" collectionClass="NSMutableArray" id="2vb-uG-bDX"/>
+                        <outletCollection property="squareCollection" destination="lq5-ew-JUu" collectionClass="NSMutableArray" id="H8C-4r-cUn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>

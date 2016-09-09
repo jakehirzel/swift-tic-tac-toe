@@ -119,7 +119,18 @@ class GameLogic {
     }
     
     // Manage game history
-    func addToHistory(move: NewMove, newGame: Bool, history: inout GameHistory) {
+    func addToHistory(move: NewMove, history: inout GameHistory) {
+        
+        // If newGame = true, add the entry and toggle to false
+        if newGame == true {
+            history.moveList.append(move)
+            newGame = false
+        }
+            
+        // Otherwise just add it
+        else {
+            history.moveList.append(move)
+        }
         
     }
     

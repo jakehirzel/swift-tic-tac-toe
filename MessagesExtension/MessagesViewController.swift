@@ -14,13 +14,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
     // MARK: Properties
     
-    // Squares as collection
     @IBOutlet var squareCollection: [UIButton]!
-    
-    // Squares individually
-
-    
-    @IBOutlet weak var square00: UIButton!
     
     // Initialize instance of MoveParser and GameLogic; set up new board
     let parser = MoveParser()
@@ -35,6 +29,9 @@ class MessagesViewController: MSMessagesAppViewController {
         super.viewDidAppear(animated)
         
         // Clear the board view
+        for square in squareCollection {
+            square.setTitle("?", for: UIControlState.normal)
+        }
         
     }
     
