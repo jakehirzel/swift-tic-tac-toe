@@ -30,12 +30,14 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     override func didBecomeActive(with conversation: MSConversation) {
+        
+        // Check for existing conversation URL
         guard conversation.selectedMessage?.url != nil else {
             print("No valid URL in the Conversation!")
             return
         }
-        let testGameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
-        print(testGameInfo)
+        game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
+        print(game.gameInfo)
     }
     
     override func viewWillAppear(_ animated: Bool) {
