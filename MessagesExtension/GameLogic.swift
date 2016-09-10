@@ -21,7 +21,7 @@ class GameLogic {
     var history: GameHistory? = nil
     
     // To play a turn
-    func playTurn(board: inout [[Int]], move: NewMove) -> Bool {
+    func playTurn(board: inout [[Character]], move: NewMove) -> Bool {
     
         // Check for anything out of bounds
         guard move.columnPlayed < 3 && move.rowPlayed < 3 else {
@@ -30,13 +30,13 @@ class GameLogic {
         }
         
         // Check for occupied square
-        guard board[move.columnPlayed][move.rowPlayed] == 0 else {
+        guard board[move.columnPlayed][move.rowPlayed] == "0" else {
             print("Square already occupied!")
             return false
         }
         
         // Record a valid play in the board array and in the game history
-        board[move.columnPlayed][move.rowPlayed] = move.playerNumber
+        board[move.columnPlayed][move.rowPlayed] = move.playerLetter
         // TODO: add game history!
         
         // If we've made it this far:
@@ -45,7 +45,7 @@ class GameLogic {
     }
     
     // To check for a win
-    func checkForWin(board: [[Int]], move: NewMove) -> Bool {
+    func checkForWin(board: [[Character]], move: NewMove) -> Bool {
         
         // Set side length
         let sideLength = board.count
@@ -64,20 +64,20 @@ class GameLogic {
         
         // Check column
         for square in board[move.columnPlayed] {
-            if square == move.playerNumber {
+            if square == move.playerLetter {
                 columnCount += 1
             }
         }
         
         // Check row
         for column in board {
-            if column[move.rowPlayed] == move.playerNumber {
+            if column[move.rowPlayed] == move.playerLetter {
                 rowCount += 1
             }
         }
         
         // Check forward slash diagonal
-        while forwardSlashHorizontalCoord < sideLength && board[forwardSlashHorizontalCoord][forwardSlashVerticalCoord] == move.playerNumber {
+        while forwardSlashHorizontalCoord < sideLength && board[forwardSlashHorizontalCoord][forwardSlashVerticalCoord] == move.playerLetter {
             
             // Increment the coordinates and count
             forwardSlashHorizontalCoord += 1
@@ -87,7 +87,7 @@ class GameLogic {
         }
         
         // Check backward slash diagonal
-        while backwardSlashHorizontalCoord < sideLength && board[backwardSlashHorizontalCoord][backwardSlashVerticalCoord] == move.playerNumber {
+        while backwardSlashHorizontalCoord < sideLength && board[backwardSlashHorizontalCoord][backwardSlashVerticalCoord] == move.playerLetter {
             
             // Increment/decrement the coordinates and count
             backwardSlashHorizontalCoord += 1
@@ -143,9 +143,4 @@ class GameLogic {
     
 }
 
-//    // To create a new game board array
-//    func newBoard() -> [[Int]] {
-//        let newBoard = Array(repeating: Array(repeating: 0, count: 3), count: 3)
-//        return newBoard
-//    }
 

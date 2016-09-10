@@ -16,12 +16,12 @@ struct GameInfo {
     let playerOneLetter: Character? = nil
     let playerTwoID: UUID? = nil
     let playerTwoLetter: Character? = nil
-    var gameBoard = Array(repeating: Array(repeating: 0, count: 3), count: 3)
+    var gameBoard: [[Character]] = Array(repeating: Array(repeating: "0", count: 3), count: 3)
 }
 
 // Struct to hold data for each move
 struct NewMove {
-    let playerNumber: Int
+    let playerLetter: Character
     let columnPlayed: Int
     let rowPlayed: Int
 }
