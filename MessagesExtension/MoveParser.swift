@@ -76,16 +76,14 @@ class MoveParser {
         
         // Create the query string
         urlComponents.queryItems = [URLQueryItem(name: "squareZero", value: String(describing: gameInfo.gameBoard[0][0]))]
-        
         urlComponents.queryItems?.append(URLQueryItem(name: "squareOne", value: String(describing: gameInfo.gameBoard[1][0])))
-        
-//        urlComponents.queryItems = [URLQueryItem(name: "squareTwo", value: String(describing: gameInfo.gameBoard[2][0]))]
-//        urlComponents.queryItems = [URLQueryItem(name: "squareThree", value: String(describing: gameInfo.gameBoard[0][1]))]
-//        urlComponents.queryItems = [URLQueryItem(name: "squareFour", value: String(describing: gameInfo.gameBoard[1][1]))]
-//        urlComponents.queryItems = [URLQueryItem(name: "squareFive", value: String(describing: gameInfo.gameBoard[2][1]))]
-//        urlComponents.queryItems = [URLQueryItem(name: "squareSix", value: String(describing: gameInfo.gameBoard[0][2]))]
-//        urlComponents.queryItems = [URLQueryItem(name: "squareSeven", value: String(describing: gameInfo.gameBoard[1][2]))]
-//        urlComponents.queryItems = [URLQueryItem(name: "squareEight", value: String(describing: gameInfo.gameBoard[2][2]))]
+        urlComponents.queryItems?.append(URLQueryItem(name: "squareTwo", value: String(describing: gameInfo.gameBoard[2][0])))
+        urlComponents.queryItems?.append(URLQueryItem(name: "squareThree", value: String(describing: gameInfo.gameBoard[0][1])))
+        urlComponents.queryItems?.append(URLQueryItem(name: "squareFour", value: String(describing: gameInfo.gameBoard[1][1])))
+        urlComponents.queryItems?.append(URLQueryItem(name: "squareFive", value: String(describing: gameInfo.gameBoard[2][1])))
+        urlComponents.queryItems?.append(URLQueryItem(name: "squareSix", value: String(describing: gameInfo.gameBoard[0][2])))
+        urlComponents.queryItems?.append(URLQueryItem(name: "squareSeven", value: String(describing: gameInfo.gameBoard[1][2])))
+        urlComponents.queryItems?.append(URLQueryItem(name: "squareEight", value: String(describing: gameInfo.gameBoard[2][2])))
         
         // Return the URL
         return urlComponents.url!
@@ -110,6 +108,7 @@ class MoveParser {
         
         // Iterate through queryItems and assign appropriate values to the GameInfo struct
         for (queryItem) in (urlComponents?.queryItems?.enumerated())! {
+            
             switch queryItem.element.name {
             case "squareZero":
                 gameInfo.gameBoard[0][0] = Int(queryItem.element.value!)!
@@ -117,17 +116,17 @@ class MoveParser {
                 gameInfo.gameBoard[1][0] = Int(queryItem.element.value!)!
             case "squareTwo":
                 gameInfo.gameBoard[2][0] = Int(queryItem.element.value!)!
-            case "squareZero":
+            case "squareThree":
                 gameInfo.gameBoard[0][1] = Int(queryItem.element.value!)!
-            case "squareOne":
+            case "squareFour":
                 gameInfo.gameBoard[1][1] = Int(queryItem.element.value!)!
-            case "squareTwo":
+            case "squareFive":
                 gameInfo.gameBoard[2][1] = Int(queryItem.element.value!)!
-            case "squareZero":
+            case "squareSix":
                 gameInfo.gameBoard[0][2] = Int(queryItem.element.value!)!
-            case "squareOne":
+            case "squareSeven":
                 gameInfo.gameBoard[1][2] = Int(queryItem.element.value!)!
-            case "squareTwo":
+            case "squareEight":
                 gameInfo.gameBoard[2][2] = Int(queryItem.element.value!)!
             default:
                 print("Not a valid query item!")
