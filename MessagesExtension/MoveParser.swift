@@ -12,6 +12,8 @@ import UIKit
 
 class MoveParser {
     
+    // Create a NewMove from info passed in by the button
+    
     func parseCoordinates(playerNumber: Int, spacePlayed: UIButton) -> (NewMove) {
         
         // Pull the coordinates from the User Defined Runtime Attributes for the button in IB
@@ -61,15 +63,82 @@ class MoveParser {
         
     }
     
+    // Encode a URL from GameInfo to populate outgoing message.url using URLComponents()
+    
     func encodeURL(gameInfo: GameInfo) -> URL {
         
-        let escapedAddress = String(describing: gameInfo).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-        let prefixForURL = "https://www.jakehirzel.com?"
-        let stringURL = prefixForURL + escapedAddress
-        let returnURL = URL(string: stringURL)
-        return returnURL!
+        // Create empty instance of URLComponents()
+        var urlComponents = URLComponents()
         
-    }    
+        // Set base values
+        urlComponents.scheme = "https"
+        urlComponents.host = "www.jakehirzel.com"
+        
+        // Create the query string
+        urlComponents.queryItems = [URLQueryItem(name: "squareZero", value: String(describing: gameInfo.gameBoard[0][0]))]
+        
+        urlComponents.queryItems?.append(URLQueryItem(name: "squareOne", value: String(describing: gameInfo.gameBoard[1][0])))
+        
+//        urlComponents.queryItems = [URLQueryItem(name: "squareTwo", value: String(describing: gameInfo.gameBoard[2][0]))]
+//        urlComponents.queryItems = [URLQueryItem(name: "squareThree", value: String(describing: gameInfo.gameBoard[0][1]))]
+//        urlComponents.queryItems = [URLQueryItem(name: "squareFour", value: String(describing: gameInfo.gameBoard[1][1]))]
+//        urlComponents.queryItems = [URLQueryItem(name: "squareFive", value: String(describing: gameInfo.gameBoard[2][1]))]
+//        urlComponents.queryItems = [URLQueryItem(name: "squareSix", value: String(describing: gameInfo.gameBoard[0][2]))]
+//        urlComponents.queryItems = [URLQueryItem(name: "squareSeven", value: String(describing: gameInfo.gameBoard[1][2]))]
+//        urlComponents.queryItems = [URLQueryItem(name: "squareEight", value: String(describing: gameInfo.gameBoard[2][2]))]
+        
+        // Return the URL
+        return urlComponents.url!
+        
+//        let escapedAddress = String(describing: gameInfo).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+//        let prefixForURL = "https://www.jakehirzel.com?"
+//        let stringURL = prefixForURL + escapedAddress
+//        let returnURL = URL(string: stringURL)
+//        return returnURL!
+        
+    }
+    
+    // Decode incoming message.url and return loadable GameInfo
+    
+    func decodeURL(url: URL) -> GameInfo {
+        
+        // Initialize instance of URLComponents() passing in an existing URL
+        let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        
+        // Initialize a new GameInfo struct to hold the URL info
+        var gameInfo = GameInfo()
+        
+        // Iterate through queryItems and assign appropriate values to the GameInfo struct
+        for (queryItem) in (urlComponents?.queryItems?.enumerated())! {
+            switch queryItem.element.name {
+            case "squareZero":
+                gameInfo.gameBoard[0][0] = Int(queryItem.element.value!)!
+            case "squareOne":
+                gameInfo.gameBoard[1][0] = Int(queryItem.element.value!)!
+            case "squareTwo":
+                gameInfo.gameBoard[2][0] = Int(queryItem.element.value!)!
+            case "squareZero":
+                gameInfo.gameBoard[0][1] = Int(queryItem.element.value!)!
+            case "squareOne":
+                gameInfo.gameBoard[1][1] = Int(queryItem.element.value!)!
+            case "squareTwo":
+                gameInfo.gameBoard[2][1] = Int(queryItem.element.value!)!
+            case "squareZero":
+                gameInfo.gameBoard[0][2] = Int(queryItem.element.value!)!
+            case "squareOne":
+                gameInfo.gameBoard[1][2] = Int(queryItem.element.value!)!
+            case "squareTwo":
+                gameInfo.gameBoard[2][2] = Int(queryItem.element.value!)!
+            default:
+                print("Not a valid query item!")
+            }
+            
+        }
+        
+        // Return GameInfo
+        return gameInfo
+        
+    }
     
 }
 

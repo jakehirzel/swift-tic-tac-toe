@@ -20,9 +20,22 @@ class MessagesViewController: MSMessagesAppViewController {
     let parser = MoveParser()
     let game = GameLogic()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    // MARK: MSMessagesAppViewController Lifecycle
+    
+    override func willBecomeActive(with conversation: MSConversation) {
+        // Called when the extension is about to move from the inactive to active state.
+        // This will happen when the extension is about to present UI.
+    
+        // Use this method to configure the extension and restore previously stored state.
+    }
+    
+    override func didBecomeActive(with conversation: MSConversation) {
+        guard conversation.selectedMessage?.url != nil else {
+            print("No valid URL in the Conversation!")
+            return
+        }
+        let testGameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
+        print(testGameInfo)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,19 +48,13 @@ class MessagesViewController: MSMessagesAppViewController {
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Conversation Handling
-    
-    override func willBecomeActive(with conversation: MSConversation) {
-        // Called when the extension is about to move from the inactive to active state.
-        // This will happen when the extension is about to present UI.
+    override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        // Called before the extension transitions to a new presentation style.
         
-        // Use this method to configure the extension and restore previously stored state.
+        // Use this method to prepare for the change in presentation style.
     }
+    
+    // MARK: - Other Conversation Handling
     
     override func didResignActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the active to inactive state.
@@ -74,12 +81,6 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called when the user deletes the message without sending it.
     
         // Use this to clean up state related to the deleted message.
-    }
-    
-    override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called before the extension transitions to a new presentation style.
-    
-        // Use this method to prepare for the change in presentation style.
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
