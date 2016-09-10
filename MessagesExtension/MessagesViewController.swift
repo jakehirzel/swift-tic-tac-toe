@@ -108,27 +108,39 @@ class MessagesViewController: MSMessagesAppViewController {
                 print("You win!")
             }
             
-            // Begin the image capture for the message bubble
-            UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
-            
-            // Snapshot the view for the image
-            self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-            
-            // Create a message
-            let message = MSMessage()
-            
-            let layout = MSMessageTemplateLayout()
-            layout.caption = "Test"
-            layout.subcaption = "Test"
-            layout.image = UIGraphicsGetImageFromCurrentImageContext()!
-            
-            // End image capture
-            UIGraphicsEndImageContext()
-            
-            message.layout = layout
-            
-            guard let conversation = activeConversation else { fatalError("Expected an active converstation!") }
-            conversation.insert(message)
+            // Add 0.5s delay to generating the message, for animations to complete
+            let when = DispatchTime.now() + 0.5
+            DispatchQueue.main.asyncAfter(deadline: when){
+                
+                // Create a message
+                let message = MSMessage()
+                
+                // Create a layout
+                let layout = MSMessageTemplateLayout()
+                
+                // Create and assign the image for the message bubble
+                UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.main.scale)
+                self.view.drawHierarchy(in: self.view.bounds, afterScreenUpdates: false)
+                //            self.view.layer.render(in: UIGraphicsGetCurrentContext()!)
+                layout.image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                // Assign the appropriate caption
+                if self.game.newGame == true {
+                    layout.caption = "Play me in a new game of ExOh!"
+                }
+                else {
+                    layout.caption = "Your turn!"
+                }
+                
+                // Assign the layout to the message
+                message.layout = layout
+                
+                // Insert the mesage into the conversation
+                guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
+                conversation.insert(message)
+                
+            }
             
         }
         
