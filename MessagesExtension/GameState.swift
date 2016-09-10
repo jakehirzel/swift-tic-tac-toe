@@ -10,12 +10,13 @@
 import Foundation
 import Messages
 
-// Struct to hold player info
-struct PlayerInfo {
-    let playerOneID: UUID
-    let playerOneLetter: Character
-    let playerTwoID: UUID
-    let playerTwoLetter: Character
+// Struct to hold game info
+struct GameInfo {
+    let playerOneID: UUID? = nil
+    let playerOneLetter: Character? = nil
+    let playerTwoID: UUID? = nil
+    let playerTwoLetter: Character? = nil
+    var gameBoard = Array(repeating: Array(repeating: 0, count: 3), count: 3)
 }
 
 // Struct to hold data for each move

@@ -93,7 +93,7 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBAction func squareTapped(_ sender: UIButton) {
         
         let move = parser.parseCoordinates(playerNumber: 1, spacePlayed: sender)
-        let validMove = game.playTurn(board: &game.board, move: move)
+        let validMove = game.playTurn(board: &game.gameInfo.gameBoard, move: move)
         
         if validMove == true {
 
@@ -101,7 +101,7 @@ class MessagesViewController: MSMessagesAppViewController {
             sender.setTitle("X", for: UIControlState.normal)
 
             // Check for a win
-            let win = game.checkForWin(board: game.board, move: move)
+            let win = game.checkForWin(board: game.gameInfo.gameBoard, move: move)
             
             // Process a win, if true
             if win == true {
@@ -127,7 +127,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 
                 // Assign the appropriate caption
                 if self.game.newGame == true {
-                    layout.caption = "Play me in a new game of ExOh!"
+                    layout.caption = "Pick a spot to join me in a game of ExOh! (I'm Ex and you're Oh!)"
                 }
                 else {
                     layout.caption = "Your turn!"

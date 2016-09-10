@@ -14,8 +14,8 @@ class GameLogic {
     // Set variable to track new game status
     var newGame = true
     
-    // Create a new board
-    var board = Array(repeating: Array(repeating: 0, count: 3), count: 3)
+    // Create gameInfo instance
+    var gameInfo = GameInfo()
     
     // Create an empty game history
     var history: GameHistory? = nil
