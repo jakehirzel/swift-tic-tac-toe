@@ -50,6 +50,9 @@ class MessagesViewController: MSMessagesAppViewController {
         // Assign URL values to local gameInfo
         game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
         
+        // Fill UUID into Player Two and claim "Y"
+        game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "Y"
+        
         // Update view to reflect previous plays
         redrawBoard(gameInfo: game.gameInfo)
         

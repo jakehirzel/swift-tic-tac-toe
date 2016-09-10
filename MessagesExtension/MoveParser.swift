@@ -74,7 +74,7 @@ class MoveParser {
         urlComponents.scheme = "https"
         urlComponents.host = "www.jakehirzel.com"
         
-        // Create the query string
+        // Create the query string and add square values
         urlComponents.queryItems = [URLQueryItem(name: "squareZero", value: String(describing: gameInfo.gameBoard[0][0]))]
         urlComponents.queryItems?.append(URLQueryItem(name: "squareOne", value: String(describing: gameInfo.gameBoard[1][0])))
         urlComponents.queryItems?.append(URLQueryItem(name: "squareTwo", value: String(describing: gameInfo.gameBoard[2][0])))
@@ -84,7 +84,7 @@ class MoveParser {
         urlComponents.queryItems?.append(URLQueryItem(name: "squareSix", value: String(describing: gameInfo.gameBoard[0][2])))
         urlComponents.queryItems?.append(URLQueryItem(name: "squareSeven", value: String(describing: gameInfo.gameBoard[1][2])))
         urlComponents.queryItems?.append(URLQueryItem(name: "squareEight", value: String(describing: gameInfo.gameBoard[2][2])))
-        
+                    
         // Return the URL
         return urlComponents.url!
         
