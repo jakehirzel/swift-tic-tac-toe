@@ -84,7 +84,12 @@ class MoveParser {
         urlComponents.queryItems?.append(URLQueryItem(name: "squareSix", value: String(describing: gameInfo.gameBoard[0][2])))
         urlComponents.queryItems?.append(URLQueryItem(name: "squareSeven", value: String(describing: gameInfo.gameBoard[1][2])))
         urlComponents.queryItems?.append(URLQueryItem(name: "squareEight", value: String(describing: gameInfo.gameBoard[2][2])))
-                    
+        
+        // Add the players to the query
+        for player in gameInfo.players {
+            urlComponents.queryItems?.append(URLQueryItem(name: player.key, value: player.value))
+        }
+        
         // Return the URL
         return urlComponents.url!
         
@@ -129,7 +134,7 @@ class MoveParser {
             case "squareEight":
                 gameInfo.gameBoard[2][2] = queryItem.element.value!
             default:
-                print("Not a valid query item!")
+                gameInfo.players[queryItem.element.name] = queryItem.element.value
             }
             
         }
