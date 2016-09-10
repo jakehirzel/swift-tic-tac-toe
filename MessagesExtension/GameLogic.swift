@@ -119,7 +119,7 @@ class GameLogic {
             print("Won on the backward diagonal!")
             return true
         }
-        
+                
         // If no win:
         return false
         

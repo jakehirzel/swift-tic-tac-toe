@@ -61,9 +61,15 @@ class MoveParser {
         
     }
     
-//    func parseURL(board: [[Int]]) {
-//        
-//    }    
+    func encodeURL(gameInfo: GameInfo) -> URL {
+        
+        let escapedAddress = String(describing: gameInfo).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        let prefixForURL = "https://www.jakehirzel.com?"
+        let stringURL = prefixForURL + escapedAddress
+        let returnURL = URL(string: stringURL)
+        return returnURL!
+        
+    }    
     
 }
 

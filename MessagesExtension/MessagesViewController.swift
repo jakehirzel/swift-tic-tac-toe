@@ -136,6 +136,9 @@ class MessagesViewController: MSMessagesAppViewController {
                 // Assign the layout to the message
                 message.layout = layout
                 
+                // Assign the gameInfo URL
+                message.url = self.parser.encodeURL(gameInfo: self.game.gameInfo)
+                
                 // Insert the mesage into the conversation
                 guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
                 conversation.insert(message)
