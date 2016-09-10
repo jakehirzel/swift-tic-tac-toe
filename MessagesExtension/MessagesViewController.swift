@@ -38,6 +38,11 @@ class MessagesViewController: MSMessagesAppViewController {
             for square in squareCollection {
                 square.setTitle("?", for: UIControlState.normal)
             }
+            
+            // Claim the "X" and associate it with local UUID
+//            let localUUID = NSUUID(uuidString: conversation.localParticipantIdentifier.uuidString)
+            game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "X"
+            
             return
             
         }
@@ -130,13 +135,15 @@ class MessagesViewController: MSMessagesAppViewController {
     
     @IBAction func squareTapped(_ sender: UIButton) {
         
-        let move = parser.parseCoordinates(playerLetter: game.gameInfo.playerOneLetter, spacePlayed: sender)
+        let playerLetter = game.gameInfo.players[(activeConversation?.localParticipantIdentifier.uuidString)!]!
+        
+        let move = parser.parseCoordinates(playerLetter: playerLetter, spacePlayed: sender)
         let validMove = game.playTurn(board: &game.gameInfo.gameBoard, move: move)
         
         if validMove == true {
 
             // Change the label on the square
-            sender.setTitle("X", for: UIControlState.normal)
+            sender.setTitle(playerLetter, for: UIControlState.normal)
 
             // Check for a win
             let win = game.checkForWin(board: game.gameInfo.gameBoard, move: move)

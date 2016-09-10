@@ -14,7 +14,7 @@ class MoveParser {
     
     // Create a NewMove from info passed in by the button
     
-    func parseCoordinates(playerLetter: Character, spacePlayed: UIButton) -> (NewMove) {
+    func parseCoordinates(playerLetter: String, spacePlayed: UIButton) -> (NewMove) {
         
         // Pull the coordinates from the User Defined Runtime Attributes for the button in IB
         let buttonTag = spacePlayed.tag
@@ -111,23 +111,23 @@ class MoveParser {
             
             switch queryItem.element.name {
             case "squareZero":
-                gameInfo.gameBoard[0][0] = Character(queryItem.element.value!)
+                gameInfo.gameBoard[0][0] = queryItem.element.value!
             case "squareOne":
-                gameInfo.gameBoard[1][0] = Character(queryItem.element.value!)
+                gameInfo.gameBoard[1][0] = queryItem.element.value!
             case "squareTwo":
-                gameInfo.gameBoard[2][0] = Character(queryItem.element.value!)
+                gameInfo.gameBoard[2][0] = queryItem.element.value!
             case "squareThree":
-                gameInfo.gameBoard[0][1] = Character(queryItem.element.value!)
+                gameInfo.gameBoard[0][1] = queryItem.element.value!
             case "squareFour":
-                gameInfo.gameBoard[1][1] = Character(queryItem.element.value!)
+                gameInfo.gameBoard[1][1] = queryItem.element.value!
             case "squareFive":
-                gameInfo.gameBoard[2][1] = Character(queryItem.element.value!)
+                gameInfo.gameBoard[2][1] = queryItem.element.value!
             case "squareSix":
-                gameInfo.gameBoard[0][2] = Character(queryItem.element.value!)
+                gameInfo.gameBoard[0][2] = queryItem.element.value!
             case "squareSeven":
-                gameInfo.gameBoard[1][2] = Character(queryItem.element.value!)
+                gameInfo.gameBoard[1][2] = queryItem.element.value!
             case "squareEight":
-                gameInfo.gameBoard[2][2] = Character(queryItem.element.value!)
+                gameInfo.gameBoard[2][2] = queryItem.element.value!
             default:
                 print("Not a valid query item!")
             }

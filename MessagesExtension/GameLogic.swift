@@ -21,7 +21,7 @@ class GameLogic {
     var history: GameHistory? = nil
     
     // To play a turn
-    func playTurn(board: inout [[Character]], move: NewMove) -> Bool {
+    func playTurn(board: inout [[String]], move: NewMove) -> Bool {
     
         // Check for anything out of bounds
         guard move.columnPlayed < 3 && move.rowPlayed < 3 else {
@@ -45,7 +45,7 @@ class GameLogic {
     }
     
     // To check for a win
-    func checkForWin(board: [[Character]], move: NewMove) -> Bool {
+    func checkForWin(board: [[String]], move: NewMove) -> Bool {
         
         // Set side length
         let sideLength = board.count
