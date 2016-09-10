@@ -13,9 +13,9 @@ import Messages
 // Struct to hold game info
 struct GameInfo {
     let playerOneID: UUID? = nil
-    let playerOneLetter: Character? = nil
+    let playerOneLetter: Character = "X"
     let playerTwoID: UUID? = nil
-    let playerTwoLetter: Character? = nil
+    let playerTwoLetter: Character = "Y"
     var gameBoard: [[Character]] = Array(repeating: Array(repeating: "0", count: 3), count: 3)
 }
 
