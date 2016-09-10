@@ -99,7 +99,7 @@ class MessagesViewController: MSMessagesAppViewController {
 
             // Change the label on the square
             sender.setTitle("X", for: UIControlState.normal)
-            
+
             // Check for a win
             let win = game.checkForWin(board: game.board, move: move)
             
@@ -107,6 +107,28 @@ class MessagesViewController: MSMessagesAppViewController {
             if win == true {
                 print("You win!")
             }
+            
+            // Begin the image capture for the message bubble
+            UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
+            
+            // Snapshot the view for the image
+            self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+            
+            // Create a message
+            let message = MSMessage()
+            
+            let layout = MSMessageTemplateLayout()
+            layout.caption = "Test"
+            layout.subcaption = "Test"
+            layout.image = UIGraphicsGetImageFromCurrentImageContext()!
+            
+            // End image capture
+            UIGraphicsEndImageContext()
+            
+            message.layout = layout
+            
+            guard let conversation = activeConversation else { fatalError("Expected an active converstation!") }
+            conversation.insert(message)
             
         }
         
