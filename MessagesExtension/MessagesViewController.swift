@@ -33,20 +33,25 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // Check for existing conversation URL
         guard conversation.selectedMessage?.url != nil else {
-            print("No valid URL in the Conversation!")
+            
+            // Set the board to ? for a new game
+            for square in squareCollection {
+                square.setTitle("?", for: UIControlState.normal)
+            }
             return
+            
         }
+        
+        // Assign URL values to local gameInfo
         game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
-        print(game.gameInfo)
+        
+        // Update view to reflect previous plays
+        redrawBoard(gameInfo: game.gameInfo)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        // Clear the board view
-        for square in squareCollection {
-            square.setTitle("?", for: UIControlState.normal)
-        }
         
     }
     
@@ -89,6 +94,36 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called after the extension transitions to a new presentation style.
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
+    }
+    
+    // MARK: Button Updates
+    
+    // Redraw the board from gameInfo
+    func redrawBoard(gameInfo: GameInfo) {
+        for button in squareCollection {
+            switch button.tag {
+            case 0:
+                button.setTitle(String(gameInfo.gameBoard[0][0]), for: UIControlState.normal)
+            case 1:
+                button.setTitle(String(gameInfo.gameBoard[1][0]), for: UIControlState.normal)
+            case 2:
+                button.setTitle(String(gameInfo.gameBoard[2][0]), for: UIControlState.normal)
+            case 3:
+                button.setTitle(String(gameInfo.gameBoard[0][1]), for: UIControlState.normal)
+            case 4:
+                button.setTitle(String(gameInfo.gameBoard[1][1]), for: UIControlState.normal)
+            case 5:
+                button.setTitle(String(gameInfo.gameBoard[2][1]), for: UIControlState.normal)
+            case 6:
+                button.setTitle(String(gameInfo.gameBoard[0][2]), for: UIControlState.normal)
+            case 7:
+                button.setTitle(String(gameInfo.gameBoard[1][2]), for: UIControlState.normal)
+            case 8:
+                button.setTitle(String(gameInfo.gameBoard[2][2]), for: UIControlState.normal)
+            default:
+                return
+            }
+        }
     }
     
     // MARK: Actions
