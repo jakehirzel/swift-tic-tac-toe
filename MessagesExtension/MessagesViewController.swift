@@ -167,9 +167,9 @@ class MessagesViewController: MSMessagesAppViewController {
                 let layout = MSMessageTemplateLayout()
                 
                 // Create and assign the image for the message bubble
-                UIGraphicsBeginImageContextWithOptions(self.boardView.bounds.size, false, UIScreen.main.scale)
-                // self.view.drawHierarchy(in: self.boardView.bounds, afterScreenUpdates: false)
-                self.boardView.layer.render(in: UIGraphicsGetCurrentContext()!)
+                UIGraphicsBeginImageContextWithOptions(CGSize(width: 180, height: 180), true, UIScreen.main.scale)
+                 self.boardView.drawHierarchy(in: self.boardView.bounds, afterScreenUpdates: false)
+//                self.boardView.layer.render(in: UIGraphicsGetCurrentContext()!)
                 layout.image = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
                 
