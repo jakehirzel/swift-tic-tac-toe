@@ -180,7 +180,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 // Create and assign the image for the message bubble
                 
                 // Begins ImageContect and assigns actual image size in points (pixels per scale)
-                UIGraphicsBeginImageContextWithOptions(CGSize(width: 150, height: 175), false, 3.0)
+                UIGraphicsBeginImageContextWithOptions(CGSize(width: 150, height: 175), false, 6.0)
                 
                 // Creates image of full boardView at size shown and placed at x/y coords from top left within above image image size -- will have black borders if above line set to false, white if true
                 self.boardView.drawHierarchy(in: CGRect(x: 0, y: 25, width: 150, height: 150), afterScreenUpdates: false)
