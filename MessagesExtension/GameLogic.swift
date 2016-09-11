@@ -30,7 +30,7 @@ class GameLogic {
         }
         
         // Check for occupied square
-        guard board[move.columnPlayed][move.rowPlayed] == "0" else {
+        guard board[move.columnPlayed][move.rowPlayed] == "?" else {
             print("Square already occupied!")
             return false
         }

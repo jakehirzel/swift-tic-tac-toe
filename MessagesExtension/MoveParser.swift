@@ -16,7 +16,7 @@ class MoveParser {
     
     func parseCoordinates(playerLetter: String, spacePlayed: UIButton) -> (NewMove) {
         
-        // Pull the coordinates from the User Defined Runtime Attributes for the button in IB
+        // Pull the tag for the button in IB
         let buttonTag = spacePlayed.tag
         
         // Declare variables for column and row coordinates

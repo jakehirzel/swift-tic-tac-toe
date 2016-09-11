@@ -198,7 +198,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 
                 // Assign the appropriate caption
                 if self.game.newGame == true {
-                    layout.caption = "Tap a '?' to join me in a game of ExOh! (I'm Ex and you're Oh!)"
+                    layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
                 }
                 else {
                     layout.caption = "Your turn!"
