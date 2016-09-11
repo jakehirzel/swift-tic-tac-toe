@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKB-ue-NLg">
@@ -162,14 +162,15 @@
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="zng-W6-1CA" firstAttribute="centerY" secondItem="bNK-aJ-3L3" secondAttribute="centerY" id="0MU-jW-Tlg"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="3Ag-4h-XbJ"/>
                             <constraint firstItem="bNK-aJ-3L3" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="4s4-E8-eD5"/>
                             <constraint firstItem="zng-W6-1CA" firstAttribute="bottom" secondItem="n38-gi-rB5" secondAttribute="top" id="61v-G0-NsM"/>
+                            <constraint firstItem="LKB-ue-NLg" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" constant="-20" id="G6e-15-YeH"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="leading" secondItem="bNK-aJ-3L3" secondAttribute="trailing" id="Ihm-jz-33v"/>
-                            <constraint firstItem="bNK-aJ-3L3" firstAttribute="top" secondItem="LKB-ue-NLg" secondAttribute="top" id="Zca-iR-bsM"/>
+                            <constraint firstItem="zng-W6-1CA" firstAttribute="height" secondItem="bNK-aJ-3L3" secondAttribute="height" id="WAH-fB-BdL"/>
                             <constraint firstAttribute="trailing" secondItem="zng-W6-1CA" secondAttribute="trailing" id="auy-f8-kfz"/>
                             <constraint firstItem="bNK-aJ-3L3" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" id="gpu-8K-RmN"/>
-                            <constraint firstItem="LKB-ue-NLg" firstAttribute="top" secondItem="zng-W6-1CA" secondAttribute="top" id="jId-Vh-6YE"/>
                             <constraint firstItem="bNK-aJ-3L3" firstAttribute="bottom" secondItem="n38-gi-rB5" secondAttribute="top" id="jx8-em-rjA"/>
                             <constraint firstItem="zng-W6-1CA" firstAttribute="width" secondItem="bNK-aJ-3L3" secondAttribute="width" id="tIs-2Q-zAz"/>
                         </constraints>
@@ -178,7 +179,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="220"/>
+                    <size key="freeformSize" width="320" height="260"/>
                     <connections>
                         <outlet property="boardView" destination="LKB-ue-NLg" id="ILb-eT-kJg"/>
                         <outletCollection property="squareCollection" destination="1JQ-8h-lEl" collectionClass="NSMutableArray" id="eyw-1C-Pho"/>

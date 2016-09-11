@@ -15,6 +15,7 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: Properties
     
     @IBOutlet var squareCollection: [UIButton]!
+    @IBOutlet weak var boardView: UIView!
     
     // Initialize instance of MoveParser and GameLogic; set up new board
     let parser = MoveParser()
@@ -166,9 +167,9 @@ class MessagesViewController: MSMessagesAppViewController {
                 let layout = MSMessageTemplateLayout()
                 
                 // Create and assign the image for the message bubble
-                UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.main.scale)
-                self.view.drawHierarchy(in: self.view.bounds, afterScreenUpdates: false)
-                //            self.view.layer.render(in: UIGraphicsGetCurrentContext()!)
+                UIGraphicsBeginImageContextWithOptions(self.boardView.bounds.size, false, UIScreen.main.scale)
+                // self.view.drawHierarchy(in: self.boardView.bounds, afterScreenUpdates: false)
+                self.boardView.layer.render(in: UIGraphicsGetCurrentContext()!)
                 layout.image = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
                 
