@@ -22,9 +22,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="5ib-ef-arX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <state key="normal" title="X">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
@@ -37,9 +37,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="EsI-CH-goH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <state key="normal" title="O">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
@@ -52,9 +52,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="I0s-h6-cIf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <state key="normal" title="X">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
@@ -64,9 +64,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4je-6g-aCn" userLabel="0-1">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <state key="normal" title="O">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
@@ -76,9 +76,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-EB-ash" userLabel="1-1">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <state key="normal" title="?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
@@ -88,9 +88,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRT-ZK-Z2n" userLabel="2-1">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <state key="normal" title="O">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
@@ -100,9 +100,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R8-Y2-Sk0" userLabel="0-2">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <state key="normal" title="X">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
@@ -112,9 +112,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-3C-zcp" userLabel="1-2">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <state key="normal" title="O">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
@@ -124,9 +124,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq5-ew-JUu" userLabel="2-2">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                 <state key="normal" title="X">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
@@ -136,7 +136,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hV5-fD-m0E" firstAttribute="leading" secondItem="1JQ-8h-lEl" secondAttribute="trailing" constant="8" symbolic="YES" id="1wi-H1-JgF"/>
                             <constraint firstItem="jRT-ZK-Z2n" firstAttribute="trailing" secondItem="lq5-ew-JUu" secondAttribute="trailing" id="1yp-Xw-1ri"/>

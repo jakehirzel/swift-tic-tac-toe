@@ -40,7 +40,6 @@ class MessagesViewController: MSMessagesAppViewController {
             }
             
             // Claim the "X" and associate it with local UUID
-//            let localUUID = NSUUID(uuidString: conversation.localParticipantIdentifier.uuidString)
             game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "X"
             
             return
@@ -175,7 +174,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 
                 // Assign the appropriate caption
                 if self.game.newGame == true {
-                    layout.caption = "Pick a spot to join me in a game of ExOh! (I'm Ex and you're Oh!)"
+                    layout.caption = "Tap a '?' to join me in a game of ExOh! (I'm Ex and you're Oh!)"
                 }
                 else {
                     layout.caption = "Your turn!"
