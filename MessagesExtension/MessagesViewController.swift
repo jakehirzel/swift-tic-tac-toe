@@ -221,9 +221,15 @@ class MessagesViewController: MSMessagesAppViewController {
                 // Assign the gameInfo URL
                 message.url = self.parser.encodeURL(gameInfo: self.game.gameInfo)
                 
+                // If in expanded view, transition to compact view
+                if self.presentationStyle == .expanded {
+                    self.requestPresentationStyle(.compact)
+                }
+                
                 // Insert the mesage into the conversation
                 guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
                 conversation.insert(message)
+                
                 
             }
             
