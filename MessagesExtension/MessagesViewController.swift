@@ -33,6 +33,11 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func didBecomeActive(with conversation: MSConversation) {
         
+        // Make instruction line visible
+        if presentationStyle == .expanded && expandedInstructionLabel.isHidden == true {
+            expandedInstructionLabel.isHidden = false
+        }
+        
         // Check for existing conversation URL
         guard conversation.selectedMessage?.url != nil else {
             
@@ -91,6 +96,7 @@ class MessagesViewController: MSMessagesAppViewController {
         // extension on a remote device.
         
         // Use this method to trigger UI updates in response to the message.
+        
     }
     
     override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
