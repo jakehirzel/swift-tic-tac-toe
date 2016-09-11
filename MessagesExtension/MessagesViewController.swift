@@ -16,6 +16,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
     @IBOutlet var squareCollection: [UIButton]!
     @IBOutlet weak var boardView: UIView!
+    @IBOutlet weak var expandedInstructionLabel: UILabel!
     
     // Initialize instance of MoveParser and GameLogic; set up new board
     let parser = MoveParser()
@@ -66,7 +67,11 @@ class MessagesViewController: MSMessagesAppViewController {
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called before the extension transitions to a new presentation style.
         
-        // Use this method to prepare for the change in presentation style.
+        // Make instruction line visible
+        if presentationStyle == .expanded && expandedInstructionLabel.isHidden == true {
+            expandedInstructionLabel.isHidden = false
+        }
+        
     }
     
     // MARK: - Other Conversation Handling

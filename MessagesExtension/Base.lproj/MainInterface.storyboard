@@ -139,6 +139,11 @@
                                     <constraint firstItem="0R8-Y2-Sk0" firstAttribute="baseline" secondItem="lUI-3C-zcp" secondAttribute="baseline" id="zZc-wc-TBt"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a square to play." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg">
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -148,7 +153,9 @@
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="5xN-bd-cVR"/>
                             <constraint firstItem="zng-W6-1CA" firstAttribute="height" secondItem="bNK-aJ-3L3" secondAttribute="height" id="9hj-ql-OPV"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" constant="-22" id="Bms-Wy-Rbh"/>
+                            <constraint firstItem="cah-nx-Kkg" firstAttribute="top" secondItem="LKB-ue-NLg" secondAttribute="bottom" constant="8" id="ITa-1H-blC"/>
                             <constraint firstItem="bNK-aJ-3L3" firstAttribute="top" secondItem="zng-W6-1CA" secondAttribute="top" id="Ree-fS-1dg"/>
+                            <constraint firstItem="cah-nx-Kkg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="Wm9-Ko-wcB"/>
                             <constraint firstItem="bNK-aJ-3L3" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" id="cw7-Fa-UAH"/>
                             <constraint firstItem="bNK-aJ-3L3" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="z7K-Be-Yzf"/>
                             <constraint firstItem="zng-W6-1CA" firstAttribute="width" secondItem="bNK-aJ-3L3" secondAttribute="width" id="zPY-vW-I7A"/>
@@ -156,6 +163,7 @@
                     </view>
                     <connections>
                         <outlet property="boardView" destination="LKB-ue-NLg" id="ILb-eT-kJg"/>
+                        <outlet property="expandedInstructionLabel" destination="cah-nx-Kkg" id="FtR-Ty-7Ej"/>
                         <outletCollection property="squareCollection" destination="1JQ-8h-lEl" collectionClass="NSMutableArray" id="eyw-1C-Pho"/>
                         <outletCollection property="squareCollection" destination="hV5-fD-m0E" collectionClass="NSMutableArray" id="GwR-dZ-1co"/>
                         <outletCollection property="squareCollection" destination="CdY-Lu-pqR" collectionClass="NSMutableArray" id="T2X-vE-mSh"/>
