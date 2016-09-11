@@ -20,94 +20,94 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zng-W6-1CA"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNK-aJ-3L3"/>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKB-ue-NLg">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKB-ue-NLg">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-8h-lEl" userLabel="0-0">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="55" id="1Sb-N0-NhQ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                         <state key="normal" title="X">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="squareTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="R8J-c5-dJ6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV5-fD-m0E" userLabel="1-0">
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                         <state key="normal" title="O">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="squareTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="qj5-4z-LQg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdY-Lu-pqR" userLabel="2-0">
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                         <state key="normal" title="X">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="squareTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="9G7-su-tA0"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4je-6g-aCn" userLabel="0-1">
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                         <state key="normal" title="O">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="squareTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="GwO-Wp-5AS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-EB-ash" userLabel="1-1">
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                         <state key="normal" title="?">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="squareTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="Ryf-OD-SfV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRT-ZK-Z2n" userLabel="2-1">
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                         <state key="normal" title="O">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="squareTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="wVr-dY-WvJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R8-Y2-Sk0" userLabel="0-2">
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                         <state key="normal" title="X">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="squareTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="bgz-Ru-PTr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-3C-zcp" userLabel="1-2">
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                         <state key="normal" title="O">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="squareTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="c1n-cL-w2V"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq5-ew-JUu" userLabel="2-2">
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
                                         <state key="normal" title="X">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="squareTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="PfD-Qp-7Ty"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.23921568627450981" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="1JQ-8h-lEl" firstAttribute="leading" secondItem="LKB-ue-NLg" secondAttribute="leading" id="5dj-mq-HRN"/>
                                     <constraint firstItem="0R8-Y2-Sk0" firstAttribute="top" secondItem="4je-6g-aCn" secondAttribute="bottom" constant="8" symbolic="YES" id="5uu-62-Ca7"/>
@@ -140,7 +140,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98431372549999996" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="zng-W6-1CA" firstAttribute="leading" secondItem="LKB-ue-NLg" secondAttribute="trailing" constant="19" id="2p3-LL-Eb7"/>
                             <constraint firstAttribute="trailing" secondItem="zng-W6-1CA" secondAttribute="trailing" id="3yT-ja-aRt"/>

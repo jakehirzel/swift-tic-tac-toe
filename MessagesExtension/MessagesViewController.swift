@@ -167,11 +167,34 @@ class MessagesViewController: MSMessagesAppViewController {
                 let layout = MSMessageTemplateLayout()
                 
                 // Create and assign the image for the message bubble
-                UIGraphicsBeginImageContextWithOptions(CGSize(width: 180, height: 180), true, UIScreen.main.scale)
-                 self.boardView.drawHierarchy(in: self.boardView.bounds, afterScreenUpdates: false)
-//                self.boardView.layer.render(in: UIGraphicsGetCurrentContext()!)
+                
+                // Begins ImageContect and assigns actual image size in points (pixels per scale)
+                UIGraphicsBeginImageContextWithOptions(CGSize(width: 150, height: 175), false, 3.0)
+                
+                // Creates image of full boardView at size shown and placed at x/y coords from top left within above image image size -- will have black borders if above line set to false, white if true
+                self.boardView.drawHierarchy(in: CGRect(x: 0, y: 25, width: 150, height: 150), afterScreenUpdates: false)
+
+                // Assign image to layout
                 layout.image = UIGraphicsGetImageFromCurrentImageContext()
+                
+                // Ends ImageContext
                 UIGraphicsEndImageContext()
+
+//                self.boardView.layer.render(in: UIGraphicsGetCurrentContext()!)
+//                
+//                let context = UIGraphicsGetCurrentContext()
+//                
+//                let origin = CGPoint(
+//                    x: (280 - 180) / 2,
+//                    y: (280 - 180) / 2)
+//                
+//                UIColor.white.setFill()
+//                context!.fill(CGRect(x: 0, y: 0, width: 220, height: 220))
+//                
+//                let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//                UIGraphicsEndImageContext()
+//
+//                layout.image = newImage
                 
                 // Assign the appropriate caption
                 if self.game.newGame == true {
