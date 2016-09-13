@@ -56,8 +56,10 @@ class MessagesViewController: MSMessagesAppViewController {
         // Assign URL values to local gameInfo
         game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
         
-        // Fill UUID into Player Two and claim "Y"
-        game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "Y"
+        // If the second player hasn't played yet, fill UUID into Player Two and claim "Y"
+        if game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] == nil {
+            game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "Y"
+        }
         
         // Update view to reflect previous plays
         redrawBoard(gameInfo: game.gameInfo)
@@ -66,28 +68,26 @@ class MessagesViewController: MSMessagesAppViewController {
         
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.becomeFirstResponder()
-        
     }
     
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        
-        // Implement shake to undo
-        if motion == .motionShake && game.gameInfo.lastMove != nil {
-            
-            // Reset the coordinates from lastMove in the board array to ?
-            game.gameInfo.gameBoard[(game.gameInfo.lastMove?.columnPlayed)!][(game.gameInfo.lastMove?.rowPlayed)!] = "?"
-            
-            // Redraw the board from the array
-            redrawBoard(gameInfo: game.gameInfo)
-            
-            // Make lastMove = nil
-            game.gameInfo.lastMove = nil
-            
-        }
-        
-    }
+//    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+//        
+//        // Implement shake to undo
+//        if motion == .motionShake && game.gameInfo.lastMove != nil {
+//            
+//            // Reset the coordinates from lastMove in the board array to ?
+//            game.gameInfo.gameBoard[(game.gameInfo.lastMove?.columnPlayed)!][(game.gameInfo.lastMove?.rowPlayed)!] = "?"
+//            
+//            // Redraw the board from the array
+//            redrawBoard(gameInfo: game.gameInfo)
+//            
+//            // Make lastMove = nil
+//            game.gameInfo.lastMove = nil
+//            
+//        }
+//    
+//    }
+    
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called before the extension transitions to a new presentation style.
         
