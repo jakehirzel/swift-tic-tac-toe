@@ -18,6 +18,7 @@ struct GameInfo {
 //    let playerTwoLetter: Character = "O"
     var players: [String: String] = [:] // Stores UUIDstring and player's letter
     var newGame: Bool = true
+    var session: MSSession? = nil
     var lastMove: NewMove? = nil
     var gameBoard: [[String]] = Array(repeating: Array(repeating: "?", count: 3), count: 3)
 }

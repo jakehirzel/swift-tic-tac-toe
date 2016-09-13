@@ -56,6 +56,9 @@ class MessagesViewController: MSMessagesAppViewController {
         // Assign URL values to local gameInfo
         game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
         
+        // Assign the session info from the incoming message
+        game.gameInfo.session = conversation.selectedMessage?.session
+        
         // Set newGame to false
         game.gameInfo.newGame = false
         
@@ -194,8 +197,12 @@ class MessagesViewController: MSMessagesAppViewController {
             let when = DispatchTime.now() + 0.5
             DispatchQueue.main.asyncAfter(deadline: when){
                 
+                if self.game.gameInfo.session == nil {
+                    self.game.gameInfo.session = MSSession()
+                }
+                
                 // Create a message
-                let message = MSMessage()
+                let message = MSMessage(session: self.game.gameInfo.session!)
                 
                 // Create a layout
                 let layout = MSMessageTemplateLayout()
@@ -213,22 +220,6 @@ class MessagesViewController: MSMessagesAppViewController {
                 
                 // Ends ImageContext
                 UIGraphicsEndImageContext()
-
-//                self.boardView.layer.render(in: UIGraphicsGetCurrentContext()!)
-//                
-//                let context = UIGraphicsGetCurrentContext()
-//                
-//                let origin = CGPoint(
-//                    x: (280 - 180) / 2,
-//                    y: (280 - 180) / 2)
-//                
-//                UIColor.white.setFill()
-//                context!.fill(CGRect(x: 0, y: 0, width: 220, height: 220))
-//                
-//                let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//                UIGraphicsEndImageContext()
-//
-//                layout.image = newImage
                 
                 // Assign the appropriate caption
                 if self.game.gameInfo.newGame == true {
@@ -252,7 +243,9 @@ class MessagesViewController: MSMessagesAppViewController {
                 
                 // Insert the mesage into the conversation
                 guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
-                conversation.insert(message)
+//                conversation.insert(message)
+                
+                conversation.insert(message, completionHandler: nil)
                 
                 
             }
