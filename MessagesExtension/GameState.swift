@@ -12,11 +12,12 @@ import Messages
 
 // Struct to hold game info
 struct GameInfo {
-    let playerOneID: UUID? = nil
-    let playerOneLetter: Character = "X"
-    let playerTwoID: UUID? = nil
-    let playerTwoLetter: Character = "Y"
+//    let playerOneID: UUID? = nil
+//    let playerOneLetter: Character = "X"
+//    let playerTwoID: UUID? = nil
+//    let playerTwoLetter: Character = "O"
     var players: [String: String] = [:] // Stores UUIDstring and player's letter
+    var newGame: Bool = true
     var lastMove: NewMove? = nil
     var gameBoard: [[String]] = Array(repeating: Array(repeating: "?", count: 3), count: 3)
 }

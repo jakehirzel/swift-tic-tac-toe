@@ -17,8 +17,8 @@ class GameLogic {
     // Create gameInfo instance
     var gameInfo = GameInfo()
     
-    // Create an empty game history
-    var history: GameHistory? = nil
+//    // Create an empty game history
+//    var history: GameHistory? = nil
     
     // To play a turn
     func playTurn(board: inout [[String]], move: NewMove) -> Bool {
@@ -136,21 +136,21 @@ class GameLogic {
     // Undo a play
     
     
-    // Manage game history
-    func addToHistory(move: NewMove, history: inout GameHistory) {
-        
-        // If newGame = true, add the entry and toggle to false
-        if newGame == true {
-            history.moveList.append(move)
-            newGame = false
-        }
-            
-        // Otherwise just add it
-        else {
-            history.moveList.append(move)
-        }
-        
-    }
+//    // Manage game history
+//    func addToHistory(move: NewMove, history: inout GameHistory) {
+//        
+//        // If newGame = true, add the entry and toggle to false
+//        if newGame == true {
+//            history.moveList.append(move)
+//            newGame = false
+//        }
+//            
+//        // Otherwise just add it
+//        else {
+//            history.moveList.append(move)
+//        }
+//        
+//    }
     
 }
 

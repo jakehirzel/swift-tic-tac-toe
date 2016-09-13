@@ -56,9 +56,12 @@ class MessagesViewController: MSMessagesAppViewController {
         // Assign URL values to local gameInfo
         game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
         
+        // Set newGame to false
+        game.gameInfo.newGame = false
+        
         // If the second player hasn't played yet, fill UUID into Player Two and claim "Y"
         if game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] == nil {
-            game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "Y"
+            game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "O"
         }
         
         // Update view to reflect previous plays
@@ -228,13 +231,14 @@ class MessagesViewController: MSMessagesAppViewController {
 //                layout.image = newImage
                 
                 // Assign the appropriate caption
-                if self.game.newGame == true {
+                if self.game.gameInfo.newGame == true {
                     layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
+                    self.game.gameInfo.newGame = false
                 }
                 else {
                     layout.caption = "Your turn!"
                 }
-                
+                                
                 // Assign the layout to the message
                 message.layout = layout
                 
