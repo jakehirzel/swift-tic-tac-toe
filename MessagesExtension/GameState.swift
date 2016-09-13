@@ -17,6 +17,7 @@ struct GameInfo {
     let playerTwoID: UUID? = nil
     let playerTwoLetter: Character = "Y"
     var players: [String: String] = [:] // Stores UUIDstring and player's letter
+    var lastMove: NewMove? = nil
     var gameBoard: [[String]] = Array(repeating: Array(repeating: "?", count: 3), count: 3)
 }
 

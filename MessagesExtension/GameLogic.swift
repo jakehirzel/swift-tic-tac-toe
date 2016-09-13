@@ -22,7 +22,13 @@ class GameLogic {
     
     // To play a turn
     func playTurn(board: inout [[String]], move: NewMove) -> Bool {
-    
+        
+        // Check that there has not already been a play during this turn
+        if gameInfo.lastMove != nil {
+            print("Already played this round!")
+            return false
+        }
+        
         // Check for anything out of bounds
         guard move.columnPlayed < 3 && move.rowPlayed < 3 else {
             print("Game limited to 3 x 3 square!")
@@ -35,9 +41,11 @@ class GameLogic {
             return false
         }
         
-        // Record a valid play in the board array and in the game history
+        // Record the valid play in the board array
         board[move.columnPlayed][move.rowPlayed] = move.playerLetter
-        // TODO: add game history!
+        
+        // Record the valid play in lastMove in gameInfo
+        gameInfo.lastMove = move
         
         // If we've made it this far:
         return true
@@ -124,6 +132,9 @@ class GameLogic {
         return false
         
     }
+    
+    // Undo a play
+    
     
     // Manage game history
     func addToHistory(move: NewMove, history: inout GameHistory) {

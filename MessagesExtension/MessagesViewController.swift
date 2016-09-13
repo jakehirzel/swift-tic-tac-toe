@@ -63,12 +63,31 @@ class MessagesViewController: MSMessagesAppViewController {
         redrawBoard(gameInfo: game.gameInfo)
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.becomeFirstResponder()
         
     }
     
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        
+        // Implement shake to undo
+        if motion == .motionShake && game.gameInfo.lastMove != nil {
+            
+            // Reset the coordinates from lastMove in the board array to ?
+            game.gameInfo.gameBoard[(game.gameInfo.lastMove?.columnPlayed)!][(game.gameInfo.lastMove?.rowPlayed)!] = "?"
+            
+            // Redraw the board from the array
+            redrawBoard(gameInfo: game.gameInfo)
+            
+            // Make lastMove = nil
+            game.gameInfo.lastMove = nil
+            
+        }
+        
+    }
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called before the extension transitions to a new presentation style.
         
@@ -111,8 +130,9 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called after the extension transitions to a new presentation style.
-    
+        
         // Use this method to finalize any behaviors associated with the change in presentation style.
+        
     }
     
     // MARK: Button Updates

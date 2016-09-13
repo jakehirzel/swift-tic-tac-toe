@@ -18,8 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zng-W6-1CA"/>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNK-aJ-3L3"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKB-ue-NLg">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-8h-lEl" userLabel="0-0">
@@ -139,7 +137,7 @@
                                     <constraint firstItem="0R8-Y2-Sk0" firstAttribute="baseline" secondItem="lUI-3C-zcp" secondAttribute="baseline" id="zZc-wc-TBt"/>
                                 </constraints>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a square to play." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a “square” to play." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg">
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -147,18 +145,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="zng-W6-1CA" firstAttribute="leading" secondItem="LKB-ue-NLg" secondAttribute="trailing" constant="19" id="2p3-LL-Eb7"/>
-                            <constraint firstAttribute="trailing" secondItem="zng-W6-1CA" secondAttribute="trailing" id="3yT-ja-aRt"/>
-                            <constraint firstItem="bNK-aJ-3L3" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="4DC-UX-yZI"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="5xN-bd-cVR"/>
-                            <constraint firstItem="zng-W6-1CA" firstAttribute="height" secondItem="bNK-aJ-3L3" secondAttribute="height" id="9hj-ql-OPV"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" constant="-22" id="Bms-Wy-Rbh"/>
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="top" secondItem="LKB-ue-NLg" secondAttribute="bottom" constant="8" id="ITa-1H-blC"/>
-                            <constraint firstItem="bNK-aJ-3L3" firstAttribute="top" secondItem="zng-W6-1CA" secondAttribute="top" id="Ree-fS-1dg"/>
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="Wm9-Ko-wcB"/>
-                            <constraint firstItem="bNK-aJ-3L3" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" id="cw7-Fa-UAH"/>
-                            <constraint firstItem="bNK-aJ-3L3" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="z7K-Be-Yzf"/>
-                            <constraint firstItem="zng-W6-1CA" firstAttribute="width" secondItem="bNK-aJ-3L3" secondAttribute="width" id="zPY-vW-I7A"/>
                         </constraints>
                     </view>
                     <connections>
