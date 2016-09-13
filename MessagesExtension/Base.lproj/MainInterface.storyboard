@@ -150,6 +150,9 @@
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="top" secondItem="LKB-ue-NLg" secondAttribute="bottom" constant="8" id="ITa-1H-blC"/>
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="Wm9-Ko-wcB"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="oY6-J4-jw7" appends="YES" id="DTJ-jr-c9d"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="boardView" destination="LKB-ue-NLg" id="ILb-eT-kJg"/>
@@ -166,6 +169,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="oY6-J4-jw7">
+                    <connections>
+                        <action selector="longTapToUndo:" destination="ObA-dk-sSI" id="O7x-HP-BOb"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="135" y="135"/>
         </scene>

@@ -76,24 +76,6 @@ class MessagesViewController: MSMessagesAppViewController {
         super.viewDidAppear(animated)
     }
     
-//    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-//        
-//        // Implement shake to undo
-//        if motion == .motionShake && game.gameInfo.lastMove != nil {
-//            
-//            // Reset the coordinates from lastMove in the board array to ?
-//            game.gameInfo.gameBoard[(game.gameInfo.lastMove?.columnPlayed)!][(game.gameInfo.lastMove?.rowPlayed)!] = "?"
-//            
-//            // Redraw the board from the array
-//            redrawBoard(gameInfo: game.gameInfo)
-//            
-//            // Make lastMove = nil
-//            game.gameInfo.lastMove = nil
-//            
-//        }
-//    
-//    }
-    
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called before the extension transitions to a new presentation style.
         
@@ -252,6 +234,27 @@ class MessagesViewController: MSMessagesAppViewController {
             
         }
         
+    }
+    
+    @IBAction func longTapToUndo(_ sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == UIGestureRecognizerState.ended {
+            
+            // Reject if lastMove is nil
+            guard game.gameInfo.lastMove != nil else {
+                return
+            }
+
+            // Reset the coordinates from lastMove in the board array to ?
+            game.gameInfo.gameBoard[(game.gameInfo.lastMove?.columnPlayed)!][(game.gameInfo.lastMove?.rowPlayed)!] = "?"
+            
+            // Redraw the board from the array
+            redrawBoard(gameInfo: game.gameInfo)
+            
+            // Make lastMove = nil
+            game.gameInfo.lastMove = nil
+
+        }
     }
 
 }
