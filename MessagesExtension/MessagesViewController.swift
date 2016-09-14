@@ -287,5 +287,13 @@ class MessagesViewController: MSMessagesAppViewController {
 
         }
     }
+    
+    @IBAction func gloatButtonTapped(_ sender: UIButton) {
+        
+    }
 
+    @IBAction func newGameTapped(_ sender: UIButton) {
+        
+    }
+    
 }

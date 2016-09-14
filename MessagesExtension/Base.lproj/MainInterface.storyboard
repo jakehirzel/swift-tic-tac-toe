@@ -212,6 +212,9 @@
                                                                         <state key="normal" title="GLOAT">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="gloatButtonTapped:" destination="jl3-a9-l1F" eventType="touchUpInside" id="NQx-PH-CiB"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phn-Q0-2e3">
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -222,6 +225,9 @@
                                                                         <state key="normal" title="NEW GAME">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="newGameTapped:" destination="jl3-a9-l1F" eventType="touchUpInside" id="XPz-HZ-4Oa"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
