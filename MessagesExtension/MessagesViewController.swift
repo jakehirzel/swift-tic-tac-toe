@@ -184,6 +184,12 @@ class MessagesViewController: MSMessagesAppViewController {
             // Process a win, if true
             if win == true {
                 print("You win!")
+                
+//                let popup: MessagesViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOver") as! MessagesViewController
+//                let navigationController = UINavigationController(rootViewController: popup)
+//                navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//                self.present(navigationController, animated: true, completion: nil)
+                
             }
             
             // Add 0.5s delay to generating the message, for animations to complete
