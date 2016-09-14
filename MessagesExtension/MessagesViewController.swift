@@ -18,6 +18,10 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var expandedInstructionLabel: UILabel!
     
+    @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var gloatButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton!
+    
     // Initialize instance of MoveParser and GameLogic; set up new board
     let parser = MoveParser()
     let game = GameLogic()
@@ -185,10 +189,10 @@ class MessagesViewController: MSMessagesAppViewController {
             if win == true {
                 print("You win!")
                 
-//                let popup: MessagesViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOver") as! MessagesViewController
-//                let navigationController = UINavigationController(rootViewController: popup)
-//                navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//                self.present(navigationController, animated: true, completion: nil)
+                let popup: MessagesViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOver") as! MessagesViewController
+                let navigationController = UINavigationController(rootViewController: popup)
+                navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                self.present(navigationController, animated: true, completion: nil)
                 
             }
             

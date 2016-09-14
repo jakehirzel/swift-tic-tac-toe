@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKB-ue-NLg">
@@ -175,7 +175,94 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="135" y="135"/>
+            <point key="canvasLocation" x="-201" y="110"/>
+        </scene>
+        <!--Game Over-->
+        <scene sceneID="IJI-jw-Zju">
+            <objects>
+                <viewController storyboardIdentifier="gameOver" id="jl3-a9-l1F" userLabel="Game Over" customClass="MessagesViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cTA-Cb-1ig"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Um-b3-49S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qqK-L9-Q1b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9U-gt-8qV">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8nz-Yt-RXC">
+                                    <frame key="frameInset"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI0-r0-4EI">
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="weg-cW-cOg">
+                                                <frame key="frameInset"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BuK-Be-oMG">
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Win!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhN-B4-EeR">
+                                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="firstBaseline" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sOA-rR-PrP">
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehd-na-6vf">
+                                                                        <state key="normal" title="GLOAT">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </state>
+                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phn-Q0-2e3">
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqE-LJ-ETe">
+                                                                        <state key="normal" title="NEW GAME">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </state>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="BuK-Be-oMG" firstAttribute="centerY" secondItem="weg-cW-cOg" secondAttribute="centerY" id="Npg-IL-hTl"/>
+                                                    <constraint firstItem="BuK-Be-oMG" firstAttribute="centerX" secondItem="weg-cW-cOg" secondAttribute="centerX" id="R8h-SO-nL4"/>
+                                                </constraints>
+                                            </view>
+                                            <blurEffect style="light"/>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pI0-r0-4EI" firstAttribute="leading" secondItem="8nz-Yt-RXC" secondAttribute="leading" id="3uX-KN-irm"/>
+                                        <constraint firstAttribute="bottom" secondItem="pI0-r0-4EI" secondAttribute="bottom" id="Lfc-fF-bwk"/>
+                                        <constraint firstItem="pI0-r0-4EI" firstAttribute="top" secondItem="8nz-Yt-RXC" secondAttribute="top" id="VHp-kz-mbT"/>
+                                        <constraint firstAttribute="trailing" secondItem="pI0-r0-4EI" secondAttribute="trailing" id="cdU-OP-X3f"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q9U-gt-8qV" firstAttribute="top" secondItem="qqK-L9-Q1b" secondAttribute="top" id="WFw-ZX-UPe"/>
+                            <constraint firstItem="8Um-b3-49S" firstAttribute="top" secondItem="Q9U-gt-8qV" secondAttribute="bottom" id="lwB-Uk-xgq"/>
+                            <constraint firstItem="Q9U-gt-8qV" firstAttribute="leading" secondItem="qqK-L9-Q1b" secondAttribute="leading" id="mSZ-os-7Mp"/>
+                            <constraint firstAttribute="trailing" secondItem="Q9U-gt-8qV" secondAttribute="trailing" id="zQf-cf-8xA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gloatButton" destination="Ehd-na-6vf" id="ylj-dE-bdm"/>
+                        <outlet property="newGameButton" destination="JqE-LJ-ETe" id="wYk-fF-tOD"/>
+                        <outlet property="winLabel" destination="uhN-B4-EeR" id="ald-Cc-SQ9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUj-3t-Aif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="458.39999999999998" y="109.29535232383809"/>
         </scene>
     </scenes>
 </document>
