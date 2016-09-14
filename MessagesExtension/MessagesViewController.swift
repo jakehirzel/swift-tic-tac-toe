@@ -22,6 +22,9 @@ class MessagesViewController: MSMessagesAppViewController {
     let parser = MoveParser()
     let game = GameLogic()
     
+    // Create a Bool to track when a user presses "Send"
+    var didYouSend = false
+    
     // MARK: MSMessagesAppViewController Lifecycle
     
     override func willBecomeActive(with conversation: MSConversation) {
@@ -71,14 +74,6 @@ class MessagesViewController: MSMessagesAppViewController {
         redrawBoard(gameInfo: game.gameInfo)
         
     }
-        
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called before the extension transitions to a new presentation style.
-    }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called after the extension transitions to a new presentation style.
@@ -97,7 +92,23 @@ class MessagesViewController: MSMessagesAppViewController {
         
     }
     
-    // MARK: - Other Conversation Handling
+    override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
+        // Called when the user taps the send button.
+        
+        // Set didYouSend to true
+        didYouSend = true
+        
+    }
+    
+    // MARK: - Other View/Conversation Handling
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        // Called before the extension transitions to a new presentation style.
+    }
     
     override func didResignActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the active to inactive state.
@@ -115,10 +126,6 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // Use this method to trigger UI updates in response to the message.
         
-    }
-    
-    override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
-        // Called when the user taps the send button.
     }
     
     override func didCancelSending(_ message: MSMessage, conversation: MSConversation) {
@@ -243,6 +250,11 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBAction func longTapToUndo(_ sender: UILongPressGestureRecognizer) {
         
         if sender.state == UIGestureRecognizerState.ended {
+            
+            // Reject if you already sent the message
+            guard didYouSend == false else {
+                return
+            }
             
             // Reject if lastMove is nil
             guard game.gameInfo.lastMove != nil else {
