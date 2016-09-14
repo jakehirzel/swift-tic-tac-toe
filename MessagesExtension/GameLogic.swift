@@ -12,7 +12,7 @@ import Foundation
 class GameLogic {
     
     // Set variable to track new game status
-    var newGame = true
+//    var newGame = true
     
     // Create gameInfo instance
     var gameInfo = GameInfo()
@@ -133,24 +133,20 @@ class GameLogic {
         
     }
     
-    // Undo a play
-    
-    
-//    // Manage game history
-//    func addToHistory(move: NewMove, history: inout GameHistory) {
-//        
-//        // If newGame = true, add the entry and toggle to false
-//        if newGame == true {
-//            history.moveList.append(move)
-//            newGame = false
-//        }
-//            
-//        // Otherwise just add it
-//        else {
-//            history.moveList.append(move)
-//        }
-//        
-//    }
+    // Check for an empty board
+    func checkForEmptyBoard(board: [[String]]) -> Bool {
+        
+        // Assume the board is empty, any conflict will change to false
+        var boardEmpty = true
+        for column in board {
+            for row in column {
+                if row != "?" {
+                    boardEmpty = false
+                }
+            }
+        }
+        return boardEmpty
+    }
     
 }
 

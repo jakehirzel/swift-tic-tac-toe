@@ -78,10 +78,21 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called before the extension transitions to a new presentation style.
+    }
+    
+    override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        // Called after the extension transitions to a new presentation style.
         
-        // Make instruction line visible
+        // Use this method to finalize any behaviors associated with the change in presentation style.
+        
+        // Make instruction line visible in expanded view
         if presentationStyle == .expanded && expandedInstructionLabel.isHidden == true {
             expandedInstructionLabel.isHidden = false
+        }
+        
+        // Make sure it's invisible in compact view
+        if presentationStyle == .compact && expandedInstructionLabel.isHidden == false {
+            expandedInstructionLabel.isHidden = true
         }
         
     }
@@ -114,13 +125,6 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called when the user deletes the message without sending it.
     
         // Use this to clean up state related to the deleted message.
-    }
-    
-    override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called after the extension transitions to a new presentation style.
-        
-        // Use this method to finalize any behaviors associated with the change in presentation style.
-        
     }
     
     // MARK: Button Updates
@@ -247,6 +251,11 @@ class MessagesViewController: MSMessagesAppViewController {
 
             // Reset the coordinates from lastMove in the board array to ?
             game.gameInfo.gameBoard[(game.gameInfo.lastMove?.columnPlayed)!][(game.gameInfo.lastMove?.rowPlayed)!] = "?"
+            
+            // If board array is reset to all ?s, reset newGame to true
+            if game.checkForEmptyBoard(board: game.gameInfo.gameBoard) == true {
+                game.gameInfo.newGame = true
+            }
             
             // Redraw the board from the array
             redrawBoard(gameInfo: game.gameInfo)
