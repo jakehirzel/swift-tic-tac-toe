@@ -18,6 +18,7 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var expandedInstructionLabel: UILabel!
     
+    @IBOutlet weak var gameOverView: UIVisualEffectView!
     @IBOutlet weak var winLabel: UILabel!
     @IBOutlet weak var gloatButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
@@ -189,8 +190,8 @@ class MessagesViewController: MSMessagesAppViewController {
             if win == true {
                 print("You win!")
                 
+                // Load gameOverView
                 let gameOverView: MessagesViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOver") as! MessagesViewController
-//                let navigationController = UINavigationController(rootViewController: popup)
                 gameOverView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
                 self.present(gameOverView, animated: true, completion: nil)
                 
@@ -228,6 +229,9 @@ class MessagesViewController: MSMessagesAppViewController {
                 if self.game.gameInfo.newGame == true {
                     layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
                     self.game.gameInfo.newGame = false
+                }
+                else if win == true {
+                    layout.caption = "I win!"
                 }
                 else {
                     layout.caption = "Your turn!"

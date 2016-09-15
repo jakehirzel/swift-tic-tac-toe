@@ -71,7 +71,7 @@ class MoveParser {
         var urlComponents = URLComponents()
         
         // Set base values
-        urlComponents.scheme = "https"
+        urlComponents.scheme = "data"
         urlComponents.host = "www.jakehirzel.com"
         
         // Create the query string and add square values
@@ -92,12 +92,6 @@ class MoveParser {
         
         // Return the URL
         return urlComponents.url!
-        
-//        let escapedAddress = String(describing: gameInfo).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-//        let prefixForURL = "https://www.jakehirzel.com?"
-//        let stringURL = prefixForURL + escapedAddress
-//        let returnURL = URL(string: stringURL)
-//        return returnURL!
         
     }
     

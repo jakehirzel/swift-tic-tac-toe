@@ -214,19 +214,21 @@
                                                     <constraint firstItem="3YC-As-Vgs" firstAttribute="centerX" secondItem="8gI-Uk-dri" secondAttribute="centerX" id="QFe-a0-C33"/>
                                                     <constraint firstItem="3YC-As-Vgs" firstAttribute="top" secondItem="8gI-Uk-dri" secondAttribute="bottom" constant="-36" id="R49-Y8-WJB"/>
                                                     <constraint firstItem="8gI-Uk-dri" firstAttribute="centerX" secondItem="6Bx-Je-xIw" secondAttribute="centerX" id="ckV-75-oBc"/>
-                                                    <constraint firstItem="8gI-Uk-dri" firstAttribute="centerY" secondItem="6Bx-Je-xIw" secondAttribute="centerY" constant="-40" id="rBj-2w-8am"/>
+                                                    <constraint firstItem="8gI-Uk-dri" firstAttribute="centerY" secondItem="6Bx-Je-xIw" secondAttribute="centerY" constant="-20" id="rBj-2w-8am"/>
                                                 </constraints>
                                             </view>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="39C-2B-l0q"/>
+                                                <constraint firstAttribute="width" constant="200" id="jvI-Md-VG1"/>
+                                            </constraints>
                                             <vibrancyEffect>
                                                 <blurEffect style="light"/>
                                             </vibrancyEffect>
                                         </visualEffectView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="SzC-og-Nb7" secondAttribute="trailing" id="0MF-hW-piu"/>
-                                        <constraint firstAttribute="bottom" secondItem="SzC-og-Nb7" secondAttribute="bottom" id="hnb-hc-pLb"/>
-                                        <constraint firstItem="SzC-og-Nb7" firstAttribute="leading" secondItem="TEs-HU-TtI" secondAttribute="leading" id="mor-38-8c6"/>
-                                        <constraint firstItem="SzC-og-Nb7" firstAttribute="top" secondItem="TEs-HU-TtI" secondAttribute="top" id="zSj-RM-gAG"/>
+                                        <constraint firstItem="SzC-og-Nb7" firstAttribute="centerY" secondItem="TEs-HU-TtI" secondAttribute="centerY" constant="-20" id="ES3-f8-yJh"/>
+                                        <constraint firstItem="SzC-og-Nb7" firstAttribute="centerX" secondItem="TEs-HU-TtI" secondAttribute="centerX" id="jJ5-Fd-ELI"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="light"/>
@@ -240,10 +242,13 @@
                             <constraint firstItem="8Um-b3-49S" firstAttribute="top" secondItem="jCF-bh-4nB" secondAttribute="bottom" id="cFP-Ex-tQp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gameOverView" destination="SzC-og-Nb7" id="Kvf-TN-Z3W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUj-3t-Aif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457.5" y="108.75"/>
+            <point key="canvasLocation" x="540" y="56"/>
         </scene>
     </scenes>
 </document>
