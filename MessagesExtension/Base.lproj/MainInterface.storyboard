@@ -9,7 +9,7 @@
         <!--Messages View Controller-->
         <scene sceneID="7MM-of-jgj">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="ObA-dk-sSI" customClass="MessagesViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" hidesBottomBarWhenPushed="YES" id="ObA-dk-sSI" customClass="MessagesViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qkL-Od-lgU"/>
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
@@ -209,10 +209,20 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEi-53-XaA">
+                                                        <state key="normal" title="NEW GAME">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="newGameTapped:" destination="jl3-a9-l1F" eventType="touchUpInside" id="W9e-Ps-7nX"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="UEi-53-XaA" firstAttribute="centerX" secondItem="3YC-As-Vgs" secondAttribute="centerX" id="8Ed-4S-65k"/>
                                                     <constraint firstItem="3YC-As-Vgs" firstAttribute="centerX" secondItem="8gI-Uk-dri" secondAttribute="centerX" id="QFe-a0-C33"/>
                                                     <constraint firstItem="3YC-As-Vgs" firstAttribute="top" secondItem="8gI-Uk-dri" secondAttribute="bottom" constant="-20" id="R49-Y8-WJB"/>
+                                                    <constraint firstItem="UEi-53-XaA" firstAttribute="top" secondItem="3YC-As-Vgs" secondAttribute="bottom" constant="-3" id="Z6i-13-hcX"/>
                                                     <constraint firstItem="8gI-Uk-dri" firstAttribute="centerX" secondItem="6Bx-Je-xIw" secondAttribute="centerX" id="ckV-75-oBc"/>
                                                     <constraint firstItem="8gI-Uk-dri" firstAttribute="centerY" secondItem="6Bx-Je-xIw" secondAttribute="centerY" constant="-20" id="rBj-2w-8am"/>
                                                 </constraints>
@@ -243,7 +253,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="gameOverView" destination="SzC-og-Nb7" id="Kvf-TN-Z3W"/>
+                        <outlet property="newGameButton" destination="UEi-53-XaA" id="fcF-S9-Na6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUj-3t-Aif" userLabel="First Responder" sceneMemberID="firstResponder"/>

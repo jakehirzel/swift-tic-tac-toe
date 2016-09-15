@@ -18,7 +18,7 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var expandedInstructionLabel: UILabel!
     
-    @IBOutlet weak var gameOverView: UIVisualEffectView!
+    @IBOutlet weak var newGameButton: UIButton!
 
     
     // Initialize instance of MoveParser and GameLogic; set up new board
@@ -314,6 +314,12 @@ class MessagesViewController: MSMessagesAppViewController {
     }
 
     @IBAction func newGameTapped(_ sender: UIButton) {
+        
+        // Reset gameInfo
+        game.gameInfo = GameInfo()
+
+        // Remove gameOver storyboard from the view
+        super.dismiss(animated: true, completion: nil)
         
     }
     
