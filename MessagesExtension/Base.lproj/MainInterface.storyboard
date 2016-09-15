@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKB-ue-NLg">
@@ -186,67 +186,47 @@
                         <viewControllerLayoutGuide type="bottom" id="8Um-b3-49S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qqK-L9-Q1b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9U-gt-8qV">
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8nz-Yt-RXC">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCF-bh-4nB">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TEs-HU-TtI">
                                     <frame key="frameInset"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI0-r0-4EI">
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="weg-cW-cOg">
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SzC-og-Nb7">
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6Bx-Je-xIw">
                                                 <frame key="frameInset"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BuK-Be-oMG">
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Win!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhN-B4-EeR">
-                                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="firstBaseline" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sOA-rR-PrP">
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehd-na-6vf">
-                                                                        <state key="normal" title="GLOAT">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="gloatButtonTapped:" destination="jl3-a9-l1F" eventType="touchUpInside" id="NQx-PH-CiB"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phn-Q0-2e3">
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqE-LJ-ETe">
-                                                                        <state key="normal" title="NEW GAME">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="newGameTapped:" destination="jl3-a9-l1F" eventType="touchUpInside" id="XPz-HZ-4Oa"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
-                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WINS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="3YC-As-Vgs" userLabel="Wins">
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="72" translatesAutoresizingMaskIntoConstraints="NO" id="8gI-Uk-dri" userLabel="Letter">
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="144"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="BuK-Be-oMG" firstAttribute="centerY" secondItem="weg-cW-cOg" secondAttribute="centerY" id="Npg-IL-hTl"/>
-                                                    <constraint firstItem="BuK-Be-oMG" firstAttribute="centerX" secondItem="weg-cW-cOg" secondAttribute="centerX" id="R8h-SO-nL4"/>
+                                                    <constraint firstItem="3YC-As-Vgs" firstAttribute="centerX" secondItem="8gI-Uk-dri" secondAttribute="centerX" id="QFe-a0-C33"/>
+                                                    <constraint firstItem="3YC-As-Vgs" firstAttribute="top" secondItem="8gI-Uk-dri" secondAttribute="bottom" constant="-36" id="R49-Y8-WJB"/>
+                                                    <constraint firstItem="8gI-Uk-dri" firstAttribute="centerX" secondItem="6Bx-Je-xIw" secondAttribute="centerX" id="ckV-75-oBc"/>
+                                                    <constraint firstItem="8gI-Uk-dri" firstAttribute="centerY" secondItem="6Bx-Je-xIw" secondAttribute="centerY" constant="-40" id="rBj-2w-8am"/>
                                                 </constraints>
                                             </view>
-                                            <blurEffect style="light"/>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
                                         </visualEffectView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="pI0-r0-4EI" firstAttribute="leading" secondItem="8nz-Yt-RXC" secondAttribute="leading" id="3uX-KN-irm"/>
-                                        <constraint firstAttribute="bottom" secondItem="pI0-r0-4EI" secondAttribute="bottom" id="Lfc-fF-bwk"/>
-                                        <constraint firstItem="pI0-r0-4EI" firstAttribute="top" secondItem="8nz-Yt-RXC" secondAttribute="top" id="VHp-kz-mbT"/>
-                                        <constraint firstAttribute="trailing" secondItem="pI0-r0-4EI" secondAttribute="trailing" id="cdU-OP-X3f"/>
+                                        <constraint firstAttribute="trailing" secondItem="SzC-og-Nb7" secondAttribute="trailing" id="0MF-hW-piu"/>
+                                        <constraint firstAttribute="bottom" secondItem="SzC-og-Nb7" secondAttribute="bottom" id="hnb-hc-pLb"/>
+                                        <constraint firstItem="SzC-og-Nb7" firstAttribute="leading" secondItem="TEs-HU-TtI" secondAttribute="leading" id="mor-38-8c6"/>
+                                        <constraint firstItem="SzC-og-Nb7" firstAttribute="top" secondItem="TEs-HU-TtI" secondAttribute="top" id="zSj-RM-gAG"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="light"/>
@@ -254,21 +234,16 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Q9U-gt-8qV" firstAttribute="top" secondItem="qqK-L9-Q1b" secondAttribute="top" id="WFw-ZX-UPe"/>
-                            <constraint firstItem="8Um-b3-49S" firstAttribute="top" secondItem="Q9U-gt-8qV" secondAttribute="bottom" id="lwB-Uk-xgq"/>
-                            <constraint firstItem="Q9U-gt-8qV" firstAttribute="leading" secondItem="qqK-L9-Q1b" secondAttribute="leading" id="mSZ-os-7Mp"/>
-                            <constraint firstAttribute="trailing" secondItem="Q9U-gt-8qV" secondAttribute="trailing" id="zQf-cf-8xA"/>
+                            <constraint firstAttribute="trailing" secondItem="jCF-bh-4nB" secondAttribute="trailing" id="1DJ-4B-Sr3"/>
+                            <constraint firstItem="jCF-bh-4nB" firstAttribute="top" secondItem="qqK-L9-Q1b" secondAttribute="top" id="9lR-pU-901"/>
+                            <constraint firstItem="jCF-bh-4nB" firstAttribute="leading" secondItem="qqK-L9-Q1b" secondAttribute="leading" id="biR-sf-1t2"/>
+                            <constraint firstItem="8Um-b3-49S" firstAttribute="top" secondItem="jCF-bh-4nB" secondAttribute="bottom" id="cFP-Ex-tQp"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="gloatButton" destination="Ehd-na-6vf" id="ylj-dE-bdm"/>
-                        <outlet property="newGameButton" destination="JqE-LJ-ETe" id="wYk-fF-tOD"/>
-                        <outlet property="winLabel" destination="uhN-B4-EeR" id="ald-Cc-SQ9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUj-3t-Aif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="458.39999999999998" y="109.29535232383809"/>
+            <point key="canvasLocation" x="457.5" y="108.75"/>
         </scene>
     </scenes>
 </document>
