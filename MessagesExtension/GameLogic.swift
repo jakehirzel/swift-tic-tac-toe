@@ -11,14 +11,8 @@ import Foundation
 
 class GameLogic {
     
-    // Set variable to track new game status
-//    var newGame = true
-    
     // Create gameInfo instance
     var gameInfo = GameInfo()
-    
-//    // Create an empty game history
-//    var history: GameHistory? = nil
     
     // To play a turn
     func playTurn(board: inout [[String]], move: NewMove) -> Bool {
@@ -53,7 +47,7 @@ class GameLogic {
     }
     
     // To check for a win
-    func checkForWin(board: [[String]], move: NewMove) -> Bool {
+    func checkForWin(board: [[String]], move: NewMove) -> (isWin: Bool, winType: String?, winIndex: Int?) {
         
         // Set side length
         let sideLength = board.count
@@ -107,29 +101,29 @@ class GameLogic {
         // Check for column win
         if columnCount == sideLength {
             print("Won in column: \(move.columnPlayed)")
-            return true
+            return (isWin: true, winType: "column", winIndex: move.columnPlayed)
         }
         
         // Check for row win
         if rowCount == sideLength {
             print("Won in row: \(move.rowPlayed)")
-            return true
+            return (isWin: true, winType: "row", winIndex: move.rowPlayed)
         }
         
         // Check for forward slash win
         if forwardSlashDiagonalCount == sideLength {
             print("Won on the forward diagonal!")
-            return true
+            return (isWin: true, winType: "forwardDiagonal", winIndex: nil)
         }
         
         // Check for backward slash win
         if backwardSlashDiagonalCount == sideLength {
             print("Won on the backward diagonal!")
-            return true
+            return (isWin: true, winType: "backwardDiagonal", winIndex: nil)
         }
                 
         // If no win:
-        return false
+        return (isWin: false, winType: nil, winIndex: nil)
         
     }
     

@@ -199,20 +199,20 @@
                                                 <frame key="frameInset"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WINS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="3YC-As-Vgs" userLabel="Wins">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIN!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="3YC-As-Vgs" userLabel="Wins">
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="72" translatesAutoresizingMaskIntoConstraints="NO" id="8gI-Uk-dri" userLabel="Letter">
-                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="144"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="72" translatesAutoresizingMaskIntoConstraints="NO" id="8gI-Uk-dri" userLabel="Letter">
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="72"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="3YC-As-Vgs" firstAttribute="centerX" secondItem="8gI-Uk-dri" secondAttribute="centerX" id="QFe-a0-C33"/>
-                                                    <constraint firstItem="3YC-As-Vgs" firstAttribute="top" secondItem="8gI-Uk-dri" secondAttribute="bottom" constant="-36" id="R49-Y8-WJB"/>
+                                                    <constraint firstItem="3YC-As-Vgs" firstAttribute="top" secondItem="8gI-Uk-dri" secondAttribute="bottom" constant="-20" id="R49-Y8-WJB"/>
                                                     <constraint firstItem="8gI-Uk-dri" firstAttribute="centerX" secondItem="6Bx-Je-xIw" secondAttribute="centerX" id="ckV-75-oBc"/>
                                                     <constraint firstItem="8gI-Uk-dri" firstAttribute="centerY" secondItem="6Bx-Je-xIw" secondAttribute="centerY" constant="-20" id="rBj-2w-8am"/>
                                                 </constraints>

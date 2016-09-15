@@ -138,6 +138,45 @@ class MoveParser {
         
     }
     
+    // Change checkForWin output into button IDs
+    
+    func parseWinButtons(winType: String, winIndex: Int?) -> (buttonTagOne: Int?, buttonTagTwo: Int?, buttonTagThree: Int?) {
+        switch winType {
+        case "column":
+            
+            switch winIndex {
+            case 0?:
+                return (0, 3, 6)
+            case 1?:
+                return (1, 4, 7)
+            case 2?:
+                return (2, 5, 8)
+            default:
+                return (nil, nil, nil)
+            }
+            
+        case "row":
+            
+            switch winIndex {
+            case 0?:
+                return (0, 1, 2)
+            case 1?:
+                return (3, 4, 5)
+            case 2?:
+                return (6, 7, 8)
+            default:
+                return (nil, nil, nil)
+            }
+            
+        case "forwardDiagonal":
+            return (6, 4, 2)
+        case "backwardDiagonal":
+            return (0, 4, 8)
+        default:
+            return (nil, nil, nil)
+        }
+    }
+    
 }
 
 

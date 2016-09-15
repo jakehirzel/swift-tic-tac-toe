@@ -19,9 +19,7 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var expandedInstructionLabel: UILabel!
     
     @IBOutlet weak var gameOverView: UIVisualEffectView!
-    @IBOutlet weak var winLabel: UILabel!
-    @IBOutlet weak var gloatButton: UIButton!
-    @IBOutlet weak var newGameButton: UIButton!
+
     
     // Initialize instance of MoveParser and GameLogic; set up new board
     let parser = MoveParser()
@@ -169,6 +167,22 @@ class MessagesViewController: MSMessagesAppViewController {
         }
     }
     
+    // Draw the win
+    func drawTheWin(buttonOne: Int, buttonTwo: Int, buttonThree: Int) {
+        for button in squareCollection {
+            switch button.tag {
+            case buttonOne:
+                button.setTitleColor(UIColor.black, for: UIControlState.normal)
+            case buttonTwo:
+                button.setTitleColor(UIColor.black, for: UIControlState.normal)
+            case buttonThree:
+                button.setTitleColor(UIColor.black, for: UIControlState.normal)
+            default:
+                continue
+            }
+        }
+    }
+    
     // MARK: Actions
     
     @IBAction func squareTapped(_ sender: UIButton) {
@@ -184,16 +198,23 @@ class MessagesViewController: MSMessagesAppViewController {
             sender.setTitle(playerLetter, for: UIControlState.normal)
 
             // Check for a win
-            let win = game.checkForWin(board: game.gameInfo.gameBoard, move: move)
+            let checkWin = game.checkForWin(board: game.gameInfo.gameBoard, move: move)
             
             // Process a win, if true
-            if win == true {
+            if checkWin.isWin == true {
                 print("You win!")
                 
                 // Load gameOverView
                 let gameOverView: MessagesViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOver") as! MessagesViewController
                 gameOverView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
                 self.present(gameOverView, animated: true, completion: nil)
+                
+                // Parse the button ids for the win
+                let winButtonIDs = parser.parseWinButtons(winType: checkWin.winType!, winIndex: checkWin.winIndex)
+                
+                // Draw the "win" in black
+                drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
+
                 
             }
             
@@ -230,7 +251,7 @@ class MessagesViewController: MSMessagesAppViewController {
                     layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
                     self.game.gameInfo.newGame = false
                 }
-                else if win == true {
+                else if checkWin.isWin == true {
                     layout.caption = "I win!"
                 }
                 else {
@@ -290,10 +311,6 @@ class MessagesViewController: MSMessagesAppViewController {
             game.gameInfo.lastMove = nil
 
         }
-    }
-    
-    @IBAction func gloatButtonTapped(_ sender: UIButton) {
-        
     }
 
     @IBAction func newGameTapped(_ sender: UIButton) {
