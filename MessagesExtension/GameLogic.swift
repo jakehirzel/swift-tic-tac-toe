@@ -47,10 +47,13 @@ class GameLogic {
     }
     
     // To check for a win
-    func checkForWin(board: [[String]], move: NewMove) -> (isWin: Bool, winType: String?, winIndex: Int?) {
+    func checkForWin(board: [[String]], move: NewMove) -> Win {
         
         // Set side length
         let sideLength = board.count
+        
+        // Create an instance of a win object
+        var winData = Win()
         
         // Variables to track "winning" squares
         var columnCount = 0
@@ -101,29 +104,40 @@ class GameLogic {
         // Check for column win
         if columnCount == sideLength {
             print("Won in column: \(move.columnPlayed)")
-            return (isWin: true, winType: "column", winIndex: move.columnPlayed)
+            winData.isWin = true
+            winData.winType = "column"
+            winData.winIndex = move.columnPlayed
+            return winData
         }
         
         // Check for row win
         if rowCount == sideLength {
             print("Won in row: \(move.rowPlayed)")
-            return (isWin: true, winType: "row", winIndex: move.rowPlayed)
+            winData.isWin = true
+            winData.winType = "row"
+            winData.winIndex = move.rowPlayed
+            return winData
         }
         
         // Check for forward slash win
         if forwardSlashDiagonalCount == sideLength {
             print("Won on the forward diagonal!")
-            return (isWin: true, winType: "forwardDiagonal", winIndex: nil)
+            winData.isWin = true
+            winData.winType = "forwardDiagonal"
+            return winData
         }
         
         // Check for backward slash win
         if backwardSlashDiagonalCount == sideLength {
             print("Won on the backward diagonal!")
-            return (isWin: true, winType: "backwardDiagonal", winIndex: nil)
+            winData.isWin = true
+            winData.winType = "backwardDiagonal"
+            return winData
         }
                 
         // If no win:
-        return (isWin: false, winType: nil, winIndex: nil)
+        winData.isWin = false
+        return winData
         
     }
     

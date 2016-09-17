@@ -12,14 +12,11 @@ import Messages
 
 // Struct to hold game info
 struct GameInfo {
-//    let playerOneID: UUID? = nil
-//    let playerOneLetter: Character = "X"
-//    let playerTwoID: UUID? = nil
-//    let playerTwoLetter: Character = "O"
     var players: [String: String] = [:] // Stores UUIDstring and player's letter
     var newGame: Bool = true
     var session: MSSession? = nil
     var lastMove: NewMove? = nil
+    var gameWon: Win? = nil
     var gameBoard: [[String]] = Array(repeating: Array(repeating: "?", count: 3), count: 3)
 }
 
@@ -28,6 +25,13 @@ struct NewMove {
     let playerLetter: String
     let columnPlayed: Int
     let rowPlayed: Int
+}
+
+// Struct to hold win data
+struct Win {
+    var isWin: Bool = false
+    var winType: String? = nil
+    var winIndex: Int? = nil
 }
 
 // Struct to hold move list

@@ -137,7 +137,7 @@ class MessagesViewController: MSMessagesAppViewController {
         // Use this to clean up state related to the deleted message.
     }
     
-    // MARK: Button Updates
+    // MARK: Convenience
     
     // Redraw the board from gameInfo
     func redrawBoard(gameInfo: GameInfo) {
@@ -183,25 +183,93 @@ class MessagesViewController: MSMessagesAppViewController {
         }
     }
     
-    // MARK: Actions
+    // Create a message and insert in the conversation
+    func createNewMessage() {
+        
+        // Add 0.5s delay to generating the message, for animations to complete
+        let when = DispatchTime.now() + 0.5
+        DispatchQueue.main.asyncAfter(deadline: when){
+            
+            if self.game.gameInfo.session == nil {
+                self.game.gameInfo.session = MSSession()
+            }
+            
+            // Create a message
+            let message = MSMessage(session: self.game.gameInfo.session!)
+            
+            // Create a layout
+            let layout = MSMessageTemplateLayout()
+            
+            // Create and assign the image for the message bubble
+            
+            // Begins ImageContect and assigns actual image size in points (pixels per scale)
+            UIGraphicsBeginImageContextWithOptions(CGSize(width: 150, height: 175), false, 6.0)
+            
+            // Creates image of full boardView at size shown and placed at x/y coords from top left within above image image size -- will have black borders if above line set to false, white if true
+            self.boardView.drawHierarchy(in: CGRect(x: 0, y: 25, width: 150, height: 150), afterScreenUpdates: false)
+            
+            // Assign image to layout
+            layout.image = UIGraphicsGetImageFromCurrentImageContext()
+            
+            // Ends ImageContext
+            UIGraphicsEndImageContext()
+            
+            // Assign the appropriate caption
+            if self.game.gameInfo.newGame == true {
+                layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
+                self.game.gameInfo.newGame = false
+            }
+            else if self.game.gameInfo.gameWon?.isWin == true {
+                layout.caption = "I win!"
+            }
+            else {
+                layout.caption = "$\(self.activeConversation!.localParticipantIdentifier.uuidString) played. Your turn!"
+            }
+            
+            // Assign the layout to the message
+            message.layout = layout
+            
+            // Assign the gameInfo URL
+            message.url = self.parser.encodeURL(gameInfo: self.game.gameInfo)
+            
+            // If in expanded view, transition to compact view
+            if self.presentationStyle == .expanded {
+                self.requestPresentationStyle(.compact)
+            }
+            
+            // Insert the mesage into the conversation
+            guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
+            conversation.insert(message, completionHandler: nil)
+        
+        }
+
     
+    }
+
+    // MARK: Actions
+
     @IBAction func squareTapped(_ sender: UIButton) {
-        
+    
+        // Get playerLetter from players array
         let playerLetter = game.gameInfo.players[(activeConversation?.localParticipantIdentifier.uuidString)!]!
-        
+    
+        // Parse the move into board-readable coordinates
         let move = parser.parseCoordinates(playerLetter: playerLetter, spacePlayed: sender)
+
+        // Play the turn and record any valid (i.e. true) moves on the board
         let validMove = game.playTurn(board: &game.gameInfo.gameBoard, move: move)
-        
+    
+        // Update the view for a play or a win
         if validMove == true {
 
             // Change the label on the square
             sender.setTitle(playerLetter, for: UIControlState.normal)
 
-            // Check for a win
-            let checkWin = game.checkForWin(board: game.gameInfo.gameBoard, move: move)
+            // Check for a win and assign to
+            game.gameInfo.gameWon = game.checkForWin(board: game.gameInfo.gameBoard, move: move)
             
             // Process a win, if true
-            if checkWin.isWin == true {
+            if game.gameInfo.gameWon?.isWin == true {
                 print("You win!")
                 
                 // Load gameOverView
@@ -210,73 +278,72 @@ class MessagesViewController: MSMessagesAppViewController {
                 self.present(gameOverView, animated: true, completion: nil)
                 
                 // Parse the button ids for the win
-                let winButtonIDs = parser.parseWinButtons(winType: checkWin.winType!, winIndex: checkWin.winIndex)
+                let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon?.winType!)!, winIndex: game.gameInfo.gameWon?.winIndex)
                 
                 // Draw the "win" in black
                 drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
 
-                
             }
             
-            // Add 0.5s delay to generating the message, for animations to complete
-            let when = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: when){
-                
-                if self.game.gameInfo.session == nil {
-                    self.game.gameInfo.session = MSSession()
-                }
-                
-                // Create a message
-                let message = MSMessage(session: self.game.gameInfo.session!)
-                
-                // Create a layout
-                let layout = MSMessageTemplateLayout()
-                
-                // Create and assign the image for the message bubble
-                
-                // Begins ImageContect and assigns actual image size in points (pixels per scale)
-                UIGraphicsBeginImageContextWithOptions(CGSize(width: 150, height: 175), false, 6.0)
-                
-                // Creates image of full boardView at size shown and placed at x/y coords from top left within above image image size -- will have black borders if above line set to false, white if true
-                self.boardView.drawHierarchy(in: CGRect(x: 0, y: 25, width: 150, height: 150), afterScreenUpdates: false)
-
-                // Assign image to layout
-                layout.image = UIGraphicsGetImageFromCurrentImageContext()
-                
-                // Ends ImageContext
-                UIGraphicsEndImageContext()
-                
-                // Assign the appropriate caption
-                if self.game.gameInfo.newGame == true {
-                    layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
-                    self.game.gameInfo.newGame = false
-                }
-                else if checkWin.isWin == true {
-                    layout.caption = "I win!"
-                }
-                else {
-                    layout.caption = "Your turn!"
-                }
-                                
-                // Assign the layout to the message
-                message.layout = layout
-                
-                // Assign the gameInfo URL
-                message.url = self.parser.encodeURL(gameInfo: self.game.gameInfo)
-                
-                // If in expanded view, transition to compact view
-                if self.presentationStyle == .expanded {
-                    self.requestPresentationStyle(.compact)
-                }
-                
-                // Insert the mesage into the conversation
-                guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
-//                conversation.insert(message)
-                
-                conversation.insert(message, completionHandler: nil)
-                
-                
-            }
+            // Create a message and insert it in the conversation
+            createNewMessage()
+            
+//            // Add 0.5s delay to generating the message, for animations to complete
+//            let when = DispatchTime.now() + 0.5
+//            DispatchQueue.main.asyncAfter(deadline: when){
+//                
+//                if self.game.gameInfo.session == nil {
+//                    self.game.gameInfo.session = MSSession()
+//                }
+//                
+//                // Create a message
+//                let message = MSMessage(session: self.game.gameInfo.session!)
+//                
+//                // Create a layout
+//                let layout = MSMessageTemplateLayout()
+//                
+//                // Create and assign the image for the message bubble
+//                
+//                // Begins ImageContect and assigns actual image size in points (pixels per scale)
+//                UIGraphicsBeginImageContextWithOptions(CGSize(width: 150, height: 175), false, 6.0)
+//                
+//                // Creates image of full boardView at size shown and placed at x/y coords from top left within above image image size -- will have black borders if above line set to false, white if true
+//                self.boardView.drawHierarchy(in: CGRect(x: 0, y: 25, width: 150, height: 150), afterScreenUpdates: false)
+//
+//                // Assign image to layout
+//                layout.image = UIGraphicsGetImageFromCurrentImageContext()
+//                
+//                // Ends ImageContext
+//                UIGraphicsEndImageContext()
+//                
+//                // Assign the appropriate caption
+//                if self.game.gameInfo.newGame == true {
+//                    layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
+//                    self.game.gameInfo.newGame = false
+//                }
+//                else if self.game.gameInfo.gameWon?.isWin == true {
+//                    layout.caption = "I win!"
+//                }
+//                else {
+//                    layout.caption = "$\(self.activeConversation!.localParticipantIdentifier.uuidString) played. Your turn!"
+//                }
+//                                
+//                // Assign the layout to the message
+//                message.layout = layout
+//                
+//                // Assign the gameInfo URL
+//                message.url = self.parser.encodeURL(gameInfo: self.game.gameInfo)
+//                
+//                // If in expanded view, transition to compact view
+//                if self.presentationStyle == .expanded {
+//                    self.requestPresentationStyle(.compact)
+//                }
+//                
+//                // Insert the mesage into the conversation
+//                guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
+//                conversation.insert(message, completionHandler: nil)
+//                
+//            }
             
         }
         
@@ -309,6 +376,9 @@ class MessagesViewController: MSMessagesAppViewController {
             
             // Make lastMove = nil
             game.gameInfo.lastMove = nil
+            
+            // Refresh the message
+            createNewMessage()
 
         }
     }
@@ -318,9 +388,9 @@ class MessagesViewController: MSMessagesAppViewController {
         // Reset gameInfo
         game.gameInfo = GameInfo()
 
-        // Remove gameOver storyboard from the view
+        // Dismiss the app
         super.dismiss(animated: true, completion: nil)
-        
+                
     }
     
 }
