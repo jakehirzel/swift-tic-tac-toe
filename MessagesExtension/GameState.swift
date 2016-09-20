@@ -14,18 +14,18 @@ import Messages
 struct GameInfo {
     var players: [String: String] = [:] // Stores UUIDstring and player's letter
     var newGame: Bool = true
-    var session: MSSession? = nil
-    var lastMove: NewMove? = nil
-    var gameWon: Win? = nil
+    var session: MSSession?
+    var lastMove: NewMove?
+    var gameWon: Win?
     var gameBoard: [[String]] = Array(repeating: Array(repeating: "?", count: 3), count: 3)
 }
 
 // Struct to hold data for each move
 struct NewMove {
-    var playerUUID: String
-    var playerLetter: String
-    var columnPlayed: Int
-    var rowPlayed: Int
+    var playerUUID: String = "99"
+    var playerLetter: String = "99"
+    var columnPlayed: Int = 99
+    var rowPlayed: Int = 99
 }
 
 // Struct to hold win data

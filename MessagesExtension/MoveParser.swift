@@ -86,13 +86,28 @@ class MoveParser {
         urlComponents.queryItems?.append(URLQueryItem(name: "squareSeven", value: String(describing: gameInfo.gameBoard[1][2])))
         urlComponents.queryItems?.append(URLQueryItem(name: "squareEight", value: String(describing: gameInfo.gameBoard[2][2])))
         
+        // Add newGame
+        urlComponents.queryItems?.append(URLQueryItem(name: "newGame", value: String(describing: gameInfo.newGame)))
+        
+        // Add session
+        urlComponents.queryItems?.append(URLQueryItem(name: "session", value: String(describing: gameInfo.session!)))
+        
+        // Add last move UUID
+        urlComponents.queryItems?.append(URLQueryItem(name: "lastMoveUUID", value: gameInfo.lastMove!.playerUUID))
+        
+        // Add last move letter to the query
+        urlComponents.queryItems?.append(URLQueryItem(name: "lastMoveLetter", value: gameInfo.lastMove!.playerLetter))
+        
+        // Add last move column
+        urlComponents.queryItems?.append(URLQueryItem(name: "lastMoveColumn", value: String(describing: gameInfo.lastMove!.columnPlayed)))
+        
+        // Add last move row
+        urlComponents.queryItems?.append(URLQueryItem(name: "lastMoveRow", value: String(describing: gameInfo.lastMove!.rowPlayed)))
+        
         // Add the players to the query
         for player in gameInfo.players {
             urlComponents.queryItems?.append(URLQueryItem(name: player.key, value: player.value))
         }
-        
-        // Add last move letter to the query
-        urlComponents.queryItems?.append(URLQueryItem(name: "lastMoveLetter", value: gameInfo.lastMove?.playerLetter))
         
         // Return the URL
         return urlComponents.url!
@@ -108,6 +123,9 @@ class MoveParser {
         
         // Initialize a new GameInfo struct to hold the URL info
         var gameInfo = GameInfo()
+        
+        // Create a NewMove insance to store last move data
+        var lastMove = NewMove()
         
         // Iterate through queryItems and assign appropriate values to the GameInfo struct
         for (queryItem) in (urlComponents?.queryItems?.enumerated())! {
@@ -131,13 +149,26 @@ class MoveParser {
                 gameInfo.gameBoard[1][2] = queryItem.element.value!
             case "squareEight":
                 gameInfo.gameBoard[2][2] = queryItem.element.value!
+            case "newGame":
+                gameInfo.newGame = Bool(queryItem.element.value!)!
+            case "session":
+                gameInfo.session = nil
+            case "lastMoveUUID":
+                lastMove.playerUUID = queryItem.element.value!
             case "lastMoveLetter":
-                gameInfo.lastMove?.playerLetter = queryItem.element.value!
+                lastMove.playerLetter = queryItem.element.value!
+            case "lastMoveColumn":
+                lastMove.columnPlayed = Int(queryItem.element.value!)!
+            case "lastMoveRow":
+                lastMove.rowPlayed = Int(queryItem.element.value!)!
             default:
                 gameInfo.players[queryItem.element.name] = queryItem.element.value
             }
             
         }
+        
+        // Assign lastMove move to gameInfo
+        gameInfo.lastMove = lastMove
         
         // Return GameInfo
         return gameInfo
