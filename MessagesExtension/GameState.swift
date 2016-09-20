@@ -22,9 +22,10 @@ struct GameInfo {
 
 // Struct to hold data for each move
 struct NewMove {
-    let playerLetter: String
-    let columnPlayed: Int
-    let rowPlayed: Int
+    var playerUUID: String
+    var playerLetter: String
+    var columnPlayed: Int
+    var rowPlayed: Int
 }
 
 // Struct to hold win data

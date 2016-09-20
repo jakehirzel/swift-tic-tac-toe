@@ -9,17 +9,18 @@
 
 import Foundation
 import UIKit
+import Messages
 
 class MoveParser {
     
     // Create a NewMove from info passed in by the button
     
-    func parseCoordinates(playerLetter: String, spacePlayed: UIButton) -> (NewMove) {
+    func parseCoordinates(playerUUID: String, playerLetter: String, spacePlayed: UIButton) -> (NewMove) {
         
         // Pull the tag for the button in IB
         let buttonTag = spacePlayed.tag
         
-        // Declare variables for column and row coordinates
+        // Declare variables for column and row coovarnates
         var columnPlayed = 99
         var rowPlayed = 99
         
@@ -57,7 +58,7 @@ class MoveParser {
         }
         
         // Create a NewMove
-        let move = NewMove(playerLetter: playerLetter, columnPlayed: columnPlayed, rowPlayed: rowPlayed)
+        let move = NewMove(playerUUID: playerUUID, playerLetter: playerLetter, columnPlayed: columnPlayed, rowPlayed: rowPlayed)
         
         return move
         
@@ -89,6 +90,9 @@ class MoveParser {
         for player in gameInfo.players {
             urlComponents.queryItems?.append(URLQueryItem(name: player.key, value: player.value))
         }
+        
+        // Add last move letter to the query
+        urlComponents.queryItems?.append(URLQueryItem(name: "lastMoveLetter", value: gameInfo.lastMove?.playerLetter))
         
         // Return the URL
         return urlComponents.url!
@@ -127,6 +131,8 @@ class MoveParser {
                 gameInfo.gameBoard[1][2] = queryItem.element.value!
             case "squareEight":
                 gameInfo.gameBoard[2][2] = queryItem.element.value!
+            case "lastMoveLetter":
+                gameInfo.lastMove?.playerLetter = queryItem.element.value!
             default:
                 gameInfo.players[queryItem.element.name] = queryItem.element.value
             }

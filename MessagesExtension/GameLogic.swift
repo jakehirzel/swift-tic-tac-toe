@@ -18,7 +18,7 @@ class GameLogic {
     func playTurn(board: inout [[String]], move: NewMove) -> Bool {
         
         // Check that there has not already been a play during this turn
-        if gameInfo.lastMove != nil {
+        if gameInfo.lastMove?.playerUUID == move.playerUUID {
             print("Already played this round!")
             return false
         }

@@ -19,6 +19,7 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var expandedInstructionLabel: UILabel!
     
     @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
 
     
     // Initialize instance of MoveParser and GameLogic; set up new board
@@ -39,7 +40,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func didBecomeActive(with conversation: MSConversation) {
         
-        // Make instruction line visible
+        // Make instruction line visible in expanded view
         if presentationStyle == .expanded && expandedInstructionLabel.isHidden == true {
             expandedInstructionLabel.isHidden = false
         }
@@ -100,6 +101,9 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // Set didYouSend to true
         didYouSend = true
+        
+        // Dismiss the app
+        dismiss()
         
     }
     
@@ -240,21 +244,26 @@ class MessagesViewController: MSMessagesAppViewController {
             // Insert the mesage into the conversation
             guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
             conversation.insert(message, completionHandler: nil)
+            
+            // Dismiss the app
+//            self.dismiss()
         
         }
-
     
     }
 
     // MARK: Actions
 
     @IBAction func squareTapped(_ sender: UIButton) {
+        
+        // Get player UUID
+        let playerUUID = activeConversation?.localParticipantIdentifier.uuidString
     
         // Get playerLetter from players array
-        let playerLetter = game.gameInfo.players[(activeConversation?.localParticipantIdentifier.uuidString)!]!
-    
+        let playerLetter = game.gameInfo.players[playerUUID!]
+        
         // Parse the move into board-readable coordinates
-        let move = parser.parseCoordinates(playerLetter: playerLetter, spacePlayed: sender)
+        let move = parser.parseCoordinates(playerUUID: playerUUID!, playerLetter: playerLetter!, spacePlayed: sender)
 
         // Play the turn and record any valid (i.e. true) moves on the board
         let validMove = game.playTurn(board: &game.gameInfo.gameBoard, move: move)
@@ -272,16 +281,20 @@ class MessagesViewController: MSMessagesAppViewController {
             if game.gameInfo.gameWon?.isWin == true {
                 print("You win!")
                 
-                // Load gameOverView
-                let gameOverView: MessagesViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOver") as! MessagesViewController
-                gameOverView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-                self.present(gameOverView, animated: true, completion: nil)
+//                // Load gameOverView
+//                let gameOverView: MessagesViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOver") as! MessagesViewController
+//                gameOverView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//                self.present(gameOverView, animated: true, completion: nil)
                 
                 // Parse the button ids for the win
                 let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon?.winType!)!, winIndex: game.gameInfo.gameWon?.winIndex)
                 
                 // Draw the "win" in black
                 drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
+                
+                // Unhide "New" and "Close" buttons
+                newGameButton.isHidden = false
+                closeButton.isHidden = false
 
             }
             
@@ -377,8 +390,15 @@ class MessagesViewController: MSMessagesAppViewController {
             // Make lastMove = nil
             game.gameInfo.lastMove = nil
             
-            // Refresh the message
-            createNewMessage()
+//            // Refresh the message
+//            createNewMessage()
+
+            // Clear the unsent message
+            let message = MSMessage()
+            activeConversation?.insert(message, completionHandler: nil)
+            
+            // Create a text message
+//            activeConversation?.insertText("Hmmmm. Thinking!", completionHandler: nil)
 
         }
     }
@@ -387,10 +407,21 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // Reset gameInfo
         game.gameInfo = GameInfo()
-
+        
+        // Redraw the board
+        redrawBoard(gameInfo: game.gameInfo)
+        
+        // Hide "New" and "Close" buttons
+        newGameButton.isHidden = true
+        closeButton.isHidden = true
+        
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        
         // Dismiss the app
-        super.dismiss(animated: true, completion: nil)
-                
+        dismiss()
+
     }
     
 }

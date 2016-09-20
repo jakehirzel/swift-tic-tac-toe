@@ -142,6 +142,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-jD-KGW">
+                                <frame key="frameInset" minX="28" minY="203" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="NEW">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newGameTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="mw3-Vh-XfH"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6A-nT-gqw">
+                                <frame key="frameInset" minX="258" minY="203" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="CLOSE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="I3h-w2-azO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -156,7 +176,9 @@
                     </view>
                     <connections>
                         <outlet property="boardView" destination="LKB-ue-NLg" id="ILb-eT-kJg"/>
+                        <outlet property="closeButton" destination="W6A-nT-gqw" id="9CI-Gx-POT"/>
                         <outlet property="expandedInstructionLabel" destination="cah-nx-Kkg" id="FtR-Ty-7Ej"/>
+                        <outlet property="newGameButton" destination="CWX-jD-KGW" id="iYA-Tq-9Fb"/>
                         <outletCollection property="squareCollection" destination="1JQ-8h-lEl" collectionClass="NSMutableArray" id="eyw-1C-Pho"/>
                         <outletCollection property="squareCollection" destination="hV5-fD-m0E" collectionClass="NSMutableArray" id="GwR-dZ-1co"/>
                         <outletCollection property="squareCollection" destination="CdY-Lu-pqR" collectionClass="NSMutableArray" id="T2X-vE-mSh"/>
@@ -213,9 +235,6 @@
                                                         <state key="normal" title="NEW GAME">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="newGameTapped:" destination="jl3-a9-l1F" eventType="touchUpInside" id="W9e-Ps-7nX"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -252,9 +271,6 @@
                             <constraint firstItem="8Um-b3-49S" firstAttribute="top" secondItem="jCF-bh-4nB" secondAttribute="bottom" id="cFP-Ex-tQp"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="newGameButton" destination="UEi-53-XaA" id="fcF-S9-Na6"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUj-3t-Aif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
