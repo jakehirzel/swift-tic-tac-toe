@@ -29,53 +29,19 @@ class MessagesViewController: MSMessagesAppViewController {
     // Create a Bool to track when a user presses "Send"
     var didYouSend = false
     
+    // Track the message session
+    var currentSession: MSSession?
+    
     // MARK: MSMessagesAppViewController Lifecycle
-    
-    override func willBecomeActive(with conversation: MSConversation) {
-        // Called when the extension is about to move from the inactive to active state.
-        // This will happen when the extension is about to present UI.
-    
-        // Use this method to configure the extension and restore previously stored state.
-    }
     
     override func didBecomeActive(with conversation: MSConversation) {
         
-        // Make instruction line visible in expanded view
-        if presentationStyle == .expanded && expandedInstructionLabel.isHidden == true {
-            expandedInstructionLabel.isHidden = false
+        loadGame(conversation: conversation)
+        
+        // Disable undo if already played
+        if game.gameInfo.lastMove?.playerUUID == conversation.localParticipantIdentifier.uuidString {
+            didYouSend = true
         }
-        
-        // Check for existing conversation URL
-        guard conversation.selectedMessage?.url != nil else {
-            
-            // Set the board to ? for a new game
-            for square in squareCollection {
-                square.setTitle("?", for: UIControlState.normal)
-            }
-            
-            // Claim the "X" and associate it with local UUID
-            game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "X"
-            
-            return
-            
-        }
-        
-        // Assign URL values to local gameInfo
-        game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
-        
-        // Assign the session info from the incoming message
-        game.gameInfo.session = conversation.selectedMessage?.session
-        
-        // Set newGame to false
-        game.gameInfo.newGame = false
-        
-        // If the second player hasn't played yet, fill UUID into Player Two and claim "Y"
-        if game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] == nil {
-            game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "O"
-        }
-        
-        // Update view to reflect previous plays
-        redrawBoard(gameInfo: game.gameInfo)
         
     }
     
@@ -109,6 +75,13 @@ class MessagesViewController: MSMessagesAppViewController {
     
     // MARK: - Other View/Conversation Handling
     
+    override func willBecomeActive(with conversation: MSConversation) {
+        // Called when the extension is about to move from the inactive to active state.
+        // This will happen when the extension is about to present UI.
+        
+        // Use this method to configure the extension and restore previously stored state.
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -141,7 +114,54 @@ class MessagesViewController: MSMessagesAppViewController {
         // Use this to clean up state related to the deleted message.
     }
     
+    override func willSelect(_ message: MSMessage, conversation: MSConversation) {
+        // Handle the case of message being selected in the transcript when the extension is already loaded
+        
+        // This doesn't seem to work -- gets called on send rather than on selection of message
+        
+    }
+    
     // MARK: Convenience
+    
+    // Load a game in a conversation
+    func loadGame(conversation: MSConversation) {
+        
+        // Make instruction line visible in expanded view
+        if presentationStyle == .expanded && expandedInstructionLabel.isHidden == true {
+            expandedInstructionLabel.isHidden = false
+        }
+        
+        // Check for existing conversation URL
+        guard conversation.selectedMessage?.url != nil else {
+            
+            // Set the board to ? for a new game
+            for square in squareCollection {
+                square.setTitle("?", for: UIControlState.normal)
+            }
+            
+            // Claim the "X" and associate it with local UUID
+            game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "X"
+            
+            return
+            
+        }
+        
+        // Overwrite local gameInfo with URL values
+        game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
+        
+        // If this is player two and the first play, fill UUID into players, claim "O", set newGame to false
+        if game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] == nil {
+            game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "O"
+            game.gameInfo.newGame = false
+        }
+        
+        // Assign the session info from the incoming message
+        currentSession = conversation.selectedMessage?.session
+        
+        // Update view to reflect previous plays
+        redrawBoard(gameInfo: game.gameInfo)
+        
+    }
     
     // Redraw the board from gameInfo
     func redrawBoard(gameInfo: GameInfo) {
@@ -194,12 +214,13 @@ class MessagesViewController: MSMessagesAppViewController {
         let when = DispatchTime.now() + 0.5
         DispatchQueue.main.asyncAfter(deadline: when){
             
-            if self.game.gameInfo.session == nil {
-                self.game.gameInfo.session = MSSession()
+            // Create a message session if one does not exist
+            if self.currentSession == nil {
+                self.currentSession = MSSession()
             }
             
             // Create a message
-            let message = MSMessage(session: self.game.gameInfo.session!)
+            let message = MSMessage(session: self.currentSession!)
             
             // Create a layout
             let layout = MSMessageTemplateLayout()
@@ -244,9 +265,6 @@ class MessagesViewController: MSMessagesAppViewController {
             // Insert the mesage into the conversation
             guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
             conversation.insert(message, completionHandler: nil)
-            
-            // Dismiss the app
-//            self.dismiss()
         
         }
     
@@ -300,64 +318,7 @@ class MessagesViewController: MSMessagesAppViewController {
             
             // Create a message and insert it in the conversation
             createNewMessage()
-            
-//            // Add 0.5s delay to generating the message, for animations to complete
-//            let when = DispatchTime.now() + 0.5
-//            DispatchQueue.main.asyncAfter(deadline: when){
-//                
-//                if self.game.gameInfo.session == nil {
-//                    self.game.gameInfo.session = MSSession()
-//                }
-//                
-//                // Create a message
-//                let message = MSMessage(session: self.game.gameInfo.session!)
-//                
-//                // Create a layout
-//                let layout = MSMessageTemplateLayout()
-//                
-//                // Create and assign the image for the message bubble
-//                
-//                // Begins ImageContect and assigns actual image size in points (pixels per scale)
-//                UIGraphicsBeginImageContextWithOptions(CGSize(width: 150, height: 175), false, 6.0)
-//                
-//                // Creates image of full boardView at size shown and placed at x/y coords from top left within above image image size -- will have black borders if above line set to false, white if true
-//                self.boardView.drawHierarchy(in: CGRect(x: 0, y: 25, width: 150, height: 150), afterScreenUpdates: false)
-//
-//                // Assign image to layout
-//                layout.image = UIGraphicsGetImageFromCurrentImageContext()
-//                
-//                // Ends ImageContext
-//                UIGraphicsEndImageContext()
-//                
-//                // Assign the appropriate caption
-//                if self.game.gameInfo.newGame == true {
-//                    layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
-//                    self.game.gameInfo.newGame = false
-//                }
-//                else if self.game.gameInfo.gameWon?.isWin == true {
-//                    layout.caption = "I win!"
-//                }
-//                else {
-//                    layout.caption = "$\(self.activeConversation!.localParticipantIdentifier.uuidString) played. Your turn!"
-//                }
-//                                
-//                // Assign the layout to the message
-//                message.layout = layout
-//                
-//                // Assign the gameInfo URL
-//                message.url = self.parser.encodeURL(gameInfo: self.game.gameInfo)
-//                
-//                // If in expanded view, transition to compact view
-//                if self.presentationStyle == .expanded {
-//                    self.requestPresentationStyle(.compact)
-//                }
-//                
-//                // Insert the mesage into the conversation
-//                guard let conversation = self.activeConversation else { fatalError("Expected an active converstation!") }
-//                conversation.insert(message, completionHandler: nil)
-//                
-//            }
-            
+                        
         }
         
     }
@@ -368,6 +329,7 @@ class MessagesViewController: MSMessagesAppViewController {
             
             // Reject if you already sent the message
             guard didYouSend == false else {
+                print("You already hit send!")
                 return
             }
             

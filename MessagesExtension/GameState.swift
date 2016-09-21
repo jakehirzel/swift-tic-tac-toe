@@ -8,13 +8,11 @@
 //  Abstract: Structs to hold game state information.
 
 import Foundation
-import Messages
 
 // Struct to hold game info
 struct GameInfo {
     var players: [String: String] = [:] // Stores UUIDstring and player's letter
     var newGame: Bool = true
-    var session: MSSession?
     var lastMove: NewMove?
     var gameWon: Win?
     var gameBoard: [[String]] = Array(repeating: Array(repeating: "?", count: 3), count: 3)
