@@ -142,9 +142,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-jD-KGW">
-                                <frame key="frameInset" minX="28" minY="203" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-jD-KGW">
                                 <state key="normal" title="NEW">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -152,9 +150,7 @@
                                     <action selector="newGameTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="mw3-Vh-XfH"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6A-nT-gqw">
-                                <frame key="frameInset" minX="258" minY="203" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6A-nT-gqw">
                                 <state key="normal" title="CLOSE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -168,7 +164,11 @@
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="5xN-bd-cVR"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" constant="-22" id="Bms-Wy-Rbh"/>
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="top" secondItem="LKB-ue-NLg" secondAttribute="bottom" constant="8" id="ITa-1H-blC"/>
+                            <constraint firstItem="W6A-nT-gqw" firstAttribute="centerY" secondItem="LKB-ue-NLg" secondAttribute="centerY" id="SYY-3g-wxT"/>
+                            <constraint firstItem="W6A-nT-gqw" firstAttribute="leading" secondItem="LKB-ue-NLg" secondAttribute="trailing" constant="8" id="VtB-6J-QBZ"/>
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="Wm9-Ko-wcB"/>
+                            <constraint firstItem="LKB-ue-NLg" firstAttribute="leading" secondItem="CWX-jD-KGW" secondAttribute="trailing" constant="8" id="vxd-2X-ooU"/>
+                            <constraint firstItem="CWX-jD-KGW" firstAttribute="centerY" secondItem="LKB-ue-NLg" secondAttribute="centerY" id="wqT-MN-0zR"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="oY6-J4-jw7" appends="YES" id="DTJ-jr-c9d"/>
