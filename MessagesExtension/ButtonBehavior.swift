@@ -27,12 +27,16 @@ class ButtonBehavior {
             switch eachButton.value {
             case .play:
                 eachButton.key.setTitle(eachButton.value.rawValue, for: UIControlState.normal)
+                eachButton.key.isHidden = false
             case .undo:
                 eachButton.key.setTitle(eachButton.value.rawValue, for: UIControlState.normal)
+                eachButton.key.isHidden = false
             case .newGame:
                 eachButton.key.setTitle(eachButton.value.rawValue, for: UIControlState.normal)
+                eachButton.key.isHidden = false
             case .close:
                 eachButton.key.setTitle(eachButton.value.rawValue, for: UIControlState.normal)
+                eachButton.key.isHidden = false
             case .hidden:
                 eachButton.key.isHidden = true
             }

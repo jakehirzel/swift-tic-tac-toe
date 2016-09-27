@@ -40,10 +40,11 @@ class MessagesViewController: MSMessagesAppViewController {
         
         loadGame(conversation: conversation)
         
-        // Disable undo and change instructionLabel if already played
+        // Disable undo and change instructionLabel and buttons if already played
         if game.gameInfo.lastMove?.playerUUID == conversation.localParticipantIdentifier.uuidString {
             didYouSend = true
             instructionLabel.text = "Already played!"
+            buttonBehavior.drawButtons(buttons: [buttonOne: .close, buttonTwo: .hidden, buttonThree: .hidden])
         }
         
     }
@@ -203,6 +204,20 @@ class MessagesViewController: MSMessagesAppViewController {
         }
     }
     
+    // Update the instructionLabel with a fadeOut() / fadeIn()
+    func crossfadeLabel(label: UILabel, newText: String) {
+        
+        // Fade out the label
+        label.fadeOut()
+        
+        // Update the text
+        label.text = newText
+        
+        // Fade in the label
+        label.fadeIn()
+        
+    }
+    
     // Draw the win
     func drawTheWin(buttonOne: Int, buttonTwo: Int, buttonThree: Int) {
         for button in squareCollection {
@@ -323,21 +338,23 @@ class MessagesViewController: MSMessagesAppViewController {
                 drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
                 
                 // Update the instructionLabel
-                instructionLabel.text = "You win! Press PLAY to commit your move!"
+                crossfadeLabel(label: instructionLabel, newText: "You win! Press PLAY to commit your move!")
                 
             }
             
-            // Otherwise update the instructionLabel
+            // Otherwise update the instructionLabel and pulse the PLAY button
             else {
-                instructionLabel.text = "Press PLAY to commit your move."
+                crossfadeLabel(label: instructionLabel, newText: "Press PLAY to commit your move.")
+                buttonOne.pulseOnce(delay: 0.5)
+                
             }
             
         }
         
-        // Otherwise change the instructionLabel to show the error
-        else {
-            instructionLabel.text = validMove.instructionalMessage
-        }
+//        // Otherwise change the instructionLabel to show the error
+//        else {
+//            crossfadeLabel(label: instructionLabel, newText: validMove.instructionalMessage)
+//        }
         
     }
     
@@ -351,7 +368,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 createNewMessage()
                 
                 // Change instructions to prompt to send
-                instructionLabel.text = "Send the message to play your turn."
+                crossfadeLabel(label: instructionLabel, newText: "Send the message to play your turn.")
 
             }
 
@@ -366,7 +383,7 @@ class MessagesViewController: MSMessagesAppViewController {
             // Reject if you already sent the message
             guard didYouSend == false else {
                 print("You already hit send!")
-                instructionLabel.text = "You already hit send!"
+                crossfadeLabel(label: instructionLabel, newText: "You already hit send!")
                 return
             }
             
@@ -377,7 +394,7 @@ class MessagesViewController: MSMessagesAppViewController {
             redrawBoard(gameInfo: game.gameInfo)
             
             // Update instuctionLabel
-            instructionLabel.text = "Select another move."
+            crossfadeLabel(label: instructionLabel, newText: "Select another move.")
             
         }
             
@@ -425,7 +442,7 @@ class MessagesViewController: MSMessagesAppViewController {
             redrawBoard(gameInfo: game.gameInfo)
             
             // Update instuctionLabel
-            instructionLabel.text = "Select another move."
+            crossfadeLabel(label: instructionLabel, newText: "Select another move.")
             
 //            // Clear the unsent message
 //            let message = MSMessage()

@@ -19,6 +19,7 @@
 		238120C71D82FB5C00134AD9 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 238120C61D82FB5C00134AD9 /* License.rtf */; };
 		238120C81D82FB5C00134AD9 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 238120C61D82FB5C00134AD9 /* License.rtf */; };
 		23CE52511D9AEB68000EE925 /* ButtonBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE52501D9AEB68000EE925 /* ButtonBehavior.swift */; };
+		23CE52531D9B12BB000EE925 /* CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE52521D9B12BB000EE925 /* CustomAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		232953C91D81019F009FB8A7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		238120C61D82FB5C00134AD9 /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
 		23CE52501D9AEB68000EE925 /* ButtonBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBehavior.swift; sourceTree = "<group>"; };
+		23CE52521D9B12BB000EE925 /* CustomAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				232953C31D80E834009FB8A7 /* GameLogic.swift */,
 				232953C91D81019F009FB8A7 /* GameState.swift */,
 				23CE52501D9AEB68000EE925 /* ButtonBehavior.swift */,
+				23CE52521D9B12BB000EE925 /* CustomAnimation.swift */,
 				232953B71D80BC83009FB8A7 /* Assets.xcassets */,
 				232953B91D80BC83009FB8A7 /* Info.plist */,
 			);
@@ -236,6 +239,7 @@
 				23CE52511D9AEB68000EE925 /* ButtonBehavior.swift in Sources */,
 				232953B31D80BC83009FB8A7 /* MessagesViewController.swift in Sources */,
 				232953C61D80E89C009FB8A7 /* MoveParser.swift in Sources */,
+				23CE52531D9B12BB000EE925 /* CustomAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
