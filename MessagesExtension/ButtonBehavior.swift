@@ -13,6 +13,7 @@ enum ButtonTypes: String {
     case play = "PLAY"
     case undo = "UNDO"
     case newGame = "NEW GAME"
+    case close = "CLOSE"
     case hidden = "HIDDEN"
 }
 
@@ -29,6 +30,8 @@ class ButtonBehavior {
             case .undo:
                 eachButton.key.setTitle(eachButton.value.rawValue, for: UIControlState.normal)
             case .newGame:
+                eachButton.key.setTitle(eachButton.value.rawValue, for: UIControlState.normal)
+            case .close:
                 eachButton.key.setTitle(eachButton.value.rawValue, for: UIControlState.normal)
             case .hidden:
                 eachButton.key.isHidden = true

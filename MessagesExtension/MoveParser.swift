@@ -89,8 +89,8 @@ class MoveParser {
         // Add newGame
         urlComponents.queryItems?.append(URLQueryItem(name: "newGame", value: String(describing: gameInfo.newGame)))
         
-        // Add session
-//        urlComponents.queryItems?.append(URLQueryItem(name: "session", value: String(describing: gameInfo.session!)))
+        // Add gameWon
+        urlComponents.queryItems?.append(URLQueryItem(name: "gameWon", value: String(describing: gameInfo.gameWon?.isWin)))
         
         // Add last move UUID
         urlComponents.queryItems?.append(URLQueryItem(name: "lastMoveUUID", value: gameInfo.lastMove!.playerUUID))
@@ -151,8 +151,8 @@ class MoveParser {
                 gameInfo.gameBoard[2][2] = queryItem.element.value!
             case "newGame":
                 gameInfo.newGame = Bool(queryItem.element.value!)!
-//            case "session":
-//                gameInfo.session = nil
+            case "gameWon":
+                gameInfo.gameWon?.isWin = Bool(queryItem.element.value!)!
             case "lastMoveUUID":
                 lastMove.playerUUID = queryItem.element.value!
             case "lastMoveLetter":

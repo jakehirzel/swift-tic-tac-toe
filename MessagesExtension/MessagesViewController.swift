@@ -123,9 +123,10 @@ class MessagesViewController: MSMessagesAppViewController {
         // Check for existing conversation URL
         guard conversation.selectedMessage?.url != nil else {
             
-            // Set the board to ? for a new game
+            // Set the board to ? for a new game and make sure all letters are white
             for square in squareCollection {
                 square.setTitle("?", for: UIControlState.normal)
+                square.setTitleColor(UIColor.white, for: UIControlState.normal)
             }
             
             // Set the buttons for regular play
@@ -138,23 +139,39 @@ class MessagesViewController: MSMessagesAppViewController {
             
         }
         
-        // Overwrite local gameInfo with URL values
+        // Otherwise, overwrite local gameInfo with URL values
         game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
         
-        // If this is player two and the first play, fill UUID into players, claim "O", set newGame to false
-        if game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] == nil {
-            game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "O"
-            game.gameInfo.newGame = false
-        }
-        
-        // Assign the session info from the incoming message
-        currentSession = conversation.selectedMessage?.session
-        
-        // Update view to reflect previous plays
+        // Redraw the board to reflect previous plays
         redrawBoard(gameInfo: game.gameInfo)
         
-        // Set the buttons for regular play
-        buttonBehavior.drawButtons(buttons: [buttonOne: .play, buttonTwo: .undo, buttonThree: .hidden])
+        // If the game is won, show the win, and adjust buttons to allow for a new game
+        if game.gameInfo.gameWon?.isWin == true {
+            
+            // Update the instructionLabel
+            instructionLabel.text = "Game Over!"
+            
+            // Update the buttons
+            buttonBehavior.drawButtons(buttons: [buttonOne: .newGame, buttonTwo: .close, buttonThree: .hidden])
+
+        }
+        
+        // Otherwise get ready for another round
+        else {
+            
+            // If this is player two and the first play, fill UUID into players, claim "O", set newGame to false
+            if game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] == nil {
+                game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "O"
+                game.gameInfo.newGame = false
+            }
+            
+            // Assign the session info from the incoming message
+            currentSession = conversation.selectedMessage?.session
+            
+            // Set the buttons for regular play
+            buttonBehavior.drawButtons(buttons: [buttonOne: .play, buttonTwo: .undo, buttonThree: .hidden])
+            
+        }
         
     }
     
@@ -306,7 +323,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
                 
                 // Update the instructionLabel
-                instructionLabel.text = "You win!"
+                instructionLabel.text = "You win! Press PLAY to commit your move!"
                 
             }
             
@@ -362,19 +379,27 @@ class MessagesViewController: MSMessagesAppViewController {
             // Update instuctionLabel
             instructionLabel.text = "Select another move."
             
-            // Clear the unsent message
-            let message = MSMessage()
-            activeConversation?.insert(message, completionHandler: nil)
+        }
+            
+        else if sender.titleLabel?.text == "NEW GAME" {
+            
+            // Reset the GameInfo
+            game = GameLogic()
+            
+            // Load a new game
+            guard activeConversation != nil else {
+                return
+            }
+            loadGame(conversation: activeConversation!)
             
         }
             
-//        else if sender.titleLabel?.text == "NEW GAME" {
-//            game = GameLogic()
-//            guard activeConversation != nil else {
-//                return
-//            }
-//            loadGame(conversation: activeConversation!)
-//        }
+        else if sender.titleLabel?.text == "CLOSE" {
+            
+            // Dismiss the app
+            dismiss()
+            
+        }
             
         else {
             return
@@ -399,9 +424,12 @@ class MessagesViewController: MSMessagesAppViewController {
             // Redraw the board from the array
             redrawBoard(gameInfo: game.gameInfo)
             
-            // Clear the unsent message
-            let message = MSMessage()
-            activeConversation?.insert(message, completionHandler: nil)
+            // Update instuctionLabel
+            instructionLabel.text = "Select another move."
+            
+//            // Clear the unsent message
+//            let message = MSMessage()
+//            activeConversation?.insert(message, completionHandler: nil)
             
 //            // Refresh the message
 //            createNewMessage()
@@ -411,26 +439,4 @@ class MessagesViewController: MSMessagesAppViewController {
 
         }
     }
-
-//    @IBAction func newGameTapped(_ sender: UIButton) {
-//        
-//        // Reset gameInfo
-//        game.gameInfo = GameInfo()
-//        
-//        // Redraw the board
-//        redrawBoard(gameInfo: game.gameInfo)
-//        
-//        // Hide "New" and "Close" buttons
-//        newGameButton.isHidden = true
-//        closeButton.isHidden = true
-//        
-//    }
-//    
-//    @IBAction func closeButtonTapped(_ sender: UIButton) {
-//        
-//        // Dismiss the app
-//        dismiss()
-//
-//    }
-    
 }
