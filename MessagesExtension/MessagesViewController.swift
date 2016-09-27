@@ -16,10 +16,11 @@ class MessagesViewController: MSMessagesAppViewController {
     
     @IBOutlet var squareCollection: [UIButton]!
     @IBOutlet weak var boardView: UIView!
-    @IBOutlet weak var expandedInstructionLabel: UILabel!
+    @IBOutlet weak var instructionLabel: UILabel!
     
-    @IBOutlet weak var newGameButton: UIButton!
-    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var buttonOne: UIButton!
+    @IBOutlet weak var buttonTwo: UIButton!
+    @IBOutlet weak var buttonThree: UIButton!
 
     
     // Initialize instance of MoveParser and GameLogic; set up new board
@@ -51,13 +52,13 @@ class MessagesViewController: MSMessagesAppViewController {
         // Use this method to finalize any behaviors associated with the change in presentation style.
         
         // Make instruction line visible in expanded view
-        if presentationStyle == .expanded && expandedInstructionLabel.isHidden == true {
-            expandedInstructionLabel.isHidden = false
+        if presentationStyle == .expanded && instructionLabel.isHidden == true {
+            instructionLabel.isHidden = false
         }
         
         // Make sure it's invisible in compact view
-        if presentationStyle == .compact && expandedInstructionLabel.isHidden == false {
-            expandedInstructionLabel.isHidden = true
+        if presentationStyle == .compact && instructionLabel.isHidden == false {
+            instructionLabel.isHidden = true
         }
         
     }
@@ -127,8 +128,8 @@ class MessagesViewController: MSMessagesAppViewController {
     func loadGame(conversation: MSConversation) {
         
         // Make instruction line visible in expanded view
-        if presentationStyle == .expanded && expandedInstructionLabel.isHidden == true {
-            expandedInstructionLabel.isHidden = false
+        if presentationStyle == .expanded && instructionLabel.isHidden == true {
+            instructionLabel.isHidden = false
         }
         
         // Check for existing conversation URL
@@ -310,9 +311,9 @@ class MessagesViewController: MSMessagesAppViewController {
                 // Draw the "win" in black
                 drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
                 
-                // Unhide "New" and "Close" buttons
-                newGameButton.isHidden = false
-                closeButton.isHidden = false
+//                // Unhide "New" and "Close" buttons
+//                newGameButton.isHidden = false
+//                closeButton.isHidden = false
 
             }
             
@@ -321,6 +322,18 @@ class MessagesViewController: MSMessagesAppViewController {
                         
         }
         
+    }
+    
+    @IBAction func buttonOneTapped(_ sender: UIButton) {
+    
+    }
+    
+    @IBAction func buttonTwoTapped(_ sender: UIButton) {
+    
+    }
+    
+    @IBAction func buttonThreeTapped(_ sender: UIButton) {
+    
     }
     
     @IBAction func longTapToUndo(_ sender: UILongPressGestureRecognizer) {
@@ -365,25 +378,25 @@ class MessagesViewController: MSMessagesAppViewController {
         }
     }
 
-    @IBAction func newGameTapped(_ sender: UIButton) {
-        
-        // Reset gameInfo
-        game.gameInfo = GameInfo()
-        
-        // Redraw the board
-        redrawBoard(gameInfo: game.gameInfo)
-        
-        // Hide "New" and "Close" buttons
-        newGameButton.isHidden = true
-        closeButton.isHidden = true
-        
-    }
-    
-    @IBAction func closeButtonTapped(_ sender: UIButton) {
-        
-        // Dismiss the app
-        dismiss()
-
-    }
+//    @IBAction func newGameTapped(_ sender: UIButton) {
+//        
+//        // Reset gameInfo
+//        game.gameInfo = GameInfo()
+//        
+//        // Redraw the board
+//        redrawBoard(gameInfo: game.gameInfo)
+//        
+//        // Hide "New" and "Close" buttons
+//        newGameButton.isHidden = true
+//        closeButton.isHidden = true
+//        
+//    }
+//    
+//    @IBAction func closeButtonTapped(_ sender: UIButton) {
+//        
+//        // Dismiss the app
+//        dismiss()
+//
+//    }
     
 }
