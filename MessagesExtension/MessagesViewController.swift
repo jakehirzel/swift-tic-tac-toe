@@ -51,15 +51,15 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // Use this method to finalize any behaviors associated with the change in presentation style.
         
-        // Make instruction line visible in expanded view
-        if presentationStyle == .expanded && instructionLabel.isHidden == true {
-            instructionLabel.isHidden = false
-        }
-        
-        // Make sure it's invisible in compact view
-        if presentationStyle == .compact && instructionLabel.isHidden == false {
-            instructionLabel.isHidden = true
-        }
+//        // Make instruction line visible in expanded view
+//        if presentationStyle == .expanded && instructionLabel.isHidden == true {
+//            instructionLabel.isHidden = false
+//        }
+//        
+//        // Make sure it's invisible in compact view
+//        if presentationStyle == .compact && instructionLabel.isHidden == false {
+//            instructionLabel.isHidden = true
+//        }
         
     }
     
@@ -127,10 +127,10 @@ class MessagesViewController: MSMessagesAppViewController {
     // Load a game in a conversation
     func loadGame(conversation: MSConversation) {
         
-        // Make instruction line visible in expanded view
-        if presentationStyle == .expanded && instructionLabel.isHidden == true {
-            instructionLabel.isHidden = false
-        }
+//        // Make instruction line visible in expanded view
+//        if presentationStyle == .expanded && instructionLabel.isHidden == true {
+//            instructionLabel.isHidden = false
+//        }
         
         // Check for existing conversation URL
         guard conversation.selectedMessage?.url != nil else {
@@ -300,21 +300,12 @@ class MessagesViewController: MSMessagesAppViewController {
             if game.gameInfo.gameWon?.isWin == true {
                 print("You win!")
                 
-//                // Load gameOverView
-//                let gameOverView: MessagesViewController = self.storyboard?.instantiateViewController(withIdentifier: "gameOver") as! MessagesViewController
-//                gameOverView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//                self.present(gameOverView, animated: true, completion: nil)
-                
                 // Parse the button ids for the win
                 let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon?.winType!)!, winIndex: game.gameInfo.gameWon?.winIndex)
                 
                 // Draw the "win" in black
                 drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
                 
-//                // Unhide "New" and "Close" buttons
-//                newGameButton.isHidden = false
-//                closeButton.isHidden = false
-
             }
             
             // Create a message and insert it in the conversation
@@ -325,15 +316,15 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     @IBAction func buttonOneTapped(_ sender: UIButton) {
-    
+        return
     }
     
     @IBAction func buttonTwoTapped(_ sender: UIButton) {
-    
+        return
     }
     
     @IBAction func buttonThreeTapped(_ sender: UIButton) {
-    
+        return
     }
     
     @IBAction func longTapToUndo(_ sender: UILongPressGestureRecognizer) {
@@ -372,7 +363,7 @@ class MessagesViewController: MSMessagesAppViewController {
             let message = MSMessage()
             activeConversation?.insert(message, completionHandler: nil)
             
-            // Create a text message
+//            // Create a text message
 //            activeConversation?.insertText("Hmmmm. Thinking!", completionHandler: nil)
 
         }

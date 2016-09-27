@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKB-ue-NLg">
@@ -138,7 +138,7 @@
                                     <constraint firstItem="0R8-Y2-Sk0" firstAttribute="baseline" secondItem="lUI-3C-zcp" secondAttribute="baseline" id="zZc-wc-TBt"/>
                                 </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-jD-KGW" userLabel="Button One">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-jD-KGW" userLabel="Button One">
                                 <state key="normal" title="BUTTON 1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -146,7 +146,7 @@
                                     <action selector="buttonOneTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="Wd8-Sb-YUN"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6A-nT-gqw" userLabel="Button Two">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6A-nT-gqw" userLabel="Button Two">
                                 <state key="normal" title="BUTTON 2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -154,12 +154,12 @@
                                     <action selector="buttonTwoTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="WXp-MS-7LG"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a “square” to play." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg" userLabel="Instruction Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a “square” to play." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg" userLabel="Instruction Label">
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Italic" family="Avenir Next Condensed" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqQ-tx-cr5" userLabel="Button Three">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqQ-tx-cr5" userLabel="Button Three">
                                 <state key="normal" title="BUTTON 3">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -192,7 +192,7 @@
                         <outlet property="buttonOne" destination="CWX-jD-KGW" id="g0T-K2-dXS"/>
                         <outlet property="buttonThree" destination="qqQ-tx-cr5" id="cBM-rF-TX0"/>
                         <outlet property="buttonTwo" destination="W6A-nT-gqw" id="h7T-f5-UIt"/>
-                        <outlet property="expandedInstructionLabel" destination="cah-nx-Kkg" id="FtR-Ty-7Ej"/>
+                        <outlet property="instructionLabel" destination="cah-nx-Kkg" id="v7s-in-Yhq"/>
                         <outletCollection property="squareCollection" destination="1JQ-8h-lEl" collectionClass="NSMutableArray" id="eyw-1C-Pho"/>
                         <outletCollection property="squareCollection" destination="hV5-fD-m0E" collectionClass="NSMutableArray" id="GwR-dZ-1co"/>
                         <outletCollection property="squareCollection" destination="CdY-Lu-pqR" collectionClass="NSMutableArray" id="T2X-vE-mSh"/>
