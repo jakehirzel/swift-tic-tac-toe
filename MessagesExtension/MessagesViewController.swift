@@ -23,10 +23,11 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var buttonThree: UIButton!
 
     
-    // Initialize instance of MoveParser and GameLogic; set up new board
+    // Initialize instance of MoveParser, GameLogic, and ButtonBehavior; set up new board
     let parser = MoveParser()
-    let game = GameLogic()
-    
+    var game = GameLogic()
+    var buttonBehavior = ButtonBehavior()
+        
     // Create a Bool to track when a user presses "Send"
     var didYouSend = false
     
@@ -39,27 +40,11 @@ class MessagesViewController: MSMessagesAppViewController {
         
         loadGame(conversation: conversation)
         
-        // Disable undo if already played
+        // Disable undo and change instructionLabel if already played
         if game.gameInfo.lastMove?.playerUUID == conversation.localParticipantIdentifier.uuidString {
             didYouSend = true
+            instructionLabel.text = "Already played!"
         }
-        
-    }
-    
-    override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called after the extension transitions to a new presentation style.
-        
-        // Use this method to finalize any behaviors associated with the change in presentation style.
-        
-//        // Make instruction line visible in expanded view
-//        if presentationStyle == .expanded && instructionLabel.isHidden == true {
-//            instructionLabel.isHidden = false
-//        }
-//        
-//        // Make sure it's invisible in compact view
-//        if presentationStyle == .compact && instructionLabel.isHidden == false {
-//            instructionLabel.isHidden = true
-//        }
         
     }
     
@@ -89,6 +74,14 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called before the extension transitions to a new presentation style.
+    }
+    
+    
+    override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        // Called after the extension transitions to a new presentation style.
+        
+        // Use this method to finalize any behaviors associated with the change in presentation style.
+        
     }
     
     override func didResignActive(with conversation: MSConversation) {
@@ -127,11 +120,6 @@ class MessagesViewController: MSMessagesAppViewController {
     // Load a game in a conversation
     func loadGame(conversation: MSConversation) {
         
-//        // Make instruction line visible in expanded view
-//        if presentationStyle == .expanded && instructionLabel.isHidden == true {
-//            instructionLabel.isHidden = false
-//        }
-        
         // Check for existing conversation URL
         guard conversation.selectedMessage?.url != nil else {
             
@@ -139,6 +127,9 @@ class MessagesViewController: MSMessagesAppViewController {
             for square in squareCollection {
                 square.setTitle("?", for: UIControlState.normal)
             }
+            
+            // Set the buttons for regular play
+            buttonBehavior.drawButtons(buttons: [buttonOne: .play, buttonTwo: .undo, buttonThree: .hidden])
             
             // Claim the "X" and associate it with local UUID
             game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "X"
@@ -161,6 +152,9 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // Update view to reflect previous plays
         redrawBoard(gameInfo: game.gameInfo)
+        
+        // Set the buttons for regular play
+        buttonBehavior.drawButtons(buttons: [buttonOne: .play, buttonTwo: .undo, buttonThree: .hidden])
         
     }
     
@@ -286,9 +280,14 @@ class MessagesViewController: MSMessagesAppViewController {
 
         // Play the turn and record any valid (i.e. true) moves on the board
         let validMove = game.playTurn(board: &game.gameInfo.gameBoard, move: move)
+        
+//        // If in expanded view, transition to compact view
+//        if self.presentationStyle == .expanded {
+//            self.requestPresentationStyle(.compact)
+//        }
     
         // Update the view for a play or a win
-        if validMove == true {
+        if validMove.validPlay == true {
 
             // Change the label on the square
             sender.setTitle(playerLetter, for: UIControlState.normal)
@@ -306,26 +305,83 @@ class MessagesViewController: MSMessagesAppViewController {
                 // Draw the "win" in black
                 drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
                 
+                // Update the instructionLabel
+                instructionLabel.text = "You win!"
+                
             }
             
-            // Create a message and insert it in the conversation
-            createNewMessage()
-                        
+            // Otherwise update the instructionLabel
+            else {
+                instructionLabel.text = "Press PLAY to commit your move."
+            }
+            
+        }
+        
+        // Otherwise change the instructionLabel to show the error
+        else {
+            instructionLabel.text = validMove.instructionalMessage
         }
         
     }
     
-    @IBAction func buttonOneTapped(_ sender: UIButton) {
-        return
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        
+        if sender.titleLabel?.text == "PLAY" {
+            
+            if game.gameInfo.lastMove != nil && didYouSend == false {
+                                
+                // Insert the message into the conversation
+                createNewMessage()
+                
+                // Change instructions to prompt to send
+                instructionLabel.text = "Send the message to play your turn."
+
+            }
+
+            else {
+                return
+            }
+            
+        }
+            
+        else if sender.titleLabel?.text == "UNDO" {
+            
+            // Reject if you already sent the message
+            guard didYouSend == false else {
+                print("You already hit send!")
+                instructionLabel.text = "You already hit send!"
+                return
+            }
+            
+            // Undo the play
+            game.undoPlay()
+            
+            // Redraw the board from the array
+            redrawBoard(gameInfo: game.gameInfo)
+            
+            // Update instuctionLabel
+            instructionLabel.text = "Select another move."
+            
+            // Clear the unsent message
+            let message = MSMessage()
+            activeConversation?.insert(message, completionHandler: nil)
+            
+        }
+            
+//        else if sender.titleLabel?.text == "NEW GAME" {
+//            game = GameLogic()
+//            guard activeConversation != nil else {
+//                return
+//            }
+//            loadGame(conversation: activeConversation!)
+//        }
+            
+        else {
+            return
+        }
+        
     }
-    
-    @IBAction func buttonTwoTapped(_ sender: UIButton) {
-        return
-    }
-    
-    @IBAction func buttonThreeTapped(_ sender: UIButton) {
-        return
-    }
+
     
     @IBAction func longTapToUndo(_ sender: UILongPressGestureRecognizer) {
         
@@ -337,31 +393,18 @@ class MessagesViewController: MSMessagesAppViewController {
                 return
             }
             
-            // Reject if lastMove is nil
-            guard game.gameInfo.lastMove != nil else {
-                return
-            }
-
-            // Reset the coordinates from lastMove in the board array to ?
-            game.gameInfo.gameBoard[(game.gameInfo.lastMove?.columnPlayed)!][(game.gameInfo.lastMove?.rowPlayed)!] = "?"
-            
-            // If board array is reset to all ?s, reset newGame to true
-            if game.checkForEmptyBoard(board: game.gameInfo.gameBoard) == true {
-                game.gameInfo.newGame = true
-            }
+            // Undo the play
+            game.undoPlay()
             
             // Redraw the board from the array
             redrawBoard(gameInfo: game.gameInfo)
             
-            // Make lastMove = nil
-            game.gameInfo.lastMove = nil
-            
-//            // Refresh the message
-//            createNewMessage()
-
             // Clear the unsent message
             let message = MSMessage()
             activeConversation?.insert(message, completionHandler: nil)
+            
+//            // Refresh the message
+//            createNewMessage()
             
 //            // Create a text message
 //            activeConversation?.insertText("Hmmmm. Thinking!", completionHandler: nil)

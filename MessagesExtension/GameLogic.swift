@@ -15,24 +15,24 @@ class GameLogic {
     var gameInfo = GameInfo()
     
     // To play a turn
-    func playTurn(board: inout [[String]], move: NewMove) -> Bool {
+    func playTurn(board: inout [[String]], move: NewMove) -> (validPlay: Bool, instructionalMessage: String) {
         
         // Check that there has not already been a play during this turn
         if gameInfo.lastMove?.playerUUID == move.playerUUID {
             print("Already played this round!")
-            return false
+            return (false, "Aready played this round!")
         }
         
         // Check for anything out of bounds
         guard move.columnPlayed < 3 && move.rowPlayed < 3 else {
             print("Game limited to 3 x 3 square!")
-            return false
+            return (false, "Game limited to 3 x 3 square!")
         }
         
         // Check for occupied square
         guard board[move.columnPlayed][move.rowPlayed] == "?" else {
             print("Square already occupied!")
-            return false
+            return (false, "Sqaure already occupied!")
         }
         
         // Record the valid play in the board array
@@ -42,9 +42,31 @@ class GameLogic {
         gameInfo.lastMove = move
         
         // If we've made it this far:
-        return true
+        return (true, "")
         
     }
+    
+    // To undo a play
+    func undoPlay() {
+                
+        // Reject if lastMove is nil
+        guard gameInfo.lastMove != nil else {
+            return
+        }
+        
+        // Reset the coordinates from lastMove in the board array to ?
+        gameInfo.gameBoard[(gameInfo.lastMove?.columnPlayed)!][(gameInfo.lastMove?.rowPlayed)!] = "?"
+        
+        // If board array is reset to all ?s, reset newGame to true
+        if checkForEmptyBoard(board: gameInfo.gameBoard) == true {
+            gameInfo.newGame = true
+        }
+        
+        // Make lastMove = nil
+        gameInfo.lastMove = nil
+        
+    }
+    
     
     // To check for a win
     func checkForWin(board: [[String]], move: NewMove) -> Win {

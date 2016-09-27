@@ -18,6 +18,7 @@
 		232953CA1D81019F009FB8A7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232953C91D81019F009FB8A7 /* GameState.swift */; };
 		238120C71D82FB5C00134AD9 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 238120C61D82FB5C00134AD9 /* License.rtf */; };
 		238120C81D82FB5C00134AD9 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 238120C61D82FB5C00134AD9 /* License.rtf */; };
+		23CE52511D9AEB68000EE925 /* ButtonBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE52501D9AEB68000EE925 /* ButtonBehavior.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		232953C51D80E89C009FB8A7 /* MoveParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveParser.swift; sourceTree = "<group>"; };
 		232953C91D81019F009FB8A7 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		238120C61D82FB5C00134AD9 /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
+		23CE52501D9AEB68000EE925 /* ButtonBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				232953C51D80E89C009FB8A7 /* MoveParser.swift */,
 				232953C31D80E834009FB8A7 /* GameLogic.swift */,
 				232953C91D81019F009FB8A7 /* GameState.swift */,
+				23CE52501D9AEB68000EE925 /* ButtonBehavior.swift */,
 				232953B71D80BC83009FB8A7 /* Assets.xcassets */,
 				232953B91D80BC83009FB8A7 /* Info.plist */,
 			);
@@ -230,6 +233,7 @@
 			files = (
 				232953C41D80E834009FB8A7 /* GameLogic.swift in Sources */,
 				232953CA1D81019F009FB8A7 /* GameState.swift in Sources */,
+				23CE52511D9AEB68000EE925 /* ButtonBehavior.swift in Sources */,
 				232953B31D80BC83009FB8A7 /* MessagesViewController.swift in Sources */,
 				232953C61D80E89C009FB8A7 /* MoveParser.swift in Sources */,
 			);

@@ -25,7 +25,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="55" id="1Sb-N0-NhQ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <state key="normal" title="X">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -34,7 +34,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV5-fD-m0E" userLabel="1-0">
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <state key="normal" title="O">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -43,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CdY-Lu-pqR" userLabel="2-0">
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <state key="normal" title="X">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -52,7 +52,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4je-6g-aCn" userLabel="0-1">
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <state key="normal" title="O">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -61,7 +61,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA5-EB-ash" userLabel="1-1">
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <state key="normal" title="?">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -70,7 +70,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRT-ZK-Z2n" userLabel="2-1">
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <state key="normal" title="O">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -79,7 +79,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R8-Y2-Sk0" userLabel="0-2">
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <state key="normal" title="X">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -88,7 +88,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-3C-zcp" userLabel="1-2">
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <state key="normal" title="O">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -97,7 +97,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq5-ew-JUu" userLabel="2-2">
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                         <state key="normal" title="X">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -139,49 +139,51 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-jD-KGW" userLabel="Button One">
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                 <state key="normal" title="BUTTON 1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonOneTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="Wd8-Sb-YUN"/>
+                                    <action selector="buttonTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="rgq-kq-XVd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6A-nT-gqw" userLabel="Button Two">
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                 <state key="normal" title="BUTTON 2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonTwoTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="WXp-MS-7LG"/>
+                                    <action selector="buttonTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="2aw-39-fYA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a “square” to play." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg" userLabel="Instruction Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a “square” to select your move." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg" userLabel="Instruction Label">
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Italic" family="Avenir Next Condensed" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqQ-tx-cr5" userLabel="Button Three">
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                 <state key="normal" title="BUTTON 3">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonThreeTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="3qe-Ud-WgB"/>
+                                    <action selector="buttonTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="HAi-KE-LCW"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="cah-nx-Kkg" secondAttribute="leading" id="0rg-9t-CJ4"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="W6A-nT-gqw" secondAttribute="leading" id="BVX-8j-cbH"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="cah-nx-Kkg" secondAttribute="leading" id="BXO-5Z-GAJ"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" constant="-22" id="Bms-Wy-Rbh"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="CWX-jD-KGW" secondAttribute="leading" id="GYv-Af-ldy"/>
                             <constraint firstItem="W6A-nT-gqw" firstAttribute="top" secondItem="CWX-jD-KGW" secondAttribute="bottom" constant="8" id="MgP-bq-Wjo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LKB-ue-NLg" secondAttribute="trailing" id="USZ-ru-KUt"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="cah-nx-Kkg" secondAttribute="leading" id="akV-Nf-DZo"/>
-                            <constraint firstItem="cah-nx-Kkg" firstAttribute="bottom" secondItem="LKB-ue-NLg" secondAttribute="bottom" id="cbI-Wz-25o"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="qqQ-tx-cr5" secondAttribute="leading" id="jg8-3B-3aZ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="qqQ-tx-cr5" secondAttribute="leading" id="Usj-PE-h9U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LKB-ue-NLg" secondAttribute="trailing" id="Ykg-kk-Xed"/>
+                            <constraint firstItem="cah-nx-Kkg" firstAttribute="bottom" secondItem="LKB-ue-NLg" secondAttribute="bottom" constant="-10" id="cbI-Wz-25o"/>
                             <constraint firstItem="qqQ-tx-cr5" firstAttribute="top" secondItem="W6A-nT-gqw" secondAttribute="bottom" constant="8" id="m0b-zo-mvH"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="CWX-jD-KGW" secondAttribute="leading" id="o0a-i0-sFJ"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="leading" secondItem="cah-nx-Kkg" secondAttribute="trailing" constant="8" id="qLP-8K-FBn"/>
-                            <constraint firstItem="CWX-jD-KGW" firstAttribute="top" secondItem="1JQ-8h-lEl" secondAttribute="top" id="qvc-gY-ISY"/>
+                            <constraint firstItem="CWX-jD-KGW" firstAttribute="top" secondItem="1JQ-8h-lEl" secondAttribute="top" constant="10" id="qvc-gY-ISY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="W6A-nT-gqw" secondAttribute="leading" id="wI5-gP-78B"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="oY6-J4-jw7" appends="YES" id="DTJ-jr-c9d"/>
@@ -211,7 +213,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="232.5" y="-6.25"/>
+            <point key="canvasLocation" x="231.19999999999999" y="-6.746626686656672"/>
         </scene>
     </scenes>
 </document>
