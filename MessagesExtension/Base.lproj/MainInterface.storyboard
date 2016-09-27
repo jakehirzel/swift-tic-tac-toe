@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -173,17 +172,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="cah-nx-Kkg" secondAttribute="leading" id="BXO-5Z-GAJ"/>
+                            <constraint firstItem="qqQ-tx-cr5" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="24" id="8Aw-X2-n2q"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" constant="-22" id="Bms-Wy-Rbh"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="CWX-jD-KGW" secondAttribute="leading" id="GYv-Af-ldy"/>
                             <constraint firstItem="W6A-nT-gqw" firstAttribute="top" secondItem="CWX-jD-KGW" secondAttribute="bottom" constant="8" id="MgP-bq-Wjo"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="qqQ-tx-cr5" secondAttribute="leading" id="Usj-PE-h9U"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LKB-ue-NLg" secondAttribute="trailing" id="Ykg-kk-Xed"/>
+                            <constraint firstAttribute="trailing" secondItem="LKB-ue-NLg" secondAttribute="trailing" constant="16" id="QCk-Ws-Gaq"/>
+                            <constraint firstItem="W6A-nT-gqw" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="24" id="bhL-h5-TwZ"/>
+                            <constraint firstItem="CWX-jD-KGW" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="24" id="c2J-qs-vti"/>
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="bottom" secondItem="LKB-ue-NLg" secondAttribute="bottom" constant="-10" id="cbI-Wz-25o"/>
                             <constraint firstItem="qqQ-tx-cr5" firstAttribute="top" secondItem="W6A-nT-gqw" secondAttribute="bottom" constant="8" id="m0b-zo-mvH"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="leading" secondItem="cah-nx-Kkg" secondAttribute="trailing" constant="8" id="qLP-8K-FBn"/>
                             <constraint firstItem="CWX-jD-KGW" firstAttribute="top" secondItem="1JQ-8h-lEl" secondAttribute="top" constant="10" id="qvc-gY-ISY"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="W6A-nT-gqw" secondAttribute="leading" id="wI5-gP-78B"/>
+                            <constraint firstItem="cah-nx-Kkg" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="24" id="sDB-f2-NIG"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="oY6-J4-jw7" appends="YES" id="DTJ-jr-c9d"/>
