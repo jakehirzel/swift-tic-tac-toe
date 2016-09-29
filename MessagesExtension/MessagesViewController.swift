@@ -239,7 +239,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // Add 0.5s delay to generating the message, for animations to complete
         let when = DispatchTime.now() + 0.5
-        DispatchQueue.main.asyncAfter(deadline: when){
+        DispatchQueue.main.asyncAfter(deadline: when) { [unowned self] in
             
             // Create a message session if one does not exist
             if self.currentSession == nil {
