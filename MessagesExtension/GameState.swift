@@ -14,7 +14,7 @@ struct GameInfo {
     var players: [String: String] = [:] // Stores UUIDstring and player's letter
     var newGame: Bool = true
     var lastMove: NewMove?
-    var gameWon: Win?
+    var gameWon: Win = Win(isWin: false, winType: nil, winIndex: nil)
     var gameBoard: [[String]] = Array(repeating: Array(repeating: "?", count: 3), count: 3)
 }
 

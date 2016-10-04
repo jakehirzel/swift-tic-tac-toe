@@ -155,7 +155,7 @@
                                     <action selector="buttonTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="2aw-39-fYA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a “square” to select your move." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg" userLabel="Instruction Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a “square” to select your move." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg" userLabel="Instruction Label">
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Italic" family="Avenir Next Condensed" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

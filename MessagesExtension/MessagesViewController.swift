@@ -147,7 +147,13 @@ class MessagesViewController: MSMessagesAppViewController {
         redrawBoard(gameInfo: game.gameInfo)
         
         // If the game is won, show the win, and adjust buttons to allow for a new game
-        if game.gameInfo.gameWon?.isWin == true {
+        if game.gameInfo.gameWon.isWin == true {
+            
+            // Parse the button ids for the win
+            let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon.winType!), winIndex: game.gameInfo.gameWon.winIndex)
+            
+            // Draw the "win" in black
+            drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
             
             // Update the instructionLabel
             instructionLabel.text = "Game Over!"
@@ -179,6 +185,11 @@ class MessagesViewController: MSMessagesAppViewController {
     // Redraw the board from gameInfo
     func redrawBoard(gameInfo: GameInfo) {
         for button in squareCollection {
+            
+            // Reset color to white (for case of undo before win is sent)
+            button.setTitleColor(UIColor.white, for: UIControlState.normal)
+            
+            // Reset button title letter to match gameBoard array values
             switch button.tag {
             case 0:
                 button.setTitle(String(gameInfo.gameBoard[0][0]), for: UIControlState.normal)
@@ -271,7 +282,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
                 self.game.gameInfo.newGame = false
             }
-            else if self.game.gameInfo.gameWon?.isWin == true {
+            else if self.game.gameInfo.gameWon.isWin == true {
                 layout.caption = "I win!"
             }
             else {
@@ -328,11 +339,11 @@ class MessagesViewController: MSMessagesAppViewController {
             game.gameInfo.gameWon = game.checkForWin(board: game.gameInfo.gameBoard, move: move)
             
             // Process a win, if true
-            if game.gameInfo.gameWon?.isWin == true {
+            if game.gameInfo.gameWon.isWin == true {
                 print("You win!")
                 
                 // Parse the button ids for the win
-                let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon?.winType!)!, winIndex: game.gameInfo.gameWon?.winIndex)
+                let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon.winType!), winIndex: game.gameInfo.gameWon.winIndex)
                 
                 // Draw the "win" in black
                 drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
