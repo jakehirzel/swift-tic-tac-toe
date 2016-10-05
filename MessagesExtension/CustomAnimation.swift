@@ -40,9 +40,9 @@ extension UIView {
         UIView.animate(
             withDuration: 0.4,
             delay: delay,
-            options: .curveEaseIn,
-            animations: {
-                self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            options: [.curveEaseIn, UIViewAnimationOptions.allowUserInteraction],
+            animations: { [weak self] in
+                self?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             },
             completion: {
                 (finished: Bool) -> Void in
@@ -50,8 +50,8 @@ extension UIView {
                     withDuration: 0.4,
                     delay: 0.1,
                     options: .curveEaseOut,
-                    animations: {
-                        self.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    animations: { [weak self] in
+                        self?.transform = CGAffineTransform(scaleX: 1, y: 1)
                     },
                     completion: nil)
         })

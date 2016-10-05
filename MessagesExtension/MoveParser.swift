@@ -92,6 +92,12 @@ class MoveParser {
         // Add gameWon
         urlComponents.queryItems?.append(URLQueryItem(name: "gameWon", value: String(describing: gameInfo.gameWon.isWin)))
         
+        // If gameWon is true, add winType and winIndex
+        if gameInfo.gameWon.isWin == true {
+            urlComponents.queryItems?.append(URLQueryItem(name: "winType", value: gameInfo.gameWon.winType))
+            urlComponents.queryItems?.append(URLQueryItem(name: "winIndex", value: String(describing: gameInfo.gameWon.winIndex)))
+        }
+        
         // Add last move UUID
         urlComponents.queryItems?.append(URLQueryItem(name: "lastMoveUUID", value: gameInfo.lastMove!.playerUUID))
         
@@ -153,6 +159,10 @@ class MoveParser {
                 gameInfo.newGame = Bool(queryItem.element.value!)!
             case "gameWon":
                 gameInfo.gameWon.isWin = Bool(queryItem.element.value!)!
+            case "winType":
+                gameInfo.gameWon.winType = queryItem.element.value!
+            case "winIndex":
+                gameInfo.gameWon.winIndex = Int(queryItem.element.value!)!
             case "lastMoveUUID":
                 lastMove.playerUUID = queryItem.element.value!
             case "lastMoveLetter":
