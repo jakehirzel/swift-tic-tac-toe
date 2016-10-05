@@ -156,8 +156,28 @@ class GameLogic {
             winData.winType = "backwardDiagonal"
             return winData
         }
+        
+        // Check for a draw or no win at all
+        for column in board {
+            if column.contains("?") {
                 
-        // If no win:
+                // Return no win
+                winData.isWin = false
+                return winData
+                
+            }
+            else {
+                
+                // Return a draw
+                winData.isWin = true
+                winData.winType = "draw"
+                return winData
+                
+            }
+            
+        }
+        
+        // If all else fails:
         winData.isWin = false
         return winData
         

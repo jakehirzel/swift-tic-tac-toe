@@ -149,14 +149,25 @@ class MessagesViewController: MSMessagesAppViewController {
         // If the game is won, show the win, and adjust buttons to allow for a new game
         if game.gameInfo.gameWon.isWin == true {
             
-            // Parse the button ids for the win
-            let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon.winType!), winIndex: game.gameInfo.gameWon.winIndex)
-            
-            // Draw the "win" in black
-            drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
-            
-            // Update the instructionLabel
-            instructionLabel.text = "Game Over!"
+            if game.gameInfo.gameWon.winType == "draw" {
+                
+                // Update instructionLabel
+                instructionLabel.text = "It's a draw!"
+                
+            }
+                
+            else {
+                
+                // Parse the button ids for the win
+                let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon.winType!), winIndex: game.gameInfo.gameWon.winIndex)
+                
+                // Draw the "win" in black
+                drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
+                
+                // Update the instructionLabel
+                instructionLabel.text = "Game Over!"
+                
+            }
             
             // Update the buttons
             buttonBehavior.drawButtons(buttons: [buttonOne: .newGame, buttonTwo: .close, buttonThree: .hidden])
