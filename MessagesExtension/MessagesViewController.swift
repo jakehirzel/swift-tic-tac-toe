@@ -121,8 +121,8 @@ class MessagesViewController: MSMessagesAppViewController {
     // Load a game in a conversation
     func loadGame(conversation: MSConversation) {
         
-        // Check for existing conversation URL
-        guard conversation.selectedMessage?.url != nil else {
+        // Check for existing conversation URL; set up new game if nil
+        if conversation.selectedMessage?.url == nil {
             
             // Set the board to ? for a new game and make sure all letters are white
             for square in squareCollection {
@@ -136,58 +136,61 @@ class MessagesViewController: MSMessagesAppViewController {
             // Claim the "X" and associate it with local UUID
             game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "X"
             
-            return
-            
         }
         
-        // Otherwise, overwrite local gameInfo with URL values
-        game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
-        
-        // Redraw the board to reflect previous plays
-        redrawBoard(gameInfo: game.gameInfo)
-        
-        // If the game is won, show the win, and adjust buttons to allow for a new game
-        if game.gameInfo.gameWon.isWin == true {
-            
-            if game.gameInfo.gameWon.winType == "draw" {
-                
-                // Update instructionLabel
-                instructionLabel.text = "It's a draw!"
-                
-            }
-                
-            else {
-                
-                // Parse the button ids for the win
-                let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon.winType!), winIndex: game.gameInfo.gameWon.winIndex)
-                
-                // Draw the "win" in black
-                drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
-                
-                // Update the instructionLabel
-                instructionLabel.text = "Game Over!"
-                
-            }
-            
-            // Update the buttons
-            buttonBehavior.drawButtons(buttons: [buttonOne: .newGame, buttonTwo: .close, buttonThree: .hidden])
-
-        }
-        
-        // Otherwise get ready for another round
+        // Otherwise use the URL to continue existing game
         else {
             
-            // If this is player two and the first play, fill UUID into players, claim "O", set newGame to false
-            if game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] == nil {
-                game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "O"
-                game.gameInfo.newGame = false
+            // Overwrite local gameInfo with URL values
+            game.gameInfo = parser.decodeURL(url: (conversation.selectedMessage?.url)!)
+            
+            // Redraw the board to reflect previous plays
+            redrawBoard(gameInfo: game.gameInfo)
+            
+            // If the game is won, show the win, and adjust buttons to allow for a new game
+            if game.gameInfo.gameWon.isWin == true {
+                
+                if game.gameInfo.gameWon.winType == "draw" {
+                    
+                    // Update instructionLabel
+                    instructionLabel.text = "It's a draw!"
+                    
+                }
+                    
+                else {
+                    
+                    // Parse the button ids for the win
+                    let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon.winType!), winIndex: game.gameInfo.gameWon.winIndex)
+                    
+                    // Draw the "win" in black
+                    drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
+                    
+                    // Update the instructionLabel
+                    instructionLabel.text = "Game Over!"
+                    
+                }
+                
+                // Update the side bar buttons
+                buttonBehavior.drawButtons(buttons: [buttonOne: .newGame, buttonTwo: .close, buttonThree: .hidden])
+                
             }
-            
-            // Assign the session info from the incoming message
-            currentSession = conversation.selectedMessage?.session
-            
-            // Set the buttons for regular play
-            buttonBehavior.drawButtons(buttons: [buttonOne: .play, buttonTwo: .undo, buttonThree: .hidden])
+                
+            // Otherwise get ready for another round
+            else {
+                
+                // If this is player two and the first play, fill UUID into players, claim "O", set newGame to false
+                if game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] == nil {
+                    game.gameInfo.players[conversation.localParticipantIdentifier.uuidString] = "O"
+                    game.gameInfo.newGame = false
+                }
+                
+                // Assign the session info from the incoming message
+                currentSession = conversation.selectedMessage?.session
+                
+                // Set the buttons for regular play
+                buttonBehavior.drawButtons(buttons: [buttonOne: .play, buttonTwo: .undo, buttonThree: .hidden])
+                
+            }
             
         }
         
