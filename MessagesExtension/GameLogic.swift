@@ -157,28 +157,20 @@ class GameLogic {
             return winData
         }
         
-        // Check for a draw or no win at all
+        // Check for no win at all
         for column in board {
             if column.contains("?") {
                 
-                // Return no win
+                // Make sure isWin is false
                 winData.isWin = false
                 return winData
                 
             }
-            else {
-                
-                // Return a draw
-                winData.isWin = true
-                winData.winType = "draw"
-                return winData
-                
-            }
-            
         }
         
-        // If all else fails:
-        winData.isWin = false
+        // If all else fails, it's a draw:
+        winData.isWin = true
+        winData.winType = "draw"
         return winData
         
     }

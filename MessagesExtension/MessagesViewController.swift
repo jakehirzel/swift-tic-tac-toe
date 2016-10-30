@@ -332,7 +332,7 @@ class MessagesViewController: MSMessagesAppViewController {
         // Parse the move into board-readable coordinates
         let move = parser.parseCoordinates(playerUUID: playerUUID!, playerLetter: playerLetter!, spacePlayed: sender)
 
-        // Play the turn and record any valid (i.e. true) moves on the board
+        // Play the turn and record any valid (i.e. true) moves on the board and in lastMove
         let validMove = game.playTurn(board: &game.gameInfo.gameBoard, move: move)
         
 //        // If in expanded view, transition to compact view
@@ -351,16 +351,31 @@ class MessagesViewController: MSMessagesAppViewController {
             
             // Process a win, if true
             if game.gameInfo.gameWon.isWin == true {
-                print("You win!")
                 
-                // Parse the button ids for the win
-                let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon.winType!), winIndex: game.gameInfo.gameWon.winIndex)
+                if game.gameInfo.gameWon.winType == "draw" {
+                    
+                    // Update instructionLabel
+                    crossfadeLabel(label: instructionLabel, newText: "It's a draw! Press PLAY to commit your move!")
+                    print("It's a draw!")
+                    
+                }
+                    
+                else {
+                    
+                    // Parse the button ids for the win
+                    let winButtonIDs = parser.parseWinButtons(winType: (game.gameInfo.gameWon.winType!), winIndex: game.gameInfo.gameWon.winIndex)
+                    
+                    // Draw the "win" in black
+                    drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
+                    
+                    // Update the instructionLabel
+                    crossfadeLabel(label: instructionLabel, newText: "You win! Press PLAY to commit your move!")
+                    print("You win!")
+                    
+                }
                 
-                // Draw the "win" in black
-                drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
-                
-                // Update the instructionLabel
-                crossfadeLabel(label: instructionLabel, newText: "You win! Press PLAY to commit your move!")
+                // Update the buttons
+                buttonBehavior.drawButtons(buttons: [buttonOne: .newGame, buttonTwo: .close, buttonThree: .hidden])
                 
             }
             
