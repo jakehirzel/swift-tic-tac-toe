@@ -440,11 +440,17 @@ class MessagesViewController: MSMessagesAppViewController {
             // Reset the GameInfo
             game = GameLogic()
             
+            // Reset the URL
+            activeConversation?.selectedMessage?.url = nil
+            
             // Load a new game
             guard activeConversation != nil else {
                 return
             }
             loadGame(conversation: activeConversation!)
+            
+            // Update instruction label
+            crossfadeLabel(label: instructionLabel, newText: "Tap a \"Square\" to select your move.")
             
         }
             
