@@ -40,8 +40,16 @@ class MessagesViewController: MSMessagesAppViewController {
         
         loadGame(conversation: conversation)
         
+        // Add NEW GAME button and change instructionLabel if player has already won
+        if game.gameInfo.lastMove?.playerUUID == conversation.localParticipantIdentifier.uuidString && game.gameInfo.gameWon.isWin == true {
+            didYouSend = true
+            instructionLabel.text = "You won!"
+            buttonBehavior.drawButtons(buttons: [buttonOne: .newGame, buttonTwo: .close, buttonThree: .hidden])
+            
+        }
+        
         // Disable undo and change instructionLabel and buttons if already played
-        if game.gameInfo.lastMove?.playerUUID == conversation.localParticipantIdentifier.uuidString {
+        else if game.gameInfo.lastMove?.playerUUID == conversation.localParticipantIdentifier.uuidString {
             didYouSend = true
             instructionLabel.text = "Already played!"
             buttonBehavior.drawButtons(buttons: [buttonOne: .close, buttonTwo: .hidden, buttonThree: .hidden])
@@ -442,6 +450,9 @@ class MessagesViewController: MSMessagesAppViewController {
             
             // Reset the URL
             activeConversation?.selectedMessage?.url = nil
+            
+            // Reset didYouSend
+            didYouSend = false
             
             // Load a new game
             guard activeConversation != nil else {
