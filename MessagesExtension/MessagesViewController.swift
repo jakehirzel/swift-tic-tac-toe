@@ -382,8 +382,8 @@ class MessagesViewController: MSMessagesAppViewController {
                     
                 }
                 
-                // Update the buttons
-                buttonBehavior.drawButtons(buttons: [buttonOne: .newGame, buttonTwo: .close, buttonThree: .hidden])
+//                // Update the buttons
+//                buttonBehavior.drawButtons(buttons: [buttonOne: .newGame, buttonTwo: .close, buttonThree: .hidden])
                 
             }
             
@@ -429,6 +429,12 @@ class MessagesViewController: MSMessagesAppViewController {
             guard didYouSend == false else {
                 print("You already hit send!")
                 crossfadeLabel(label: instructionLabel, newText: "You already hit send!")
+                return
+            }
+            
+            // Reject if lastMove UUID is not the local UUID
+            guard game.gameInfo.lastMove?.playerUUID == activeConversation?.localParticipantIdentifier.uuidString else {
+                print("Not your turn to undo!")
                 return
             }
             
@@ -486,6 +492,12 @@ class MessagesViewController: MSMessagesAppViewController {
             // Reject if you already sent the message
             guard didYouSend == false else {
                 print("You already hit send!")
+                return
+            }
+            
+            // Reject if lastMove UUID is not the local UUID
+            guard game.gameInfo.lastMove?.playerUUID == activeConversation?.localParticipantIdentifier.uuidString else {
+                print("Not your turn to undo!")
                 return
             }
             
