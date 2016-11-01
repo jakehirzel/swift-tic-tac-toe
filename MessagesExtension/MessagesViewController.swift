@@ -342,11 +342,6 @@ class MessagesViewController: MSMessagesAppViewController {
 
         // Play the turn and record any valid (i.e. true) moves on the board and in lastMove
         let validMove = game.playTurn(board: &game.gameInfo.gameBoard, move: move)
-        
-//        // If in expanded view, transition to compact view
-//        if self.presentationStyle == .expanded {
-//            self.requestPresentationStyle(.compact)
-//        }
     
         // Update the view for a play or a win
         if validMove.validPlay == true {
@@ -382,8 +377,9 @@ class MessagesViewController: MSMessagesAppViewController {
                     
                 }
                 
-//                // Update the buttons
-//                buttonBehavior.drawButtons(buttons: [buttonOne: .newGame, buttonTwo: .close, buttonThree: .hidden])
+                // Update the buttons and pulse the PLAY button
+                buttonBehavior.drawButtons(buttons: [buttonOne: .play, buttonTwo: .undo, buttonThree: .hidden])
+                buttonOne.pulseOnce(delay: 0.5)
                 
             }
             
@@ -395,11 +391,6 @@ class MessagesViewController: MSMessagesAppViewController {
             }
             
         }
-        
-//        // Otherwise change the instructionLabel to show the error
-//        else {
-//            crossfadeLabel(label: instructionLabel, newText: validMove.instructionalMessage)
-//        }
         
     }
     
@@ -509,16 +500,6 @@ class MessagesViewController: MSMessagesAppViewController {
             
             // Update instuctionLabel
             crossfadeLabel(label: instructionLabel, newText: "Select another move.")
-            
-//            // Clear the unsent message
-//            let message = MSMessage()
-//            activeConversation?.insert(message, completionHandler: nil)
-            
-//            // Refresh the message
-//            createNewMessage()
-            
-//            // Create a text message
-//            activeConversation?.insertText("Hmmmm. Thinking!", completionHandler: nil)
 
         }
     }
