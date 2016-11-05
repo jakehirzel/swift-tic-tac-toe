@@ -95,7 +95,9 @@ class MoveParser {
         // If gameWon is true, add winType and winIndex
         if gameInfo.gameWon.isWin == true {
             urlComponents.queryItems?.append(URLQueryItem(name: "winType", value: gameInfo.gameWon.winType))
-            urlComponents.queryItems?.append(URLQueryItem(name: "winIndex", value: String(describing: gameInfo.gameWon.winIndex!)))
+            if let winIndex = gameInfo.gameWon.winIndex {
+                urlComponents.queryItems?.append(URLQueryItem(name: "winIndex", value: String(describing: winIndex)))
+            }
         }
         
         // Add last move UUID

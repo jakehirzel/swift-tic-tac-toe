@@ -331,6 +331,11 @@ class MessagesViewController: MSMessagesAppViewController {
 
     @IBAction func squareTapped(_ sender: UIButton) {
         
+        // Make sure the game isn't over
+        guard game.gameInfo.gameWon.isWin == false else {
+            return
+        }
+        
         // Get player UUID
         let playerUUID = activeConversation?.localParticipantIdentifier.uuidString
     
