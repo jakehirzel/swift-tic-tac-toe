@@ -49,7 +49,7 @@ extension UIView {
                 UIView.animate(
                     withDuration: 0.4,
                     delay: 0.1,
-                    options: .curveEaseOut,
+                    options: [.curveEaseOut, UIViewAnimationOptions.allowUserInteraction],
                     animations: { [weak self] in
                         self?.transform = CGAffineTransform(scaleX: 1, y: 1)
                     },
