@@ -516,6 +516,11 @@ class MessagesViewController: MSMessagesAppViewController {
             
             // Update instuctionLabel
             crossfadeLabel(label: instructionLabel, newText: "Select another move.")
+            
+            // If player has undone a win, reset isWin
+            if game.gameInfo.gameWon.isWin == true {
+                game.gameInfo.gameWon.isWin = false
+            }
 
         }
     }
