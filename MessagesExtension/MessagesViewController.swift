@@ -301,7 +301,14 @@ class MessagesViewController: MSMessagesAppViewController {
                 layout.caption = "Tap to join me in a game of ExOh! (I'm Ex and you're Oh!)"
             }
             else if self.game.gameInfo.gameWon.isWin == true {
-                layout.caption = "I win!"
+                
+                switch self.game.gameInfo.gameWon.winType {
+                case "draw"?:
+                        layout.caption = "It's a draw!"
+                default:
+                    layout.caption = "I win!"
+                }
+                
             }
             else {
                 layout.caption = "$\(self.activeConversation!.localParticipantIdentifier.uuidString) played. Your turn!"
