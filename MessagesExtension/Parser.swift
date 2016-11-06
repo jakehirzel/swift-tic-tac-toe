@@ -1,5 +1,5 @@
 //
-//  MoveParser.swift
+//  Parser.swift
 //  ExOh
 //
 //  Created by Jake Hirzel on 9/7/16.
@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import Messages
 
-class MoveParser {
+class Parser {
     
     // Create a NewMove from info passed in by the button
     

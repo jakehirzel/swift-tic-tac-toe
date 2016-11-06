@@ -23,8 +23,8 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var buttonThree: UIButton!
 
     
-    // Initialize instance of MoveParser, GameLogic, and ButtonBehavior; set up new board
-    let parser = MoveParser()
+    // Initialize instance of Parser, GameLogic, and ButtonBehavior; set up new board
+    let parser = Parser()
     var game = GameLogic()
     var buttonBehavior = ButtonBehavior()
         
@@ -173,7 +173,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 drawTheWin(buttonOne: winButtonIDs.buttonTagOne!, buttonTwo: winButtonIDs.buttonTagTwo!, buttonThree: winButtonIDs.buttonTagThree!)
                 
                 // Update the instructionLabel
-                instructionLabel.text = "Game Over!"
+                instructionLabel.text = "You lost. Game Over!"
                 
             }
             
@@ -442,6 +442,11 @@ class MessagesViewController: MSMessagesAppViewController {
             
             // Update instuctionLabel
             crossfadeLabel(label: instructionLabel, newText: "Select another move.")
+            
+            // If player has undone a win, reset isWin
+            if game.gameInfo.gameWon.isWin == true {
+                game.gameInfo.gameWon.isWin = false
+            }
             
         }
             
