@@ -189,6 +189,12 @@
                                     <action selector="buttonTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="HAi-KE-LCW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate your device to portrait to play." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfb-Of-neF" userLabel="Rotation Warning">
+                                <rect key="frame" x="232.5" y="176.5" width="202" height="22"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Italic" family="Avenir Next Condensed" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -198,13 +204,38 @@
                             <constraint firstItem="W6A-nT-gqw" firstAttribute="top" secondItem="CWX-jD-KGW" secondAttribute="bottom" constant="8" id="MgP-bq-Wjo"/>
                             <constraint firstAttribute="trailing" secondItem="LKB-ue-NLg" secondAttribute="trailing" priority="750" constant="16" id="QCk-Ws-Gaq"/>
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="bottom" secondItem="LKB-ue-NLg" secondAttribute="bottom" constant="-10" id="cbI-Wz-25o"/>
+                            <constraint firstItem="qfb-Of-neF" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="e6d-Eq-tem"/>
                             <constraint firstItem="W6A-nT-gqw" firstAttribute="leading" secondItem="cah-nx-Kkg" secondAttribute="leading" id="gja-bi-uhl"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" constant="82" id="hDi-xn-iXg"/>
                             <constraint firstItem="qqQ-tx-cr5" firstAttribute="top" secondItem="W6A-nT-gqw" secondAttribute="bottom" constant="8" id="m0b-zo-mvH"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="leading" secondItem="cah-nx-Kkg" secondAttribute="trailing" constant="8" id="qLP-8K-FBn"/>
                             <constraint firstItem="CWX-jD-KGW" firstAttribute="top" secondItem="1JQ-8h-lEl" secondAttribute="top" constant="10" id="qvc-gY-ISY"/>
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" priority="750" constant="24" id="sDB-f2-NIG"/>
+                            <constraint firstItem="qfb-Of-neF" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="v1x-tg-r78"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qfb-Of-neF"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="e6d-Eq-tem"/>
+                                <exclude reference="v1x-tg-r78"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="LKB-ue-NLg"/>
+                                <exclude reference="CWX-jD-KGW"/>
+                                <exclude reference="W6A-nT-gqw"/>
+                                <exclude reference="cah-nx-Kkg"/>
+                                <exclude reference="qqQ-tx-cr5"/>
+                                <include reference="qfb-Of-neF"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="e6d-Eq-tem"/>
+                                <include reference="v1x-tg-r78"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="oY6-J4-jw7" appends="YES" id="DTJ-jr-c9d"/>
                         </connections>
