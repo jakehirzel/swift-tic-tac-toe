@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKB-ue-NLg">
-                                <rect key="frame" x="179.5" y="221.5" width="180" height="180"/>
+                                <rect key="frame" x="376" y="400" width="180" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-8h-lEl" userLabel="0-0">
                                         <rect key="frame" x="0.0" y="-0.5" width="55" height="55"/>
@@ -151,7 +151,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWX-jD-KGW" userLabel="Button One">
-                                <rect key="frame" x="14" y="231" width="71" height="30"/>
+                                <rect key="frame" x="188" y="409.5" width="71" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                 <state key="normal" title="BUTTON 1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -161,7 +161,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6A-nT-gqw" userLabel="Button Two">
-                                <rect key="frame" x="14" y="269" width="73" height="30"/>
+                                <rect key="frame" x="188" y="447.5" width="73" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                 <state key="normal" title="BUTTON 2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -171,16 +171,26 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a “square” to select your move." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cah-nx-Kkg" userLabel="Instruction Label">
-                                <rect key="frame" x="14" y="347.5" width="157.5" height="44"/>
+                                <rect key="frame" x="188" y="526" width="180" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="175" id="bFe-C3-d3t"/>
+                                    <constraint firstAttribute="width" constant="180" id="bFe-C3-d3t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Italic" family="Avenir Next Condensed" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bFe-C3-d3t"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="bFe-C3-d3t"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqQ-tx-cr5" userLabel="Button Three">
-                                <rect key="frame" x="14" y="307" width="73" height="30"/>
+                                <rect key="frame" x="188" y="485.5" width="73" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="15"/>
                                 <state key="normal" title="BUTTON 3">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,19 +208,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="LKB-ue-NLg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" constant="82" id="3lH-mw-jKl"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" constant="-22" id="Bms-Wy-Rbh"/>
                             <constraint firstItem="qqQ-tx-cr5" firstAttribute="leading" secondItem="cah-nx-Kkg" secondAttribute="leading" id="DtJ-oi-01Z"/>
                             <constraint firstItem="CWX-jD-KGW" firstAttribute="leading" secondItem="cah-nx-Kkg" secondAttribute="leading" id="FhJ-1o-eay"/>
                             <constraint firstItem="W6A-nT-gqw" firstAttribute="top" secondItem="CWX-jD-KGW" secondAttribute="bottom" constant="8" id="MgP-bq-Wjo"/>
-                            <constraint firstAttribute="trailing" secondItem="LKB-ue-NLg" secondAttribute="trailing" priority="750" constant="16" id="QCk-Ws-Gaq"/>
+                            <constraint firstAttribute="trailing" secondItem="LKB-ue-NLg" secondAttribute="trailing" constant="16" id="QCk-Ws-Gaq"/>
                             <constraint firstItem="cah-nx-Kkg" firstAttribute="bottom" secondItem="LKB-ue-NLg" secondAttribute="bottom" constant="-10" id="cbI-Wz-25o"/>
                             <constraint firstItem="qfb-Of-neF" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="e6d-Eq-tem"/>
                             <constraint firstItem="W6A-nT-gqw" firstAttribute="leading" secondItem="cah-nx-Kkg" secondAttribute="leading" id="gja-bi-uhl"/>
-                            <constraint firstItem="LKB-ue-NLg" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" constant="82" id="hDi-xn-iXg"/>
                             <constraint firstItem="qqQ-tx-cr5" firstAttribute="top" secondItem="W6A-nT-gqw" secondAttribute="bottom" constant="8" id="m0b-zo-mvH"/>
                             <constraint firstItem="LKB-ue-NLg" firstAttribute="leading" secondItem="cah-nx-Kkg" secondAttribute="trailing" constant="8" id="qLP-8K-FBn"/>
                             <constraint firstItem="CWX-jD-KGW" firstAttribute="top" secondItem="1JQ-8h-lEl" secondAttribute="top" constant="10" id="qvc-gY-ISY"/>
-                            <constraint firstItem="cah-nx-Kkg" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" priority="750" constant="24" id="sDB-f2-NIG"/>
+                            <constraint firstItem="cah-nx-Kkg" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="24" id="sDB-f2-NIG"/>
                             <constraint firstItem="qfb-Of-neF" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="v1x-tg-r78"/>
                         </constraints>
                         <variation key="default">
@@ -220,6 +230,7 @@
                             <mask key="constraints">
                                 <exclude reference="e6d-Eq-tem"/>
                                 <exclude reference="v1x-tg-r78"/>
+                                <exclude reference="3lH-mw-jKl"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -234,6 +245,13 @@
                             <mask key="constraints">
                                 <include reference="e6d-Eq-tem"/>
                                 <include reference="v1x-tg-r78"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="3lH-mw-jKl"/>
+                                <exclude reference="QCk-Ws-Gaq"/>
+                                <exclude reference="sDB-f2-NIG"/>
                             </mask>
                         </variation>
                         <connections>
